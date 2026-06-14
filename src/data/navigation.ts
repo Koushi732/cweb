@@ -1,0 +1,45 @@
+export const navigation = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  {
+    name: "Services",
+    href: "/services",
+    megaMenu: true,
+    sections: [
+      {
+        title: "IT Services",
+        href: "/services",
+        items: [
+          { name: "Custom Software Development", href: "/services#software-development", icon: "Code2" },
+          { name: "Web Application Development", href: "/services#web-development", icon: "Globe" },
+          { name: "Mobile App Development", href: "/services#mobile-development", icon: "Smartphone" },
+          { name: "Cloud Infrastructure", href: "/services#cloud", icon: "Cloud" },
+          { name: "Cybersecurity Services", href: "/services#cybersecurity", icon: "Shield" },
+          { name: "AI Solutions", href: "/services#ai", icon: "Brain" },
+          { name: "IT Consulting", href: "/services#consulting", icon: "Lightbulb" },
+          { name: "DevOps Services", href: "/services#devops", icon: "GitBranch" },
+        ],
+      },
+      {
+        title: "IT Hardware",
+        href: "/hardware",
+        items: [
+          { name: "Enterprise Laptops", href: "/hardware#laptops", icon: "Laptop" },
+          { name: "Business Desktops", href: "/hardware#desktops", icon: "Monitor" },
+          { name: "Servers & Workstations", href: "/hardware#servers", icon: "Server" },
+          { name: "Networking Equipment", href: "/hardware#networking", icon: "Wifi" },
+          { name: "Storage Solutions", href: "/hardware#storage", icon: "HardDrive" },
+          { name: "Printers & Scanners", href: "/hardware#printers", icon: "Printer" },
+          { name: "Accessories", href: "/hardware#accessories", icon: "Headphones" },
+          { name: "Enterprise Solutions", href: "/hardware#enterprise", icon: "Building2" },
+        ],
+      },
+    ],
+  },
+  { name: "Hardware", href: "/hardware" },
+  { name: "Industries", href: "/industries" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Blog", href: "/blog" },
+  { name: "Careers", href: "/careers" },
+  { name: "Contact", href: "/contact" },
+];
