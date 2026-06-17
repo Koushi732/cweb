@@ -1,18 +1,23 @@
 @import "tailwindcss";
 
 /* ===== DESIGN TOKENS ===== */
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
+  --color-card: var(--card);
   --color-border: var(--border-color);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-fg);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-fg);
+  --color-icon: var(--icon);
   --color-glass: var(--glass-bg);
   --color-glass-border: var(--glass-border);
   --font-sans: var(--font-geist-sans);
@@ -21,48 +26,58 @@
 
 /* ===== LIGHT MODE (DEFAULT) ===== */
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --surface: #ffffff;
-  --surface-hover: #f1f5f9;
-  --border-color: #e2e8f0;
-  --primary: #0f1b4c;
+  --background: #ffffff;
+  --foreground: #09090b;
+  --surface: #fafafa;
+  --surface-hover: #f4f4f5;
+  --card: #ffffff;
+  --border-color: #e4e4e7;
+  --primary: #09090b;
   --primary-fg: #ffffff;
-  --secondary: #00d4ff;
-  --accent: #7c3aed;
-  --muted: #64748b;
-  --muted-fg: #94a3b8;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.3);
-  --gradient-primary: linear-gradient(135deg, #0f1b4c 0%, #1e3a8a 100%);
-  --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #00d4ff 100%);
-  --gradient-hero: linear-gradient(135deg, #0f1b4c 0%, #1e3a8a 40%, #7c3aed 100%);
-  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.15), transparent 70%);
-  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.08);
-  --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.15);
+  --secondary: #52525b;
+  --accent: #ea580c;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --muted: #f4f4f5;
+  --muted-fg: #71717a;
+  --icon: #71717a;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(228, 228, 231, 0.5);
+  --gradient-primary: linear-gradient(180deg, #18181b 0%, #09090b 100%);
+  --gradient-accent: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  --gradient-hero: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(234, 88, 12, 0.08), transparent 60%);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 40px rgba(234, 88, 12, 0.08);
 }
 
 /* ===== DARK MODE ===== */
 .dark {
-  --background: #030712;
-  --foreground: #f1f5f9;
-  --surface: #0f172a;
-  --surface-hover: #1e293b;
-  --border-color: #1e293b;
-  --primary: #3b82f6;
+  --background: #000000;
+  --foreground: #ffffff;
+  --surface: #09090b;
+  --surface-hover: #18181b;
+  --card: #09090b;
+  --border-color: #27272a;
+  --primary: #18181b;
   --primary-fg: #ffffff;
-  --secondary: #22d3ee;
-  --accent: #8b5cf6;
-  --muted: #94a3b8;
-  --muted-fg: #64748b;
-  --glass-bg: rgba(15, 23, 42, 0.7);
-  --glass-border: rgba(30, 41, 59, 0.5);
-  --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-  --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #c084fc 50%, #22d3ee 100%);
-  --gradient-hero: linear-gradient(135deg, #030712 0%, #0f172a 40%, #1e1b4b 100%);
-  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.1), transparent 70%);
-  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 40px rgba(34, 211, 238, 0.1);
+  --secondary: #a1a1aa;
+  --accent: #ea580c;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --muted: #18181b;
+  --muted-fg: #a1a1aa;
+  --icon: #a1a1aa;
+  --glass-bg: rgba(9, 9, 11, 0.7);
+  --glass-border: rgba(39, 39, 42, 0.5);
+  --gradient-primary: linear-gradient(180deg, #18181b 0%, #09090b 100%);
+  --gradient-accent: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  --gradient-hero: linear-gradient(180deg, #09090b 0%, #000000 100%);
+  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(234, 88, 12, 0.1), transparent 60%);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 40px rgba(234, 88, 12, 0.1);
 }
 
 /* ===== BASE STYLES ===== */
@@ -85,7 +100,7 @@ body {
 }
 
 ::selection {
-  background: rgba(124, 58, 237, 0.3);
+  background: rgba(234, 88, 12, 0.3);
   color: var(--foreground);
 }
 
@@ -170,10 +185,10 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    box-shadow: 0 0 20px rgba(234, 88, 12, 0.2);
   }
   50% {
-    box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 40px rgba(234, 88, 12, 0.4);
   }
 }
 
@@ -308,15 +323,15 @@ body {
 /* ===== GRID PATTERN BACKGROUND ===== */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(234, 88, 12, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234, 88, 12, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 .dark .grid-pattern {
   background-image:
-    linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(234, 88, 12, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234, 88, 12, 0.05) 1px, transparent 1px);
 }
 
 /* ===== CARD HOVER EFFECTS ===== */
@@ -374,7 +389,7 @@ body {
 
 /* ===== FOCUS STYLES ===== */
 *:focus-visible {
-  outline: 2px solid var(--secondary);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 

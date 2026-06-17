@@ -35,51 +35,24 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[var(--surface)] border-t border-[var(--border-color)]">
-      {/* Gradient line at top */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--secondary)] to-transparent" />
+    <footer className="relative bg-background pt-32 pb-12 border-t border-[var(--border-color)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-24 md:mb-32">
+          <Link href="/" className="inline-block group">
+            <h2 className="text-[12vw] sm:text-8xl md:text-[8rem] lg:text-[10rem] font-bold leading-none tracking-tighter text-foreground group-hover:text-[var(--accent)] transition-colors">
+              SimpleIn.
+            </h2>
+          </Link>
+          <p className="text-xl md:text-3xl font-light text-muted-foreground max-w-2xl mt-8 leading-tight">
+            Smart IT Solutions for a Digital Future. We empower businesses with cutting-edge technology.
+          </p>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Column 1: About */}
-          <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--secondary)] to-[var(--accent)] flex items-center justify-center text-white font-bold text-lg">
-                S
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-bold tracking-tight">SimpleIn</span>
-                <span className="text-[10px] font-medium tracking-widest uppercase text-muted -mt-1">Solutions</span>
-              </div>
-            </Link>
-            <p className="text-sm text-muted leading-relaxed">
-              Smart IT Solutions for a Digital Future. We empower businesses with cutting-edge technology, innovative software, and reliable hardware solutions.
-            </p>
-            <div className="flex items-center gap-3">
-              {[
-                { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
-                { icon: TwitterIcon, href: "#", label: "Twitter" },
-                { icon: InstagramIcon, href: "#", label: "Instagram" },
-                { icon: FacebookIcon, href: "#", label: "Facebook" },
-              ].map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="w-9 h-9 rounded-lg bg-[var(--surface-hover)] flex items-center justify-center text-muted hover:text-[var(--secondary)] hover:bg-[var(--secondary)]/10 transition-all"
-                >
-                  <social.icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Column 2: Services */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Services</h3>
-            <ul className="space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-24">
+          {/* Column 1: Services */}
+          <div className="lg:col-span-3">
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Services</h3>
+            <ul className="space-y-4">
               {[
                 { name: "Software Development", href: "/services#software-development" },
                 { name: "Web Development", href: "/services#web-development" },
@@ -92,7 +65,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted hover:text-[var(--secondary)] transition-colors"
+                    className="text-base text-muted-foreground hover:text-[var(--accent)] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -101,10 +74,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Quick Links */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Quick Links</h3>
-            <ul className="space-y-3">
+          {/* Column 2: Quick Links */}
+          <div className="lg:col-span-2">
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Company</h3>
+            <ul className="space-y-4">
               {[
                 { name: "About Us", href: "/about" },
                 { name: "Industries", href: "/industries" },
@@ -116,7 +89,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted hover:text-[var(--secondary)] transition-colors"
+                    className="text-base text-muted-foreground hover:text-[var(--accent)] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -125,65 +98,88 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact & Newsletter */}
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Contact Us</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <Phone className="w-4 h-4 text-[var(--secondary)] mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-muted">+91 XXXX XXXX XX</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Mail className="w-4 h-4 text-[var(--secondary)] mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-muted">info@simpleinsolutions.com</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-[var(--secondary)] mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-muted">Hyderabad, Telangana, India</span>
-                </li>
-              </ul>
-            </div>
+          {/* Column 3: Contact */}
+          <div className="lg:col-span-3">
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Contact</h3>
+            <ul className="space-y-4 text-base text-muted-foreground">
+              <li className="flex items-start gap-3 hover:text-foreground transition-colors">
+                <a href="tel:+91XXXXXXXXXX" className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" /> +91 XXXX XXXX XX
+                </a>
+              </li>
+              <li className="flex items-start gap-3 hover:text-foreground transition-colors">
+                <a href="mailto:info@simpleinsolutions.com" className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" /> info@simpleinsolutions.com
+                </a>
+              </li>
+              <li className="flex items-start gap-3 hover:text-foreground transition-colors">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
+                  <span>Hyderabad, Telangana, India</span>
+                </div>
+              </li>
+            </ul>
+          </div>
 
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider mb-3">Newsletter</h3>
-              <form onSubmit={handleSubscribe} className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
-                  className="flex-1 px-3 py-2 rounded-lg bg-[var(--surface-hover)] border border-[var(--border-color)] text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-[var(--secondary)] transition-colors"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2 rounded-lg bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] text-white text-sm font-semibold hover:shadow-lg transition-all hover:scale-105"
+          {/* Column 4: Newsletter & Social */}
+          <div className="lg:col-span-4 lg:pl-12">
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Newsletter</h3>
+            <form onSubmit={handleSubscribe} className="relative flex items-center border-b border-[var(--border-color)] focus-within:border-foreground transition-colors mb-12 pb-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="w-full bg-transparent text-base text-foreground placeholder:text-muted-foreground focus:outline-none"
+                required
+              />
+              <button
+                type="submit"
+                className="text-foreground hover:text-[var(--accent)] font-medium text-sm transition-colors uppercase tracking-wider"
+              >
+                {subscribed ? "Subscribed" : "Subscribe"}
+              </button>
+            </form>
+
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Social</h3>
+            <div className="flex gap-4">
+              {[
+                { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
+                { icon: TwitterIcon, href: "#", label: "Twitter" },
+                { icon: InstagramIcon, href: "#", label: "Instagram" },
+                { icon: FacebookIcon, href: "#", label: "Facebook" },
+              ].map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="w-12 h-12 rounded-none border border-[var(--border-color)] flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors"
                 >
-                  {subscribed ? "✓" : "Send"}
-                </button>
-              </form>
-              {subscribed && (
-                <p className="text-xs text-green-500 mt-2">Thank you for subscribing!</p>
-              )}
+                  <social.icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-[var(--border-color)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted">
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-[var(--border-color)] flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm font-medium tracking-wide text-muted-foreground">
             © {new Date().getFullYear()} SimpleIn Solutions. All rights reserved.
           </p>
-          <button
-            onClick={scrollToTop}
-            className="p-2 rounded-xl bg-[var(--surface-hover)] hover:bg-[var(--secondary)]/10 hover:text-[var(--secondary)] transition-all"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+            <button
+              onClick={scrollToTop}
+              className="w-10 h-10 rounded-none border border-[var(--border-color)] flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors ml-4"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

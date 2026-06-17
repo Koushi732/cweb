@@ -34,23 +34,23 @@ export default function CareersClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-28 md:pt-36 pb-16 md:pb-20 gradient-hero overflow-hidden">
-        <div className="hero-particles" />
+      <section className="relative pt-32 pb-24 bg-background overflow-hidden border-b border-[var(--border-color)]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[{ label: "Careers" }]} />
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mt-6 mb-6"
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="text-[10vw] sm:text-7xl md:text-[7rem] font-bold text-foreground leading-none tracking-tighter mt-8 mb-8"
           >
-            Join Our <span className="bg-gradient-to-r from-[#22d3ee] via-[#a855f7] to-[#22d3ee] bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">Team</span>
+            Join Our <span className="text-[var(--accent)]">Team.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-lg sm:text-xl text-white/70 max-w-2xl"
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="text-xl sm:text-3xl font-light text-muted-foreground max-w-3xl leading-tight"
           >
             Build your career at a company that values innovation, growth, and work-life balance. Explore exciting opportunities with us.
           </motion.p>
@@ -58,31 +58,31 @@ export default function CareersClient() {
       </section>
 
       {/* Why Work With Us */}
-      <section className="py-24">
+      <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="text-center mb-16">
-            <span className="inline-block text-sm font-semibold text-[var(--secondary)] uppercase tracking-wider mb-4">
+          <ScrollAnimationWrapper className="mb-20">
+            <span className="inline-block text-xs font-bold text-[var(--accent)] uppercase tracking-widest mb-6">
               Benefits &amp; Perks
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Why Work at <span className="gradient-text">SimpleIn Solutions?</span>
+            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight mb-8 leading-tight">
+              Why Work Here.
             </h2>
-            <p className="text-muted max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-3xl leading-tight">
               We believe in taking care of our team with comprehensive benefits and a culture that promotes growth.
             </p>
           </ScrollAnimationWrapper>
 
-          <StaggerChildren className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerChildren className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit) => {
               const Icon = iconMap[benefit.icon] || Heart;
               return (
                 <StaggerItem key={benefit.title}>
-                  <div className="group p-8 rounded-2xl bg-[var(--surface)] border border-[var(--border-color)] hover:border-[var(--secondary)]/30 transition-all card-hover text-center h-full">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--secondary)]/10 to-[var(--accent)]/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                      <Icon className="w-8 h-8 text-[var(--secondary)]" />
+                  <div className="group p-10 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors h-full flex flex-col">
+                    <div className="mb-8">
+                      <Icon className="w-8 h-8 text-muted-foreground group-hover:text-[var(--accent)] transition-colors" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-3">{benefit.title}</h3>
-                    <p className="text-sm text-muted leading-relaxed">{benefit.description}</p>
+                    <h3 className="text-xl font-bold mb-4 text-foreground">{benefit.title}</h3>
+                    <p className="text-base text-muted-foreground leading-relaxed flex-grow">{benefit.description}</p>
                   </div>
                 </StaggerItem>
               );
@@ -92,21 +92,21 @@ export default function CareersClient() {
       </section>
 
       {/* Open Positions */}
-      <section className="py-24 bg-[var(--surface)]">
+      <section className="py-32 bg-background border-b border-[var(--border-color)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="text-center mb-16">
-            <span className="inline-block text-sm font-semibold text-[var(--secondary)] uppercase tracking-wider mb-4">
+          <ScrollAnimationWrapper className="mb-20">
+            <span className="inline-block text-xs font-bold text-[var(--accent)] uppercase tracking-widest mb-6">
               Current Openings
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Open <span className="gradient-text">Positions</span>
+            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight mb-8 leading-tight">
+              Open Positions.
             </h2>
-            <p className="text-muted max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-3xl leading-tight">
               Find the role that matches your skills and ambitions. We&apos;re always looking for talented individuals to join our team.
             </p>
           </ScrollAnimationWrapper>
 
-          <div className="space-y-4 max-w-4xl mx-auto">
+          <div className="space-y-6 max-w-5xl mx-auto">
             {jobPositions.map((job) => (
               <motion.div
                 key={job.id}
@@ -114,32 +114,32 @@ export default function CareersClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
-                className="group p-6 rounded-2xl bg-background border border-[var(--border-color)] hover:border-[var(--secondary)]/30 transition-all"
+                className="group p-8 sm:p-10 bg-[var(--surface)] border border-[var(--border-color)] hover:border-foreground transition-colors"
               >
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-[var(--secondary)] transition-colors">
+                    <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-[var(--accent)] transition-colors">
                       {job.title}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted mb-3">
-                      <span className="flex items-center gap-1">
-                        <Briefcase className="w-4 h-4" /> {job.department}
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4 uppercase tracking-widest font-semibold text-xs">
+                      <span className="flex items-center gap-2">
+                        <Briefcase className="w-4 h-4 text-[var(--accent)]" /> {job.department}
                       </span>
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" /> {job.location}
+                      <span className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-[var(--accent)]" /> {job.location}
                       </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" /> {job.type}
+                      <span className="flex items-center gap-2">
+                        <Clock className="w-4 h-4 text-[var(--accent)]" /> {job.type}
                       </span>
-                      <span className="px-2.5 py-1 rounded-full bg-[var(--secondary)]/10 text-[var(--secondary)] text-xs font-medium">
+                      <span className="px-3 py-1 bg-foreground text-background font-bold tracking-widest uppercase text-xs">
                         {job.experience}
                       </span>
                     </div>
-                    <p className="text-sm text-muted line-clamp-2">{job.description}</p>
+                    <p className="text-base text-muted-foreground line-clamp-2">{job.description}</p>
                   </div>
                   <button
                     onClick={() => setSelectedJob(job.id)}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] text-white font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all whitespace-nowrap"
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background font-bold text-sm uppercase tracking-widest hover:bg-[var(--accent)] hover:text-[var(--primary-foreground)] transition-colors whitespace-nowrap"
                   >
                     Apply Now <ArrowRight className="w-4 h-4" />
                   </button>
@@ -157,114 +157,114 @@ export default function CareersClient() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
             onClick={() => setSelectedJob(null)}
           >
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-md" />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ duration: 0.3 }}
-              className="relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[var(--surface)] rounded-3xl border border-[var(--border-color)] shadow-2xl"
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-background border border-[var(--border-color)] shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="p-8">
+              <div className="p-8 sm:p-12">
                 <button
                   onClick={() => setSelectedJob(null)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-muted hover:bg-[var(--surface-hover)] transition-colors"
+                  className="absolute top-6 right-6 w-12 h-12 bg-[var(--surface)] hover:bg-foreground flex items-center justify-center text-foreground hover:text-background transition-colors border border-[var(--border-color)]"
                   aria-label="Close"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-6 h-6" />
                 </button>
 
-                <span className="inline-block px-3 py-1 rounded-full bg-[var(--secondary)]/10 text-[var(--secondary)] text-xs font-medium mb-3">
+                <span className="inline-block text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-4">
                   {selectedJobData.department}
                 </span>
-                <h2 className="text-2xl font-bold mb-2">{selectedJobData.title}</h2>
-                <div className="flex flex-wrap items-center gap-3 text-sm text-muted mb-6">
-                  <span className="flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5" /> {selectedJobData.location}
+                <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground mb-6">{selectedJobData.title}</h2>
+                <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-widest text-muted-foreground mb-10 pb-10 border-b border-[var(--border-color)]">
+                  <span className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-[var(--accent)]" /> {selectedJobData.location}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5" /> {selectedJobData.type}
+                  <span className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-[var(--accent)]" /> {selectedJobData.type}
                   </span>
                   <span>{selectedJobData.experience}</span>
                 </div>
 
-                <div className="mb-6">
-                  <h3 className="text-sm font-semibold mb-2">About the role</h3>
-                  <p className="text-sm text-muted leading-relaxed">{selectedJobData.description}</p>
+                <div className="mb-10">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-foreground mb-4">About the role</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">{selectedJobData.description}</p>
                 </div>
 
-                <div className="mb-6">
-                  <h3 className="text-sm font-semibold mb-3">Requirements</h3>
-                  <ul className="space-y-2">
+                <div className="mb-10 pb-10 border-b border-[var(--border-color)]">
+                  <h3 className="text-sm font-bold uppercase tracking-widest text-foreground mb-6">Requirements</h3>
+                  <ul className="space-y-4">
                     {selectedJobData.requirements.map((r) => (
-                      <li key={r} className="flex items-start gap-2 text-sm text-foreground">
-                        <CheckCircle2 className="w-4 h-4 text-[var(--secondary)] mt-0.5 flex-shrink-0" />
+                      <li key={r} className="flex items-start gap-4 text-base text-muted-foreground">
+                        <CheckCircle2 className="w-5 h-5 text-[var(--accent)] mt-0.5 flex-shrink-0" />
                         <span>{r}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <form onSubmit={handleApply} className="space-y-4" noValidate>
-                  <div className="grid sm:grid-cols-2 gap-4">
+                <form onSubmit={handleApply} className="space-y-8" noValidate>
+                  <div className="grid sm:grid-cols-2 gap-8">
                     <div>
-                      <label htmlFor="apply-name" className="block text-sm font-medium mb-2">Full Name</label>
+                      <label htmlFor="apply-name" className="block text-xs font-bold uppercase tracking-widest text-foreground mb-4">Full Name *</label>
                       <input
                         id="apply-name"
                         type="text"
                         value={appForm.name}
                         onChange={(e) => setAppForm({ ...appForm, name: e.target.value })}
                         placeholder="John Doe"
-                        className="w-full px-4 py-3 rounded-xl bg-background border border-[var(--border-color)] text-foreground placeholder:text-muted focus:outline-none focus:border-[var(--secondary)] transition-colors"
+                        className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg"
                         required
                       />
                     </div>
                     <div>
-                      <label htmlFor="apply-email" className="block text-sm font-medium mb-2">Email</label>
+                      <label htmlFor="apply-email" className="block text-xs font-bold uppercase tracking-widest text-foreground mb-4">Email *</label>
                       <input
                         id="apply-email"
                         type="email"
                         value={appForm.email}
                         onChange={(e) => setAppForm({ ...appForm, email: e.target.value })}
                         placeholder="you@email.com"
-                        className="w-full px-4 py-3 rounded-xl bg-background border border-[var(--border-color)] text-foreground placeholder:text-muted focus:outline-none focus:border-[var(--secondary)] transition-colors"
+                        className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg"
                         required
                       />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="apply-phone" className="block text-sm font-medium mb-2">Phone</label>
+                    <label htmlFor="apply-phone" className="block text-xs font-bold uppercase tracking-widest text-foreground mb-4">Phone</label>
                     <input
                       id="apply-phone"
                       type="tel"
                       value={appForm.phone}
                       onChange={(e) => setAppForm({ ...appForm, phone: e.target.value })}
                       placeholder="+91 XXXXX XXXXX"
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-[var(--border-color)] text-foreground placeholder:text-muted focus:outline-none focus:border-[var(--secondary)] transition-colors"
+                      className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg"
                     />
                   </div>
                   <div>
-                    <label htmlFor="apply-cover" className="block text-sm font-medium mb-2">Cover Letter</label>
+                    <label htmlFor="apply-cover" className="block text-xs font-bold uppercase tracking-widest text-foreground mb-4">Cover Letter</label>
                     <textarea
                       id="apply-cover"
                       rows={4}
                       value={appForm.coverLetter}
                       onChange={(e) => setAppForm({ ...appForm, coverLetter: e.target.value })}
                       placeholder="Tell us why you'd be a great fit..."
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-[var(--border-color)] text-foreground placeholder:text-muted focus:outline-none focus:border-[var(--secondary)] transition-colors resize-none"
+                      className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg resize-none"
                     />
                   </div>
-                  <div className="pt-2">
-                    <p className="text-xs text-muted mb-3">
-                      Resume upload (coming soon) - For now, please email your resume to <a href="mailto:careers@simpleinsolutions.com" className="text-[var(--secondary)]">careers@simpleinsolutions.com</a>
+                  <div className="pt-4">
+                    <p className="text-sm text-muted-foreground mb-6 font-light">
+                      Resume upload (coming soon) - For now, please email your resume to <a href="mailto:careers@simpleinsolutions.com" className="text-[var(--accent)] font-medium">careers@simpleinsolutions.com</a>
                     </p>
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] text-white font-semibold hover:shadow-lg hover:scale-[1.02] transition-all"
+                      className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-foreground text-background font-bold text-sm uppercase tracking-widest hover:bg-[var(--accent)] hover:text-[var(--primary-foreground)] transition-colors"
                     >
                       {applied ? "✓ Application Submitted!" : <>Submit Application <Send className="w-4 h-4" /></>}
                     </button>
@@ -278,3 +278,4 @@ export default function CareersClient() {
     </>
   );
 }
+

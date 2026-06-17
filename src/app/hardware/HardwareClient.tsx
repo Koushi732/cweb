@@ -34,41 +34,41 @@ export default function HardwareClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-28 md:pt-36 pb-16 md:pb-20 gradient-hero overflow-hidden">
-        <div className="hero-particles" />
+      <section className="relative pt-32 pb-24 bg-background overflow-hidden border-b border-[var(--border-color)]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[{ label: "IT Hardware" }]} />
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mt-6 mb-6"
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="text-[10vw] sm:text-7xl md:text-[7rem] font-bold text-foreground leading-none tracking-tighter mt-8 mb-8"
           >
-            IT Hardware <span className="bg-gradient-to-r from-[#22d3ee] via-[#a855f7] to-[#22d3ee] bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">Sales</span>
+            Hardware <span className="text-[var(--accent)]">Sales.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-lg sm:text-xl text-white/70 max-w-2xl"
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="text-xl sm:text-3xl font-light text-muted-foreground max-w-3xl leading-tight"
           >
             Premium IT hardware from leading brands with expert procurement, installation, and maintenance services.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 flex flex-col sm:flex-row gap-4"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="mt-12 flex flex-col sm:flex-row gap-6"
           >
             <Link
               href="#quote"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] text-white font-semibold hover:shadow-lg transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background font-medium text-sm hover:bg-[var(--accent)] hover:text-[var(--primary-foreground)] transition-colors"
             >
               Request a Quote <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="#products"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-white/20 text-white font-semibold hover:bg-white/10 transition-all"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-[var(--border-color)] text-foreground font-medium text-sm hover:bg-[var(--surface)] transition-colors"
             >
               Browse Products
             </Link>
@@ -77,55 +77,55 @@ export default function HardwareClient() {
       </section>
 
       {/* Hardware Categories */}
-      <section className="py-24" id="products">
+      <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)]" id="products">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="text-center mb-16">
-            <span className="inline-block text-sm font-semibold text-[var(--secondary)] uppercase tracking-wider mb-4">
+          <ScrollAnimationWrapper className="mb-20">
+            <span className="inline-block text-xs font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">
               Product Categories
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Enterprise Hardware <span className="gradient-text">Solutions</span>
+            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground mb-6">
+              Enterprise Hardware Solutions.
             </h2>
-            <p className="text-muted max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-3xl leading-tight">
               From laptops to servers and networking equipment — we provide end-to-end hardware procurement for businesses.
             </p>
           </ScrollAnimationWrapper>
 
-          <StaggerChildren className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerChildren className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {hardwareCategories.map((category) => {
               const Icon = iconMap[category.icon] || Monitor;
               return (
                 <StaggerItem key={category.id}>
-                  <div className="group h-full p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border-color)] hover:border-[var(--secondary)]/30 transition-all card-hover">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--secondary)]/10 to-[var(--accent)]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <Icon className="w-7 h-7 text-[var(--secondary)]" />
+                  <div className="group h-full p-10 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors flex flex-col">
+                    <div className="mb-8">
+                      <Icon className="w-10 h-10 text-muted-foreground group-hover:text-[var(--accent)] transition-colors" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3">{category.title}</h3>
-                    <p className="text-sm text-muted leading-relaxed mb-5">
+                    <h3 className="text-2xl font-bold text-foreground mb-4">{category.title}</h3>
+                    <p className="text-base text-muted-foreground leading-relaxed mb-8 flex-grow">
                       {category.description}
                     </p>
 
                     {category.features.length > 0 && (
-                      <ul className="space-y-2 mb-5">
+                      <ul className="space-y-4 mb-8">
                         {category.features.slice(0, 4).map((f) => (
-                          <li key={f} className="flex items-start gap-2 text-sm text-foreground">
-                            <CheckCircle2 className="w-4 h-4 text-[var(--secondary)] mt-0.5 flex-shrink-0" />
-                            {f}
+                          <li key={f} className="flex items-start gap-4">
+                            <CheckCircle2 className="w-5 h-5 text-[var(--accent)] mt-0.5 flex-shrink-0" />
+                            <span className="text-base text-foreground">{f}</span>
                           </li>
                         ))}
                       </ul>
                     )}
 
                     {category.brands.length > 0 && (
-                      <div className="pt-5 border-t border-[var(--border-color)]">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-muted mb-2">
+                      <div className="pt-6 border-t border-[var(--border-color)]">
+                        <p className="text-xs font-bold uppercase tracking-widest text-foreground mb-4">
                           Top Brands
                         </p>
-                        <div className="flex flex-wrap gap-1.5">
+                        <div className="flex flex-wrap gap-2">
                           {category.brands.slice(0, 5).map((b) => (
                             <span
                               key={b}
-                              className="px-2 py-0.5 rounded text-[11px] font-medium bg-[var(--background)] border border-[var(--border-color)]"
+                              className="px-3 py-1.5 border border-[var(--border-color)] text-xs font-medium text-muted-foreground uppercase tracking-wider"
                             >
                               {b}
                             </span>
@@ -142,101 +142,98 @@ export default function HardwareClient() {
       </section>
 
       {/* Request Quote Form */}
-      <section className="py-24 bg-[var(--surface)]" id="quote">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="text-center mb-12">
-            <span className="inline-block text-sm font-semibold text-[var(--secondary)] uppercase tracking-wider mb-4">
-              Get a Quote
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Request a Hardware <span className="gradient-text">Quote</span>
+      <section className="py-32 bg-background border-b border-[var(--border-color)]" id="quote">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollAnimationWrapper className="mb-16">
+            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground mb-6">
+              Request a Quote.
             </h2>
-            <p className="text-muted max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl font-light text-muted-foreground leading-tight">
               Tell us what you need and our team will provide a detailed quote with the best prices from authorized distributors.
             </p>
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper>
-            <form onSubmit={handleSubmit} className="p-8 rounded-3xl bg-background border border-[var(--border-color)]" noValidate>
-              <div className="grid sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="border-t border-[var(--border-color)] pt-12" noValidate>
+              <div className="grid sm:grid-cols-2 gap-8 mb-8">
                 <div>
-                  <label htmlFor="quote-name" className="block text-sm font-medium mb-2">Name *</label>
+                  <label htmlFor="quote-name" className="block text-xs font-bold uppercase tracking-widest text-foreground mb-4">Name *</label>
                   <input
                     id="quote-name"
                     type="text"
                     value={quoteForm.name}
                     onChange={(e) => setQuoteForm({ ...quoteForm, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[var(--surface)] border border-[var(--border-color)] text-foreground placeholder:text-muted focus:outline-none focus:border-[var(--secondary)] transition-colors"
+                    className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg"
                     placeholder="Your full name"
                     required
                   />
                 </div>
                 <div>
-                  <label htmlFor="quote-email" className="block text-sm font-medium mb-2">Email *</label>
+                  <label htmlFor="quote-email" className="block text-xs font-bold uppercase tracking-widest text-foreground mb-4">Email *</label>
                   <input
                     id="quote-email"
                     type="email"
                     value={quoteForm.email}
                     onChange={(e) => setQuoteForm({ ...quoteForm, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[var(--surface)] border border-[var(--border-color)] text-foreground placeholder:text-muted focus:outline-none focus:border-[var(--secondary)] transition-colors"
+                    className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg"
                     placeholder="you@email.com"
                     required
                   />
                 </div>
               </div>
-              <div className="grid sm:grid-cols-2 gap-4 mt-4">
+              <div className="grid sm:grid-cols-2 gap-8 mb-8">
                 <div>
-                  <label htmlFor="quote-company" className="block text-sm font-medium mb-2">Company</label>
+                  <label htmlFor="quote-company" className="block text-xs font-bold uppercase tracking-widest text-foreground mb-4">Company</label>
                   <input
                     id="quote-company"
                     type="text"
                     value={quoteForm.company}
                     onChange={(e) => setQuoteForm({ ...quoteForm, company: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[var(--surface)] border border-[var(--border-color)] text-foreground placeholder:text-muted focus:outline-none focus:border-[var(--secondary)] transition-colors"
+                    className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg"
                     placeholder="Company name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="quote-product" className="block text-sm font-medium mb-2">Product Type *</label>
+                  <label htmlFor="quote-product" className="block text-xs font-bold uppercase tracking-widest text-foreground mb-4">Product Type *</label>
                   <select
                     id="quote-product"
                     value={quoteForm.product}
                     onChange={(e) => setQuoteForm({ ...quoteForm, product: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[var(--surface)] border border-[var(--border-color)] text-foreground focus:outline-none focus:border-[var(--secondary)] transition-colors"
+                    className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg appearance-none cursor-pointer"
                     required
                   >
-                    <option value="">Select a category</option>
+                    <option value="" disabled className="text-muted-foreground">Select a category</option>
                     {hardwareCategories.map((c) => (
                       <option key={c.id} value={c.id}>{c.title}</option>
                     ))}
                   </select>
                 </div>
               </div>
-              <div className="mt-4">
-                <label htmlFor="quote-quantity" className="block text-sm font-medium mb-2">Quantity</label>
+              <div className="mb-8">
+                <label htmlFor="quote-quantity" className="block text-xs font-bold uppercase tracking-widest text-foreground mb-4">Quantity</label>
                 <input
                   id="quote-quantity"
                   type="text"
                   value={quoteForm.quantity}
                   onChange={(e) => setQuoteForm({ ...quoteForm, quantity: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[var(--surface)] border border-[var(--border-color)] text-foreground placeholder:text-muted focus:outline-none focus:border-[var(--secondary)] transition-colors"
+                  className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg"
                   placeholder="e.g., 50 units"
                 />
               </div>
-              <div className="mt-4">
-                <label htmlFor="quote-message" className="block text-sm font-medium mb-2">Specifications &amp; Requirements</label>
+              <div className="mb-12">
+                <label htmlFor="quote-message" className="block text-xs font-bold uppercase tracking-widest text-foreground mb-4">Specifications &amp; Requirements</label>
                 <textarea
                   id="quote-message"
                   rows={4}
                   value={quoteForm.message}
                   onChange={(e) => setQuoteForm({ ...quoteForm, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[var(--surface)] border border-[var(--border-color)] text-foreground placeholder:text-muted focus:outline-none focus:border-[var(--secondary)] transition-colors resize-none"
+                  className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg resize-none"
                   placeholder="Required specs, brands preferred, delivery timeline, etc."
                 />
               </div>
               <button
                 type="submit"
-                className="w-full mt-6 flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] text-white font-semibold hover:shadow-lg hover:shadow-[var(--secondary)]/25 transition-all hover:scale-[1.02]"
+                className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-foreground text-background font-bold text-sm uppercase tracking-widest hover:bg-[var(--accent)] hover:text-[var(--primary-foreground)] transition-colors"
               >
                 {submitted ? "✓ Quote Request Sent!" : <>Request Quote <Send className="w-4 h-4" /></>}
               </button>
@@ -246,28 +243,25 @@ export default function HardwareClient() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="text-center mb-12">
-            <span className="inline-block text-sm font-semibold text-[var(--secondary)] uppercase tracking-wider mb-4">
-              FAQ
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Hardware <span className="gradient-text">Questions</span>
+      <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollAnimationWrapper className="mb-16">
+            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground mb-6">
+              FAQ.
             </h2>
           </ScrollAnimationWrapper>
 
-          <div className="space-y-3">
+          <div className="border-t border-[var(--border-color)]">
             {hardwareFAQs.map((faq, i) => (
               <ScrollAnimationWrapper key={i} delay={i * 0.05}>
-                <details className="group rounded-2xl bg-[var(--surface)] border border-[var(--border-color)] hover:border-[var(--secondary)]/30 transition-all">
-                  <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer text-sm font-semibold text-foreground list-none">
+                <details className="group border-b border-[var(--border-color)]">
+                  <summary className="flex items-center justify-between gap-4 py-8 cursor-pointer text-xl font-bold text-foreground list-none">
                     {faq.question}
-                    <span className="text-[var(--secondary)] text-xl leading-none transition-transform group-open:rotate-45">
+                    <span className="text-muted-foreground transition-transform group-open:rotate-45">
                       +
                     </span>
                   </summary>
-                  <div className="px-5 pb-5 text-sm text-muted leading-relaxed">
+                  <div className="pb-8 text-lg text-muted-foreground font-light leading-relaxed">
                     {faq.answer}
                   </div>
                 </details>
@@ -278,19 +272,18 @@ export default function HardwareClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 gradient-hero relative overflow-hidden">
-        <div className="hero-particles" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)] text-foreground">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollAnimationWrapper>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-none">
               Need Help Choosing?
             </h2>
-            <p className="text-lg text-white/70 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl sm:text-2xl text-muted font-light mb-12 max-w-2xl mx-auto">
               Our hardware experts can help you select the right equipment for your business needs and budget.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] text-white font-semibold text-lg hover:shadow-2xl hover:shadow-[var(--secondary)]/25 transition-all hover:scale-105"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-background text-foreground font-bold text-sm uppercase tracking-widest hover:bg-[var(--accent)] hover:text-[var(--primary-foreground)] transition-colors"
             >
               Talk to an Expert <ArrowRight className="w-5 h-5" />
             </Link>
@@ -300,3 +293,4 @@ export default function HardwareClient() {
     </>
   );
 }
+
