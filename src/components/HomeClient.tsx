@@ -15,7 +15,7 @@ import { services } from "@/data/services";
 import { hardwareCategories } from "@/data/hardware";
 import { industries } from "@/data/industries";
 import { testimonials } from "@/data/testimonials";
-import { blogPosts } from "@/data/blog";
+
 import { stats } from "@/data/team";
 import { useState } from "react";
 
@@ -519,47 +519,6 @@ export default function HomeClient() {
               </ScrollAnimationWrapper>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ==================== SECTION 12: LATEST INSIGHTS ==================== */}
-      <section className="py-32 bg-background border-b border-[var(--border-color)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-                Latest Insights
-              </h2>
-            </div>
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[var(--accent)] hover:text-foreground transition-colors"
-            >
-              Read All Articles <ArrowRight className="w-4 h-4" />
-            </Link>
-          </ScrollAnimationWrapper>
-
-          <StaggerChildren className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {blogPosts.slice(0, 3).map((post) => (
-              <StaggerItem key={post.id}>
-                <Link href="/blog" className="group block border border-[var(--border-color)] h-full flex flex-col hover:border-foreground transition-colors">
-                  <div className="aspect-[4/3] bg-[var(--surface)] flex items-center justify-center border-b border-[var(--border-color)]">
-                     <span className="text-muted-foreground font-bold text-6xl group-hover:text-[var(--accent)] transition-colors tracking-tighter">SI.</span>
-                  </div>
-                  <div className="p-8 flex flex-col flex-grow">
-                    <div className="flex items-center justify-between mb-4 text-xs font-bold uppercase tracking-widest">
-                      <span className="text-[var(--accent)]">{post.category}</span>
-                      <span className="text-muted-foreground">{post.readTime}</span>
-                    </div>
-                    <h3 className="text-2xl font-bold tracking-tight mb-3">
-                      {post.title}
-                    </h3>
-                    <p className="text-base text-muted-foreground font-light leading-relaxed mb-6">{post.excerpt}</p>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
         </div>
       </section>
 
