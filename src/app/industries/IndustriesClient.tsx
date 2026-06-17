@@ -102,7 +102,7 @@ export default function IndustriesClient() {
             <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-none">
               Don&apos;t See Your Industry?
             </h2>
-            <p className="text-xl sm:text-2xl text-muted font-light mb-12 max-w-2xl mx-auto">
+            <p className="text-xl sm:text-2xl text-muted-foreground font-light mb-12 max-w-2xl mx-auto">
               We work across all sectors and customize solutions to your specific needs. Let&apos;s discuss how we can help your business.
             </p>
             <Link

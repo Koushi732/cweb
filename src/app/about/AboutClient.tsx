@@ -227,7 +227,7 @@ export default function AboutClient() {
             <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-none">
               Ready to Work Together?
             </h2>
-            <p className="text-xl sm:text-2xl text-muted font-light mb-12 max-w-2xl mx-auto">
+            <p className="text-xl sm:text-2xl text-muted-foreground font-light mb-12 max-w-2xl mx-auto">
               Let&apos;s discuss how SimpleIn Solutions can help you achieve your technology goals and drive your business forward.
             </p>
             <Link

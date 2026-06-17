@@ -278,7 +278,7 @@ export default function HardwareClient() {
             <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-none">
               Need Help Choosing?
             </h2>
-            <p className="text-xl sm:text-2xl text-muted font-light mb-12 max-w-2xl mx-auto">
+            <p className="text-xl sm:text-2xl text-muted-foreground font-light mb-12 max-w-2xl mx-auto">
               Our hardware experts can help you select the right equipment for your business needs and budget.
             </p>
             <Link

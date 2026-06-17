@@ -419,35 +419,112 @@ export default function HomeClient() {
       </section>
 
       {/* ==================== SECTION 9: PROCESS WORKFLOW ==================== */}
-      <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)]">
+      <section className="py-32 bg-background border-b border-[var(--border-color)] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-20">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-3xl">
+          <ScrollAnimationWrapper className="mb-24 text-center">
+            <span className="inline-block text-xs font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">
+              Roadmap to Success
+            </span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-3xl mx-auto">
               How We Deliver Results
             </h2>
-            <p className="text-xl text-muted-foreground font-light max-w-2xl">
+            <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
               A proven, structured approach that ensures quality, transparency, and on-time delivery.
             </p>
           </ScrollAnimationWrapper>
 
-          <StaggerChildren className="grid md:grid-cols-4 gap-px bg-[var(--border-color)] border border-[var(--border-color)]">
-            {[
-              { step: "01", title: "Discover", description: "We listen, analyze, and understand your requirements and challenges.", icon: Target },
-              { step: "02", title: "Design", description: "Our team architects the solution and defines the technical roadmap.", icon: Palette },
-              { step: "03", title: "Develop", description: "Agile development with continuous integration and regular demos.", icon: Code2 },
-              { step: "04", title: "Deploy", description: "Rigorous testing, smooth deployment, and post-launch monitoring.", icon: Rocket },
-            ].map((process) => (
-              <StaggerItem key={process.step} className="bg-[var(--surface)] p-10 hover:bg-background transition-colors h-full">
-                <div className="group flex flex-col items-start">
-                  <div className="text-6xl font-bold text-foreground mb-4 tracking-tighter">
-                    {process.step}.
+          {/* Desktop Horizontal Roadmap */}
+          <div className="hidden md:block relative max-w-6xl mx-auto mt-20">
+            <StaggerChildren className="grid grid-cols-4 gap-8">
+              {[
+                { step: "01", title: "Discover", description: "We listen, analyze, and understand your requirements and challenges.", icon: Target },
+                { step: "02", title: "Design", description: "Our team architects the solution and defines the technical roadmap.", icon: Palette },
+                { step: "03", title: "Develop", description: "Agile development with continuous integration and regular demos.", icon: Code2 },
+                { step: "04", title: "Deploy", description: "Rigorous testing, smooth deployment, and post-launch monitoring.", icon: Rocket },
+              ].map((process, index) => (
+                <StaggerItem key={process.step} className="relative w-full flex flex-col items-center">
+                  
+                  {/* The Node Container */}
+                  <div className="relative w-full flex justify-center mb-8">
+                     {/* Connecting Line to next node */}
+                     {index < 3 && (
+                        <div className="absolute top-1/2 left-1/2 w-[calc(100%+2rem)] h-[2px] bg-gradient-to-r from-[var(--border-color)] via-[var(--accent)] to-[var(--border-color)] -translate-y-1/2 opacity-50 z-0" />
+                     )}
+                     
+                     {/* Vertical stem to card */}
+                     <div className="absolute top-full left-1/2 w-[2px] h-8 bg-[var(--border-color)] -translate-x-1/2 z-0 opacity-50" />
+
+                     {/* The Node Circle */}
+                     <div className="w-16 h-16 rounded-full bg-[var(--surface)] border-[6px] border-background flex items-center justify-center shadow-[0_0_0_2px_var(--border-color)] z-10 relative">
+                       <div className="w-full h-full rounded-full bg-gradient-to-br from-[var(--secondary)] to-[var(--accent)] flex items-center justify-center text-white scale-[0.8]">
+                         <process.icon className="w-6 h-6" />
+                       </div>
+                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 tracking-tight">{process.title}</h3>
-                  <p className="text-base text-muted-foreground font-light leading-relaxed">{process.description}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
+
+                  {/* The Card */}
+                  <div className="bg-[var(--surface)] p-6 lg:p-8 rounded-2xl border border-[var(--border-color)] shadow-xl card-hover relative group w-full text-center h-full flex flex-col overflow-hidden">
+                    {/* Top gradient highlight */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    
+                    {/* Giant Watermark Number */}
+                    <div className="text-9xl font-black text-foreground opacity-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-opacity group-hover:opacity-10">
+                      {process.step}
+                    </div>
+
+                    <h3 className="text-xl lg:text-2xl font-bold tracking-tight mb-3 text-foreground relative z-10 mt-2">{process.title}</h3>
+                    <p className="text-sm lg:text-base text-muted-foreground font-light leading-relaxed relative z-10 flex-grow">{process.description}</p>
+                  </div>
+
+                </StaggerItem>
+              ))}
+            </StaggerChildren>
+          </div>
+
+          {/* Mobile Vertical Roadmap */}
+          <div className="md:hidden relative max-w-md mx-auto mt-16 pl-2">
+            <StaggerChildren className="space-y-12">
+              {[
+                { step: "01", title: "Discover", description: "We listen, analyze, and understand your requirements and challenges.", icon: Target },
+                { step: "02", title: "Design", description: "Our team architects the solution and defines the technical roadmap.", icon: Palette },
+                { step: "03", title: "Develop", description: "Agile development with continuous integration and regular demos.", icon: Code2 },
+                { step: "04", title: "Deploy", description: "Rigorous testing, smooth deployment, and post-launch monitoring.", icon: Rocket },
+              ].map((process, index, arr) => (
+                <StaggerItem key={process.step} className="relative w-full pl-20">
+                  
+                  {/* Connecting Line to next node */}
+                  {index < arr.length - 1 && (
+                    <div className="absolute top-[50%] left-[27px] w-[2px] h-[calc(100%+3rem)] bg-gradient-to-b from-[var(--border-color)] via-[var(--accent)] to-[var(--border-color)] opacity-50 z-0" />
+                  )}
+
+                  {/* Horizontal stem to card */}
+                  <div className="absolute top-1/2 left-[56px] w-[24px] h-[2px] bg-[var(--border-color)] opacity-50 -translate-y-1/2 z-0" />
+                  
+                  {/* The Node */}
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-[var(--surface)] border-[6px] border-background flex items-center justify-center shadow-[0_0_0_2px_var(--border-color)] z-10">
+                     <div className="w-full h-full rounded-full bg-gradient-to-br from-[var(--secondary)] to-[var(--accent)] flex items-center justify-center text-white scale-[0.8]">
+                       <process.icon className="w-6 h-6" />
+                     </div>
+                  </div>
+
+                  {/* The Card */}
+                  <div className="bg-[var(--surface)] p-6 rounded-2xl border border-[var(--border-color)] shadow-xl card-hover relative group w-full overflow-hidden">
+                    {/* Left gradient highlight */}
+                    <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-[var(--accent)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    
+                    {/* Giant Watermark Number */}
+                    <div className="text-8xl font-black text-foreground opacity-5 absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none transition-opacity group-hover:opacity-10">
+                      {process.step}
+                    </div>
+
+                    <h3 className="text-xl font-bold tracking-tight mb-2 text-foreground relative z-10">{process.title}</h3>
+                    <p className="text-sm text-muted-foreground font-light leading-relaxed relative z-10">{process.description}</p>
+                  </div>
+
+                </StaggerItem>
+              ))}
+            </StaggerChildren>
+          </div>
         </div>
       </section>
 

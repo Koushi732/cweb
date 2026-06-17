@@ -208,7 +208,7 @@ export default function ServicesClient() {
             <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-none">
               Ready to Start?
             </h2>
-            <p className="text-xl sm:text-2xl text-muted font-light mb-12 max-w-2xl mx-auto">
+            <p className="text-xl sm:text-2xl text-muted-foreground font-light mb-12 max-w-2xl mx-auto">
               Let&apos;s discuss how we can help you achieve your technology goals.
             </p>
             <Link
