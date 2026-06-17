@@ -5,16 +5,19 @@ import { motion } from "framer-motion";
 import {
   ArrowRight, Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch,
   Laptop, Monitor, Server, Wifi, HardDrive, Printer, Headphones, Building2,
-  CheckCircle2, Star, ChevronRight, ArrowDown, Zap, Users, Award, HeartHandshake,
-  Heart, GraduationCap, ShoppingBag, Factory, Truck, Landmark, Building, Rocket, Briefcase,
-  Palette, Wrench, Target, Clock, Send, Phone, Mail, MapPin,
+  Zap, Heart, GraduationCap, ShoppingBag, Factory, Truck, Landmark, Building, Rocket, Briefcase,
+  Palette, Wrench, Target, Clock, Send, Phone, Mail, FileCheck, Network, Camera, Fingerprint, Settings, ShoppingCart,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
+import dynamic from "next/dynamic";
 import { services } from "@/data/services";
 import { hardwareCategories } from "@/data/hardware";
 import { industries } from "@/data/industries";
-import { testimonials } from "@/data/testimonials";
+import { allTechnologies } from "@/data/technologies";
+
+const ProcessSection = dynamic(() => import("@/components/ui/ProcessSection"), { ssr: true });
+const WhyChooseUsSection = dynamic(() => import("@/components/ui/WhyChooseUsSection"), { ssr: true });
 
 import { stats } from "@/data/team";
 import { useState } from "react";
@@ -23,17 +26,12 @@ const iconMap: Record<string, React.ElementType> = {
   Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch,
   Laptop, Monitor, Server, Wifi, HardDrive, Printer, Headphones, Building2,
   Palette, Wrench, Heart, GraduationCap, ShoppingBag, Factory, Truck,
-  Landmark, Building, Rocket, Briefcase, Target,
+  Landmark, Building, Rocket, Briefcase, Target, FileCheck, Network, Camera, Fingerprint, Settings, ShoppingCart,
 };
 
-const techStack = [
-  "React", "Next.js", "Node.js", "Python", "TypeScript", "AWS",
-  "Azure", "Docker", "Kubernetes", "TensorFlow", "Flutter", "PostgreSQL",
-  "MongoDB", "GraphQL", "Terraform", "Figma",
-];
+const techStack = allTechnologies;
 
 export default function HomeClient() {
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -79,7 +77,7 @@ export default function HomeClient() {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="text-xl sm:text-3xl text-muted-foreground font-light leading-tight mb-12 max-w-3xl"
             >
-              End-to-end IT solutions, custom software development, and enterprise hardware designed to drive exponential growth.
+              Building Intelligent Digital Solutions for Modern Businesses.
             </motion.p>
 
             <motion.div
@@ -122,59 +120,27 @@ export default function HomeClient() {
             <ScrollAnimationWrapper animation="slide-right">
               <div className="mb-16">
                 <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed mb-8">
-                  SimpleIn Solutions is a full-service IT company dedicated to helping businesses thrive in the digital age. With expertise spanning software development, cloud infrastructure, cybersecurity, AI, and IT hardware, we deliver comprehensive technology solutions that drive real business outcomes.
+                  Our mission is to help businesses accelerate growth through innovative software development, AI automation, cloud technologies, enterprise IT solutions, and digital transformation. We focus on delivering reliable, scalable, and business-driven technology solutions that create measurable value for our clients.
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-3 gap-8 pt-12 border-t border-[var(--border-color)]">
-                {[
-                  { value: "7+", label: "Years Experience" },
-                  { value: "50+", label: "Team Members" },
-                  { value: "500+", label: "Projects Delivered" },
-                ].map((item) => (
-                  <div key={item.label} className="flex flex-col gap-2">
-                    <span className="text-4xl md:text-5xl font-light tracking-tighter text-foreground">{item.value}</span>
-                    <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{item.label}</span>
-                  </div>
-                ))}
-              </div>
+              {stats.length > 0 && (
+                <div className="grid sm:grid-cols-3 gap-8 pt-12 border-t border-[var(--border-color)]">
+                  {stats.map((item) => (
+                    <div key={item.label} className="flex flex-col gap-2">
+                      <span className="text-4xl md:text-5xl font-light tracking-tighter text-foreground">{item.value}</span>
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </ScrollAnimationWrapper>
           </div>
         </div>
       </section>
 
       {/* ==================== SECTION 3: WHY CHOOSE US ==================== */}
-      <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-20">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-3xl">
-              Why SimpleIn Solutions?
-            </h2>
-            <p className="text-xl text-muted-foreground font-light max-w-2xl">
-              We combine technical excellence with business acumen to deliver solutions that don&apos;t just work — they transform.
-            </p>
-          </ScrollAnimationWrapper>
-
-          <StaggerChildren className="grid sm:grid-cols-2 gap-px bg-[var(--border-color)]">
-            {[
-              { icon: Zap, title: "Innovation First", description: "We leverage cutting-edge technologies and creative approaches to solve complex business challenges." },
-              { icon: Shield, title: "Reliable & Secure", description: "Enterprise-grade security and 99.9% uptime guarantee. Your data and systems are always protected." },
-              { icon: Users, title: "Expert Team", description: "50+ certified professionals with deep expertise across the full technology spectrum." },
-              { icon: HeartHandshake, title: "Client-Centric", description: "We build lasting partnerships, not just projects. Your success drives every decision we make." },
-            ].map((item) => (
-              <StaggerItem key={item.title}>
-                <div className="bg-[var(--surface)] p-12 hover:bg-background transition-colors h-full">
-                  <div className="mb-6">
-                    <item.icon className="w-8 h-8 text-[var(--accent)]" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 tracking-tight">{item.title}</h3>
-                  <p className="text-base text-muted-foreground font-light leading-relaxed">{item.description}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </div>
-      </section>
+      <WhyChooseUsSection />
 
       {/* ==================== SECTION 4: FEATURED SERVICES ==================== */}
       <section className="py-32 border-b border-[var(--border-color)] bg-background" id="featured-services">
@@ -209,14 +175,14 @@ export default function HomeClient() {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 mb-12">
                   {[
-                    { icon: Code2, name: "Software Development" },
+                    { icon: Code2, name: "Custom Software" },
                     { icon: Globe, name: "Web Development" },
                     { icon: Smartphone, name: "Mobile Apps" },
-                    { icon: Cloud, name: "Cloud Solutions" },
-                    { icon: Lightbulb, name: "IT Consulting" },
-                    { icon: Shield, name: "Cybersecurity" },
-                    { icon: Brain, name: "AI Solutions" },
-                    { icon: Zap, name: "Digital Transformation" },
+                    { icon: Brain, name: "AI Automation" },
+                    { icon: Zap, name: "Process Automation" },
+                    { icon: Building2, name: "Enterprise Software" },
+                    { icon: Palette, name: "UI/UX Design" },
+                    { icon: Cloud, name: "Cloud & DevOps" },
                   ].map((item) => (
                     <div key={item.name} className="flex items-center gap-3 text-base font-medium">
                       <item.icon className="w-5 h-5 text-muted-foreground flex-shrink-0" />
@@ -249,14 +215,14 @@ export default function HomeClient() {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 mb-12">
                   {[
-                    { icon: Laptop, name: "Laptops" },
-                    { icon: Monitor, name: "Desktops" },
-                    { icon: Server, name: "Servers" },
-                    { icon: Wifi, name: "Networking" },
-                    { icon: HardDrive, name: "Storage Solutions" },
-                    { icon: Printer, name: "Printers" },
-                    { icon: Headphones, name: "Accessories" },
-                    { icon: Building2, name: "Enterprise Hardware" },
+                    { icon: Laptop, name: "Business Laptops" },
+                    { icon: Monitor, name: "Desktop Systems" },
+                    { icon: Server, name: "Enterprise Servers" },
+                    { icon: Network, name: "Routers & Switches" },
+                    { icon: Wifi, name: "Wi-Fi Infrastructure" },
+                    { icon: Shield, name: "Firewalls" },
+                    { icon: HardDrive, name: "Storage (NAS/SAN)" },
+                    { icon: FileCheck, name: "AMC Contracts" },
                   ].map((item) => (
                     <div key={item.name} className="flex items-center gap-3 text-base font-medium text-foreground">
                       <item.icon className="w-5 h-5 text-muted-foreground flex-shrink-0" />
@@ -419,167 +385,7 @@ export default function HomeClient() {
       </section>
 
       {/* ==================== SECTION 9: PROCESS WORKFLOW ==================== */}
-      <section className="py-32 bg-background border-b border-[var(--border-color)] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-24 text-center">
-            <span className="inline-block text-xs font-semibold text-[var(--accent)] uppercase tracking-widest mb-4">
-              Roadmap to Success
-            </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 max-w-3xl mx-auto">
-              How We Deliver Results
-            </h2>
-            <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
-              A proven, structured approach that ensures quality, transparency, and on-time delivery.
-            </p>
-          </ScrollAnimationWrapper>
-
-          {/* Desktop Horizontal Roadmap */}
-          <div className="hidden md:block relative max-w-6xl mx-auto mt-20">
-            <StaggerChildren className="grid grid-cols-4 gap-8">
-              {[
-                { step: "01", title: "Discover", description: "We listen, analyze, and understand your requirements and challenges.", icon: Target },
-                { step: "02", title: "Design", description: "Our team architects the solution and defines the technical roadmap.", icon: Palette },
-                { step: "03", title: "Develop", description: "Agile development with continuous integration and regular demos.", icon: Code2 },
-                { step: "04", title: "Deploy", description: "Rigorous testing, smooth deployment, and post-launch monitoring.", icon: Rocket },
-              ].map((process, index) => (
-                <StaggerItem key={process.step} className="relative w-full flex flex-col items-center">
-                  
-                  {/* The Node Container */}
-                  <div className="relative w-full flex justify-center mb-8">
-                     {/* Connecting Line to next node */}
-                     {index < 3 && (
-                        <div className="absolute top-1/2 left-1/2 w-[calc(100%+2rem)] h-[2px] bg-gradient-to-r from-[var(--border-color)] via-[var(--accent)] to-[var(--border-color)] -translate-y-1/2 opacity-50 z-0" />
-                     )}
-                     
-                     {/* Vertical stem to card */}
-                     <div className="absolute top-full left-1/2 w-[2px] h-8 bg-[var(--border-color)] -translate-x-1/2 z-0 opacity-50" />
-
-                     {/* The Node Circle */}
-                     <div className="w-16 h-16 rounded-full bg-[var(--surface)] border-[6px] border-background flex items-center justify-center shadow-[0_0_0_2px_var(--border-color)] z-10 relative">
-                       <div className="w-full h-full rounded-full bg-gradient-to-br from-[var(--secondary)] to-[var(--accent)] flex items-center justify-center text-white scale-[0.8]">
-                         <process.icon className="w-6 h-6" />
-                       </div>
-                     </div>
-                  </div>
-
-                  {/* The Card */}
-                  <div className="bg-[var(--surface)] p-6 lg:p-8 rounded-2xl border border-[var(--border-color)] shadow-xl card-hover relative group w-full text-center h-full flex flex-col overflow-hidden">
-                    {/* Top gradient highlight */}
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    
-                    {/* Giant Watermark Number */}
-                    <div className="text-9xl font-black text-foreground opacity-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-opacity group-hover:opacity-10">
-                      {process.step}
-                    </div>
-
-                    <h3 className="text-xl lg:text-2xl font-bold tracking-tight mb-3 text-foreground relative z-10 mt-2">{process.title}</h3>
-                    <p className="text-sm lg:text-base text-muted-foreground font-light leading-relaxed relative z-10 flex-grow">{process.description}</p>
-                  </div>
-
-                </StaggerItem>
-              ))}
-            </StaggerChildren>
-          </div>
-
-          {/* Mobile Vertical Roadmap */}
-          <div className="md:hidden relative max-w-md mx-auto mt-16 pl-2">
-            <StaggerChildren className="space-y-12">
-              {[
-                { step: "01", title: "Discover", description: "We listen, analyze, and understand your requirements and challenges.", icon: Target },
-                { step: "02", title: "Design", description: "Our team architects the solution and defines the technical roadmap.", icon: Palette },
-                { step: "03", title: "Develop", description: "Agile development with continuous integration and regular demos.", icon: Code2 },
-                { step: "04", title: "Deploy", description: "Rigorous testing, smooth deployment, and post-launch monitoring.", icon: Rocket },
-              ].map((process, index, arr) => (
-                <StaggerItem key={process.step} className="relative w-full pl-20">
-                  
-                  {/* Connecting Line to next node */}
-                  {index < arr.length - 1 && (
-                    <div className="absolute top-[50%] left-[27px] w-[2px] h-[calc(100%+3rem)] bg-gradient-to-b from-[var(--border-color)] via-[var(--accent)] to-[var(--border-color)] opacity-50 z-0" />
-                  )}
-
-                  {/* Horizontal stem to card */}
-                  <div className="absolute top-1/2 left-[56px] w-[24px] h-[2px] bg-[var(--border-color)] opacity-50 -translate-y-1/2 z-0" />
-                  
-                  {/* The Node */}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-[var(--surface)] border-[6px] border-background flex items-center justify-center shadow-[0_0_0_2px_var(--border-color)] z-10">
-                     <div className="w-full h-full rounded-full bg-gradient-to-br from-[var(--secondary)] to-[var(--accent)] flex items-center justify-center text-white scale-[0.8]">
-                       <process.icon className="w-6 h-6" />
-                     </div>
-                  </div>
-
-                  {/* The Card */}
-                  <div className="bg-[var(--surface)] p-6 rounded-2xl border border-[var(--border-color)] shadow-xl card-hover relative group w-full overflow-hidden">
-                    {/* Left gradient highlight */}
-                    <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-[var(--accent)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    
-                    {/* Giant Watermark Number */}
-                    <div className="text-8xl font-black text-foreground opacity-5 absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none transition-opacity group-hover:opacity-10">
-                      {process.step}
-                    </div>
-
-                    <h3 className="text-xl font-bold tracking-tight mb-2 text-foreground relative z-10">{process.title}</h3>
-                    <p className="text-sm text-muted-foreground font-light leading-relaxed relative z-10">{process.description}</p>
-                  </div>
-
-                </StaggerItem>
-              ))}
-            </StaggerChildren>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== SECTION 10: TESTIMONIALS ==================== */}
-      <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)] text-foreground">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-4">
-              <ScrollAnimationWrapper>
-                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
-                  What Our Clients Say
-                </h2>
-                <div className="flex items-center gap-2 mt-12">
-                  {testimonials.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setTestimonialIndex(i)}
-                      className={`h-1 transition-all ${i === testimonialIndex ? "bg-[var(--accent)] w-12" : "bg-[var(--border-color)]/30 w-4 hover:bg-[var(--border-color)]/50"}`}
-                      aria-label={`View testimonial ${i + 1}`}
-                    />
-                  ))}
-                </div>
-              </ScrollAnimationWrapper>
-            </div>
-            
-            <div className="lg:col-span-8">
-              <ScrollAnimationWrapper>
-                <div className="relative">
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-1 mb-8">
-                      {Array.from({ length: testimonials[testimonialIndex].rating }).map((_, i) => (
-                         <Star key={i} className="w-5 h-5 text-[var(--accent)] fill-[var(--accent)]" />
-                      ))}
-                    </div>
-                    <p className="text-3xl sm:text-4xl font-light leading-tight mb-12">
-                      &ldquo;{testimonials[testimonialIndex].text}&rdquo;
-                    </p>
-                    <div className="flex items-center gap-6">
-                      <div className="w-14 h-14 rounded-full bg-[var(--accent)] flex items-center justify-center text-[var(--primary-foreground)] font-bold text-xl">
-                        {testimonials[testimonialIndex].avatar}
-                      </div>
-                      <div>
-                        <p className="font-bold text-lg">{testimonials[testimonialIndex].name}</p>
-                        <p className="text-sm font-light text-muted-foreground">
-                          {testimonials[testimonialIndex].designation}, {testimonials[testimonialIndex].company}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </ScrollAnimationWrapper>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProcessSection />
 
       {/* ==================== SECTION 11: SUCCESS METRICS ==================== */}
       <section className="py-32 border-b border-[var(--border-color)] bg-background">
@@ -606,7 +412,7 @@ export default function HomeClient() {
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl md:text-2xl font-light max-w-2xl mx-auto mb-16 text-muted-foreground">
-            Let&apos;s discuss how SimpleIn Solutions can help you achieve your technology goals.
+            Let&apos;s discuss how SimpleIn Solutions can help you integrate, automate, and scale your technology operations.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
@@ -636,9 +442,9 @@ export default function HomeClient() {
               
               <div className="space-y-8 mb-12 lg:mb-0">
                 {[
-                  { icon: Phone, title: "Call Us", info: "+91 XXXX XXXX XX", link: "tel:+91XXXXXXXXXX" },
+                  { icon: Phone, title: "Call Us", info: "+91 98765 43210", link: "tel:+919876543210" },
                   { icon: Mail, title: "Email Us", info: "info@simpleinsolutions.com", link: "mailto:info@simpleinsolutions.com" },
-                  { icon: MapPin, title: "Visit Us", info: "Hyderabad, Telangana, India", link: "#" },
+                  { icon: Clock, title: "Working Hours", info: "Mon-Fri, 9AM - 6PM (IST)", link: "#" },
                 ].map((item) => (
                   <a key={item.title} href={item.link} className="group flex items-start gap-6">
                     <div className="w-12 h-12 border border-[var(--border-color)] flex items-center justify-center group-hover:border-foreground transition-colors bg-[var(--surface)]">

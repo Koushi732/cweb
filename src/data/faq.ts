@@ -18,7 +18,7 @@ export const generalFAQs: FAQItem[] = [
   },
   {
     question: "Do you offer post-launch support and maintenance?",
-    answer: "Absolutely. We offer flexible support and maintenance packages including 24/7 monitoring, bug fixes, security updates, performance optimization, and feature enhancements. Our AMC contracts ensure your systems run at peak performance.",
+    answer: "Absolutely. We offer flexible support and maintenance packages including proactive monitoring, bug fixes, security updates, performance optimization, and feature enhancements. Our AMC contracts ensure your systems run at peak performance.",
   },
   {
     question: "Can you work with our existing technology stack?",
@@ -33,7 +33,7 @@ export const generalFAQs: FAQItem[] = [
 export const serviceFAQs: FAQItem[] = [
   {
     question: "What technologies do you specialize in?",
-    answer: "Our core expertise includes React, Next.js, Node.js, Python, Java, .NET, React Native, Flutter, AWS, Azure, GCP, Docker, Kubernetes, TensorFlow, and many more. We stay current with the latest technologies.",
+    answer: "Our core expertise spans the modern web, mobile, and cloud ecosystems. We specialize in Frontend (React.js, Next.js, Tailwind CSS), Backend (Node.js, Python, FastAPI), Mobile (Flutter), Database (PostgreSQL, Supabase), and Cloud/DevOps (Docker, Vercel, GitHub Actions). We also have extensive experience with AI & Automation using OpenAI APIs and Python-based workflow automation tools.",
   },
   {
     question: "Do you provide dedicated development teams?",
@@ -41,7 +41,7 @@ export const serviceFAQs: FAQItem[] = [
   },
   {
     question: "What is your engagement model?",
-    answer: "We offer three engagement models: Fixed Price (for well-defined projects), Time & Material (for evolving requirements), and Dedicated Team (for long-term partnerships). We help you choose the best model for your needs.",
+    answer: "We operate on a custom consultation and quotation model. Every business has unique requirements, so instead of fixed pricing packages, we provide a free initial consultation, requirement analysis, and a tailored proposal to ensure you get exactly what you need.",
   },
 ];
 
@@ -52,7 +52,7 @@ export const hardwareFAQs: FAQItem[] = [
   },
   {
     question: "What brands do you supply?",
-    answer: "We are authorized resellers and partners for major brands including Dell, HP, Lenovo, Cisco, Apple, Microsoft, and many more. We can source any enterprise hardware you need.",
+    answer: "We supply a wide range of enterprise-grade hardware from leading global manufacturers. We focus on sourcing the right equipment tailored to your specific performance, security, and budgetary requirements.",
   },
   {
     question: "Do you offer Annual Maintenance Contracts (AMC)?",

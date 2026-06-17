@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import {
   ArrowRight, CheckCircle2, Laptop, Monitor, Server, Wifi, HardDrive,
   Printer, Headphones, Building2, Cpu, Settings, ShoppingCart, FileCheck,
-  Network, Send,
+  Network, Send, Camera, Fingerprint, Building, Shield,
 } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
@@ -15,7 +15,7 @@ import { useState } from "react";
 
 const iconMap: Record<string, React.ElementType> = {
   Laptop, Monitor, Server, Wifi, HardDrive, Printer, Headphones, Building2,
-  Cpu, Settings, ShoppingCart, FileCheck, Network,
+  Cpu, Settings, ShoppingCart, FileCheck, Network, Camera, Fingerprint, Building, Shield,
 };
 
 export default function HardwareClient() {

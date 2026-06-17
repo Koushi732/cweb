@@ -6,7 +6,11 @@ import { ArrowRight, CheckCircle2, Code2, Globe, Smartphone, Cloud, Shield, Brai
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
 import { services } from "@/data/services";
+import dynamic from "next/dynamic";
 import { serviceFAQs } from "@/data/faq";
+
+const ProcessSection = dynamic(() => import("@/components/ui/ProcessSection"), { ssr: true });
+const WhyChooseUsSection = dynamic(() => import("@/components/ui/WhyChooseUsSection"), { ssr: true });
 
 const iconMap: Record<string, React.ElementType> = {
   Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch, Palette, Wrench,
@@ -131,7 +135,18 @@ export default function ServicesClient() {
                       ))}
                     </ul>
 
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-foreground mt-16 mb-8">Technologies</h3>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-3 mt-12 px-8 py-4 bg-foreground text-background font-medium text-sm hover:bg-[var(--accent)] transition-colors"
+                    >
+                      Discuss This Service <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </ScrollAnimationWrapper>
+                </div>
+
+                <div className="lg:col-span-5 lg:pl-12 mt-12 lg:mt-0">
+                  <ScrollAnimationWrapper>
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-foreground mb-8">Technologies</h3>
                     <div className="flex flex-wrap gap-3">
                       {service.technologies.map((tech) => (
                         <span
@@ -142,28 +157,6 @@ export default function ServicesClient() {
                         </span>
                       ))}
                     </div>
-
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-3 mt-12 px-8 py-4 bg-foreground text-background font-medium text-sm hover:bg-[var(--accent)] transition-colors"
-                    >
-                      Discuss This Service <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </ScrollAnimationWrapper>
-                </div>
-
-                <div className="lg:col-span-5 lg:pl-12">
-                  <ScrollAnimationWrapper>
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-foreground mb-8">Our Process</h3>
-                    <div className="space-y-12 border-l border-[var(--border-color)] pl-8">
-                      {service.process.map((step) => (
-                        <div key={step.step} className="relative">
-                          <div className="absolute -left-[41px] top-1 w-5 h-5 bg-background border-2 border-[var(--accent)] rounded-full" />
-                          <h4 className="text-xl font-bold text-foreground mb-2">{step.title}</h4>
-                          <p className="text-base text-muted-foreground leading-relaxed">{step.description}</p>
-                        </div>
-                      ))}
-                    </div>
                   </ScrollAnimationWrapper>
                 </div>
               </div>
@@ -171,6 +164,12 @@ export default function ServicesClient() {
           </section>
         );
       })}
+
+      {/* Why Choose Us */}
+      <WhyChooseUsSection />
+
+      {/* Process Section */}
+      <ProcessSection />
 
       {/* FAQ */}
       <section className="py-32 bg-background border-t border-[var(--border-color)]">

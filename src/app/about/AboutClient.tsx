@@ -2,11 +2,15 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Lightbulb, Target, Eye, Users, Shield, Zap, Award, Heart } from "lucide-react";
+import { ArrowRight, Lightbulb, Target, Eye, Users, Shield, Zap, Award, Heart } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import dynamic from "next/dynamic";
 import { coreValues, milestones, stats } from "@/data/team";
+
+const ProcessSection = dynamic(() => import("@/components/ui/ProcessSection"), { ssr: true });
+const WhyChooseUsSection = dynamic(() => import("@/components/ui/WhyChooseUsSection"), { ssr: true });
 
 const iconMap: Record<string, React.ElementType> = {
   Lightbulb, Award, Shield, Users, Zap, Target, Heart,
@@ -52,27 +56,26 @@ export default function AboutClient() {
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground font-light leading-relaxed">
                 <p>
-                  Founded in 2018, SimpleIn Solutions started with a simple mission: make enterprise-grade technology accessible to businesses of all sizes. What began as a small team of passionate developers has grown into a full-service IT company serving clients across multiple industries.
+                  SimpleIn Solutions acts as a long-term technology partner, helping Startups, SMBs, and Growing Enterprises design, build, automate, and scale their digital operations.
                 </p>
                 <p>
-                  Today, we specialize in custom software development, cloud infrastructure, cybersecurity, AI solutions, and enterprise hardware procurement. Our 50+ team members bring diverse expertise and a shared commitment to excellence.
-                </p>
-                <p>
-                  We&apos;ve successfully delivered 500+ projects to clients ranging from startups to large enterprises, always maintaining the same dedication to quality, innovation, and customer success that defined us from day one.
+                  We focus on delivering practical, high-quality, and future-ready technology solutions that align with your business objectives, rather than simply completing development projects. By building integrated digital ecosystems, we streamline your operations, improve collaboration, and support long-term growth.
                 </p>
               </div>
             </ScrollAnimationWrapper>
 
-            <ScrollAnimationWrapper animation="slide-right" className="grid grid-cols-2 gap-6 lg:mt-24">
-              {stats.map((stat) => (
-                <div key={stat.label} className="p-8 bg-background border border-[var(--border-color)] text-left hover:border-foreground transition-colors">
-                  <div className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-serif tracking-tighter">
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+            {stats.length > 0 && (
+              <ScrollAnimationWrapper animation="slide-right" className="grid grid-cols-2 gap-6 lg:mt-24">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="p-8 bg-background border border-[var(--border-color)] text-left hover:border-foreground transition-colors">
+                    <div className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-serif tracking-tighter">
+                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                    </div>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground font-bold">{stat.label}</p>
                   </div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-bold">{stat.label}</p>
-                </div>
-              ))}
-            </ScrollAnimationWrapper>
+                ))}
+              </ScrollAnimationWrapper>
+            )}
           </div>
         </div>
       </section>
@@ -97,7 +100,7 @@ export default function AboutClient() {
                 </div>
                 <h3 className="text-3xl font-bold mb-6 text-foreground">Our Mission</h3>
                 <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                  To empower businesses with innovative, reliable, and scalable technology solutions that drive growth, efficiency, and competitive advantage in an ever-evolving digital landscape.
+                  Our mission is to help businesses accelerate growth through innovative software development, AI automation, cloud technologies, enterprise IT solutions, and digital transformation. We focus on delivering reliable, scalable, and business-driven technology solutions that create measurable value for our clients.
                 </p>
               </div>
             </ScrollAnimationWrapper>
@@ -109,7 +112,7 @@ export default function AboutClient() {
                 </div>
                 <h3 className="text-3xl font-bold mb-6 text-foreground">Our Vision</h3>
                 <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                  To be the most trusted IT partner for businesses worldwide, recognized for our technical excellence, innovative solutions, and unwavering commitment to client success.
+                  To become a globally trusted technology company recognized for building intelligent digital products, delivering high-quality IT services, and empowering businesses through innovation, automation, and modern software solutions.
                 </p>
               </div>
             </ScrollAnimationWrapper>
@@ -152,73 +155,49 @@ export default function AboutClient() {
       </section>
 
       {/* Growth Roadmap / Milestones */}
-      <section className="py-32 bg-background border-b border-[var(--border-color)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-20">
-            <span className="inline-block text-xs font-bold text-[var(--accent)] uppercase tracking-widest mb-6">
-              Our Journey
-            </span>
-            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight mb-8 leading-tight">
-              Growth Roadmap.
-            </h2>
-            <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-3xl leading-tight">
-              From humble beginnings to becoming a trusted technology partner for businesses across India.
-            </p>
-          </ScrollAnimationWrapper>
+      {milestones.length > 0 && (
+        <section className="py-32 bg-background border-b border-[var(--border-color)]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ScrollAnimationWrapper className="mb-20">
+              <span className="inline-block text-xs font-bold text-[var(--accent)] uppercase tracking-widest mb-6">
+                Our Journey
+              </span>
+              <h2 className="text-4xl sm:text-6xl font-bold tracking-tight mb-8 leading-tight">
+                Growth Roadmap.
+              </h2>
+              <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-3xl leading-tight">
+                From humble beginnings to becoming a trusted technology partner for businesses across India.
+              </p>
+            </ScrollAnimationWrapper>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="space-y-8">
-              {milestones.map((milestone, i) => (
-                <ScrollAnimationWrapper key={milestone.year} delay={i * 0.05}>
-                  <div className="flex flex-col md:flex-row gap-8 p-10 bg-[var(--surface)] border border-[var(--border-color)] hover:border-foreground transition-colors group">
-                    <div className="flex-shrink-0 md:w-32">
-                      <div className="text-4xl font-serif tracking-tighter text-foreground group-hover:text-[var(--accent)] transition-colors">
-                        {milestone.year}
+            <div className="max-w-5xl mx-auto">
+              <div className="space-y-8">
+                {milestones.map((milestone, i) => (
+                  <ScrollAnimationWrapper key={milestone.year} delay={i * 0.05}>
+                    <div className="flex flex-col md:flex-row gap-8 p-10 bg-[var(--surface)] border border-[var(--border-color)] hover:border-foreground transition-colors group">
+                      <div className="flex-shrink-0 md:w-32">
+                        <div className="text-4xl font-serif tracking-tighter text-foreground group-hover:text-[var(--accent)] transition-colors">
+                          {milestone.year}
+                        </div>
+                      </div>
+                      <div className="md:pl-8 md:border-l border-[var(--border-color)]">
+                        <h3 className="text-2xl font-bold mb-4 text-foreground">{milestone.title}</h3>
+                        <p className="text-lg text-muted-foreground font-light leading-relaxed">{milestone.description}</p>
                       </div>
                     </div>
-                    <div className="md:pl-8 md:border-l border-[var(--border-color)]">
-                      <h3 className="text-2xl font-bold mb-4 text-foreground">{milestone.title}</h3>
-                      <p className="text-lg text-muted-foreground font-light leading-relaxed">{milestone.description}</p>
-                    </div>
-                  </div>
-                </ScrollAnimationWrapper>
-              ))}
+                  </ScrollAnimationWrapper>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Why Trust Us */}
-      <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-20">
-            <span className="inline-block text-xs font-bold text-[var(--accent)] uppercase tracking-widest mb-6">
-              Why Trust Us
-            </span>
-            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight mb-8 leading-tight">
-              The Advantage.
-            </h2>
-          </ScrollAnimationWrapper>
+      {/* Why Choose Us */}
+      <WhyChooseUsSection />
 
-          <StaggerChildren className="grid sm:grid-cols-2 gap-8">
-            {[
-              "Proven track record with 500+ successful projects",
-              "Transparent pricing with no hidden costs",
-              "24/7 support and dedicated account managers",
-              "Industry-certified experts and continuous training",
-              "Agile methodology with bi-weekly sprint reviews",
-              "Post-launch support and maintenance contracts",
-            ].map((item) => (
-              <StaggerItem key={item}>
-                <div className="flex items-start gap-4 p-8 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors">
-                  <CheckCircle2 className="w-6 h-6 text-[var(--accent)] flex-shrink-0" />
-                  <span className="text-lg text-foreground font-medium">{item}</span>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </div>
-      </section>
+      {/* Process */}
+      <ProcessSection />
 
       {/* CTA */}
       <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)] text-foreground">

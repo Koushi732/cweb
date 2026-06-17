@@ -2,10 +2,15 @@
 
 import { motion } from "framer-motion";
 import {
-  Send, Phone, Mail, MapPin, Clock, MessageCircle,
+  Send, Phone, Mail, Clock, MessageCircle,
 } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
+import dynamic from "next/dynamic";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
+
+const ProcessSection = dynamic(() => import("@/components/ui/ProcessSection"), { ssr: true });
+const WhyChooseUsSection = dynamic(() => import("@/components/ui/WhyChooseUsSection"), { ssr: true });
+const CommunicationSection = dynamic(() => import("@/components/ui/CommunicationSection"), { ssr: true });
 import { generalFAQs } from "@/data/faq";
 import { useState } from "react";
 
@@ -51,23 +56,19 @@ export default function ContactClient() {
       {/* Contact Info Cards (overlapping hero) */}
       <section className="relative -mt-16 pb-32 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <StaggerChildren className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 bg-background border border-[var(--border-color)]">
+          <StaggerChildren className="grid sm:grid-cols-1 md:grid-cols-3 gap-0 bg-background border border-[var(--border-color)]">
             {[
               {
-                icon: Phone, title: "Call Us", info: "+91 XXXX XXXX XX",
-                subInfo: "Mon - Sat, 9 AM - 7 PM", href: "tel:+91XXXXXXXXXX",
+                icon: Phone, title: "Call Us", info: "+91 98765 43210",
+                subInfo: "Mon - Fri, 9 AM - 6 PM", href: "tel:+919876543210",
               },
               {
-                icon: Mail, title: "Email Us", info: "info@simpleinsolutions.com",
-                subInfo: "24/7 support", href: "mailto:info@simpleinsolutions.com",
+                icon: Mail, title: "General Email", info: "info@simpleinsolutions.com",
+                subInfo: "Support during business hours", href: "mailto:info@simpleinsolutions.com",
               },
               {
-                icon: MessageCircle, title: "WhatsApp", info: "+91 XXXX XXXX XX",
-                subInfo: "Quick response", href: "https://wa.me/91XXXXXXXXXX",
-              },
-              {
-                icon: MapPin, title: "Visit Us", info: "Hyderabad, Telangana",
-                subInfo: "India", href: "#map",
+                icon: MessageCircle, title: "WhatsApp", info: "+91 98765 43210",
+                subInfo: "Quick response", href: "https://wa.me/919876543210",
               },
             ].map((item, index) => (
               <StaggerItem key={item.title}>
@@ -76,8 +77,8 @@ export default function ContactClient() {
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
                   className={`block p-8 hover:bg-[var(--surface)] transition-colors h-full ${
-                    index !== 0 ? 'border-t sm:border-t-0 sm:border-l border-[var(--border-color)]' : ''
-                  } ${index === 2 ? 'lg:border-l border-t lg:border-t-0 border-[var(--border-color)]' : ''} ${index === 3 ? 'border-t lg:border-t-0 border-l border-[var(--border-color)]' : ''}`}
+                    index !== 0 ? 'border-t md:border-t-0 md:border-l border-[var(--border-color)]' : ''
+                  }`}
                 >
                   <div className="mb-6 text-[var(--accent)]">
                     <item.icon className="w-8 h-8" />
@@ -91,6 +92,9 @@ export default function ContactClient() {
           </StaggerChildren>
         </div>
       </section>
+
+      {/* Communication Section */}
+      <CommunicationSection />
 
       {/* Form + Map */}
       <section className="pb-32 border-b border-[var(--border-color)]">
@@ -191,7 +195,10 @@ export default function ContactClient() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-foreground text-background font-bold text-sm uppercase tracking-widest hover:bg-[var(--accent)] hover:text-[var(--primary-foreground)] transition-colors"
+                    disabled={submitted}
+                    aria-disabled={submitted}
+                    aria-live="polite"
+                    className={`w-full flex items-center justify-center gap-3 px-8 py-5 font-bold text-sm uppercase tracking-widest transition-colors ${submitted ? 'bg-[var(--surface)] text-[var(--accent)] cursor-not-allowed' : 'bg-foreground text-background hover:bg-[var(--accent)] hover:text-[var(--primary-foreground)]'}`}
                   >
                     {submitted ? "✓ Message Sent!" : <>Send Message <Send className="w-4 h-4" /></>}
                   </button>
@@ -200,46 +207,41 @@ export default function ContactClient() {
             </ScrollAnimationWrapper>
 
             <ScrollAnimationWrapper animation="slide-right">
-              <div className="space-y-8 h-full" id="map">
-                <div
-                  className="border border-[var(--border-color)] h-80 bg-[var(--surface)] flex items-center justify-center relative"
-                  style={{
-                    backgroundImage: "linear-gradient(45deg, var(--surface) 25%, transparent 25%), linear-gradient(-45deg, var(--surface) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--surface) 75%), linear-gradient(-45deg, transparent 75%, var(--surface) 75%)",
-                    backgroundSize: "20px 20px",
-                    backgroundPosition: "0 0, 0 10px, 10px -10px, 10px 0px",
-                    backgroundColor: "var(--background)",
-                  }}
-                >
-                  <div className="text-center px-10 bg-background p-10 border border-[var(--border-color)] shadow-2xl">
-                    <div className="mb-6 text-[var(--accent)] flex justify-center">
-                      <MapPin className="w-10 h-10" />
-                    </div>
-                    <p className="text-lg font-bold mb-2">Hyderabad, Telangana, India</p>
-                    <p className="text-sm text-muted-foreground font-light">Map integration placeholder</p>
-                  </div>
+              <div className="space-y-8 h-full">
+                <div className="p-10 bg-[var(--surface)] border border-[var(--border-color)]">
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-foreground mb-8">Direct Contacts</h3>
+                  <ul className="space-y-6 text-base">
+                    <li className="flex items-start gap-4">
+                      <Mail className="w-5 h-5 text-[var(--accent)] mt-0.5 flex-shrink-0" />
+                      <div>
+                        <p className="font-bold text-foreground">Sales Inquiries</p>
+                        <a href="mailto:sales@simpleinsolutions.com" className="text-muted-foreground font-light hover:text-[var(--accent)] transition-colors">sales@simpleinsolutions.com</a>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <Mail className="w-5 h-5 text-[var(--accent)] mt-0.5 flex-shrink-0" />
+                      <div>
+                        <p className="font-bold text-foreground">Technical Support</p>
+                        <a href="mailto:support@simpleinsolutions.com" className="text-muted-foreground font-light hover:text-[var(--accent)] transition-colors">support@simpleinsolutions.com</a>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
 
                 <div className="p-10 bg-[var(--surface)] border border-[var(--border-color)]">
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-foreground mb-8">Office Hours</h3>
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-foreground mb-8">Working Hours</h3>
                   <ul className="space-y-6 text-base">
                     <li className="flex items-start gap-4">
                       <Clock className="w-5 h-5 text-[var(--accent)] mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-bold text-foreground">Monday - Friday</p>
-                        <p className="text-muted-foreground font-light">9:00 AM - 7:00 PM</p>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <Clock className="w-5 h-5 text-[var(--accent)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <p className="font-bold text-foreground">Saturday</p>
-                        <p className="text-muted-foreground font-light">10:00 AM - 5:00 PM</p>
+                        <p className="text-muted-foreground font-light">9:00 AM - 6:00 PM (IST)</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-4 opacity-50">
                       <Clock className="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="font-bold text-foreground">Sunday</p>
+                        <p className="font-bold text-foreground">Saturday - Sunday</p>
                         <p className="text-muted-foreground font-light">Closed</p>
                       </div>
                     </li>
@@ -250,6 +252,12 @@ export default function ContactClient() {
           </div>
         </div>
       </section>
+
+      {/* Why Choose Us */}
+      <WhyChooseUsSection />
+
+      {/* Process */}
+      <ProcessSection />
 
       {/* FAQ */}
       <section className="py-32 bg-[var(--surface)]">

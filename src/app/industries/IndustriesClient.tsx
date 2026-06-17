@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Heart, GraduationCap, ShoppingBag, Factory, Truck, Landmark, Building, Building2, Rocket, Briefcase, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, Heart, GraduationCap, ShoppingBag, Factory, Truck, Landmark, Building, Building2, Rocket, Briefcase } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
 import { industries } from "@/data/industries";
@@ -48,8 +48,8 @@ export default function IndustriesClient() {
             <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground mb-6">
               Tailored Solutions.
             </h2>
-            <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-3xl leading-tight">
-              We understand the unique challenges of each industry and deliver solutions that drive real business outcomes.
+            <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-4xl leading-tight">
+              We understand that every industry has unique operational challenges. Our approach is to design and develop technology solutions tailored to each client&apos;s specific business goals rather than offering one-size-fits-all products.
             </p>
           </ScrollAnimationWrapper>
 
@@ -65,14 +65,7 @@ export default function IndustriesClient() {
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold mb-2 text-foreground">{industry.title}</h3>
-                        <div className="flex items-center gap-2">
-                          <div className="flex gap-1">
-                            {Array.from({ length: 5 }).map((_, i) => (
-                              <Star key={i} className="w-3 h-3 text-foreground fill-foreground" />
-                            ))}
-                          </div>
-                          <span className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Industry Expert</span>
-                        </div>
+
                       </div>
                     </div>
                     <p className="text-base text-muted-foreground leading-relaxed mb-8 flex-grow">{industry.description}</p>

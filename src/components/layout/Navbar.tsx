@@ -73,6 +73,8 @@ export default function Navbar() {
                       onMouseLeave={() => setMegaMenuOpen(false)}
                     >
                       <button
+                        aria-expanded={megaMenuOpen}
+                        aria-haspopup="true"
                         className={`flex items-center gap-1 px-4 py-2 rounded-none text-sm font-medium transition-colors ${pathname === item.href || pathname.startsWith("/services") || pathname.startsWith("/hardware")
                             ? "text-foreground bg-[var(--surface)]"
                             : "text-muted-foreground hover:text-foreground hover:bg-[var(--surface-hover)]"
@@ -179,6 +181,8 @@ export default function Navbar() {
               {/* Mobile Menu Toggle */}
               <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
+                aria-expanded={isMobileOpen}
+                aria-haspopup="true"
                 className="lg:hidden p-2.5 rounded-none border border-transparent hover:border-[var(--border-color)] hover:bg-[var(--surface)] transition-colors"
                 aria-label="Toggle menu"
               >

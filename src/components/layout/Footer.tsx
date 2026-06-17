@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Phone, MapPin, ArrowUp } from "lucide-react";
+import { Mail, Phone, Clock, ArrowUp } from "lucide-react";
 import { useState } from "react";
 
 const LinkedinIcon = ({ className }: { className?: string }) => (
@@ -54,12 +54,11 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Services</h3>
             <ul className="space-y-4">
               {[
-                { name: "Software Development", href: "/services#software-development" },
-                { name: "Web Development", href: "/services#web-development" },
-                { name: "Mobile App Development", href: "/services#mobile-development" },
-                { name: "Cloud Infrastructure", href: "/services#cloud" },
-                { name: "Cybersecurity", href: "/services#cybersecurity" },
-                { name: "AI Solutions", href: "/services#ai" },
+                { name: "Custom Software", href: "/services#custom-software" },
+                { name: "Web & Mobile", href: "/services#web-development" },
+                { name: "AI & Automation", href: "/services#ai-automation" },
+                { name: "Cloud & DevOps", href: "/services#cloud-deployment" },
+                { name: "Enterprise Systems", href: "/services#enterprise-software" },
                 { name: "IT Hardware Sales", href: "/hardware" },
               ].map((link) => (
                 <li key={link.name}>
@@ -100,8 +99,8 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Contact</h3>
             <ul className="space-y-4 text-base text-muted-foreground">
               <li className="flex items-start gap-3 hover:text-foreground transition-colors">
-                <a href="tel:+91XXXXXXXXXX" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" /> +91 XXXX XXXX XX
+                <a href="tel:+919876543210" className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" /> +91 98765 43210
                 </a>
               </li>
               <li className="flex items-start gap-3 hover:text-foreground transition-colors">
@@ -109,10 +108,10 @@ export default function Footer() {
                   <Mail className="w-4 h-4" /> info@simpleinsolutions.com
                 </a>
               </li>
-              <li className="flex items-start gap-3 hover:text-foreground transition-colors">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                  <span>Hyderabad, Telangana, India</span>
+              <li className="flex items-start gap-3 hover:text-foreground transition-colors cursor-default">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" />
+                  <span>Mon-Fri: 9:00 AM – 6:00 PM (IST)</span>
                 </div>
               </li>
             </ul>
@@ -168,7 +167,9 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link>
+            <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms & Conditions</Link>
+            <Link href="/cookie-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link>
+            <Link href="/disclaimer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Disclaimer</Link>
             <button
               onClick={scrollToTop}
               className="w-10 h-10 rounded-none border border-[var(--border-color)] flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors ml-4"

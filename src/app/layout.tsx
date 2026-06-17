@@ -9,11 +9,13 @@ import WhatsAppButton from "@/components/ui/WhatsAppButton";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -72,22 +74,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "SimpleIn Solutions",
-    description: "Smart IT Solutions for a Digital Future",
-    url: "https://simpleinsolutions.com",
-    logo: "https://simpleinsolutions.com/logo.png",
-    sameAs: [],
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+91-XXXX-XXXX-XX",
-      contactType: "sales",
-      areaServed: "IN",
-      availableLanguage: ["English", "Hindi"],
-    },
-  };
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "SimpleIn Solutions",
+      description: "Smart IT Solutions for a Digital Future",
+      url: "https://simpleinsolutions.com",
+      logo: "https://simpleinsolutions.com/logo.png",
+      sameAs: [],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+91-98765-43210",
+        contactType: "sales",
+        availableLanguage: ["English", "Hindi"],
+      },
+    };
 
   return (
     <html
@@ -102,10 +103,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col overflow-x-hidden">
         <ThemeProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-foreground text-background font-bold rounded-none"
+          >
+            Skip to main content
+          </a>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <Footer />
           <WhatsAppButton />
         </ThemeProvider>
