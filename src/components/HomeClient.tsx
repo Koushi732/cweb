@@ -343,7 +343,7 @@ export default function HomeClient() {
               const Icon = iconMap[industry.icon] || Briefcase;
               return (
                 <StaggerItem key={industry.id}>
-                  <div className="group flex flex-col items-center justify-center text-center gap-4 px-6 py-10 bg-background hover:bg-[var(--surface)] transition-all cursor-default">
+                  <div className="group flex flex-col items-center justify-center text-center gap-4 px-6 py-10 bg-background hover:bg-[var(--surface)] transition-all cursor-default h-full">
                     <Icon className="w-8 h-8 text-[var(--accent)] transition-colors" />
                     <span className="text-sm font-bold uppercase tracking-widest">{industry.title}</span>
                   </div>
