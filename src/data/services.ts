@@ -180,6 +180,40 @@ export const services: Service[] = [
     ],
     technologies: ["GitHub", "GitHub Actions", "Docker", "Vercel", "Cloudflare", "PostgreSQL", "Node.js"],
   },
+  {
+    id: "digital-marketing",
+    title: "Digital Marketing",
+    slug: "digital-marketing",
+    icon: "Megaphone",
+    shortDescription: "SEO, social media management, brand promotion, and digital visibility strategies for your business.",
+    description: "We help businesses grow their online presence through strategic digital marketing. From search engine optimization to social media management, we create data-driven campaigns that increase visibility, drive traffic, and convert visitors into customers.",
+    benefits: [
+      "Search engine optimization (SEO)",
+      "Social media management and strategy",
+      "Brand positioning and identity",
+      "Content marketing and copywriting",
+      "Online reputation management",
+      "Analytics and performance tracking",
+    ],
+    technologies: ["Google Analytics", "SEO Tools", "Social Media Platforms", "Content Management Systems"],
+  },
+  {
+    id: "networking-security",
+    title: "Networking & Security",
+    slug: "networking-security",
+    icon: "Network",
+    shortDescription: "Network infrastructure setup, security systems, surveillance, and IT security solutions.",
+    description: "We design, deploy, and maintain robust network infrastructures and security systems for businesses. From structured cabling and Wi-Fi solutions to CCTV surveillance and firewall management, we ensure your business stays connected and protected.",
+    benefits: [
+      "Complete network design and setup",
+      "Wi-Fi infrastructure deployment",
+      "Firewall and security appliance configuration",
+      "CCTV and surveillance systems",
+      "Network monitoring and management",
+      "Security audits and compliance",
+    ],
+    technologies: ["Network Equipment", "Firewalls", "CCTV Systems", "Wi-Fi Infrastructure", "VPN Solutions"],
+  },
 ];
 
 export const serviceCategories = [
@@ -189,5 +223,7 @@ export const serviceCategories = [
   { name: "Enterprise & Integration", icon: "Building2", count: 2 },
   { name: "UI/UX Design", icon: "Palette", count: 1 },
   { name: "Cloud & DevOps", icon: "Cloud", count: 1 },
+  { name: "Marketing", icon: "Megaphone", count: 1 },
+  { name: "Networking & Security", icon: "Network", count: 1 },
   { name: "Support & Maintenance", icon: "Wrench", count: 1 },
 ];

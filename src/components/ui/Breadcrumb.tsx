@@ -26,7 +26,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono font-bold tracking-[0.2em] uppercase">
         <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">
           <Home className="w-4 h-4" />
         </Link>

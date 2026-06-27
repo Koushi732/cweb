@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
 });
@@ -21,11 +21,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://simpleinsolutions.com"),
   title: {
-    default: "SimpleIn Solutions — Smart IT Solutions for a Digital Future",
+    default: "SimpleIn Solutions — Every Service Made Simple",
     template: "%s | SimpleIn Solutions",
   },
   description:
-    "SimpleIn Solutions offers premium IT services, custom software development, web & mobile app development, cloud solutions, cybersecurity, AI solutions, IT consulting, and enterprise hardware sales.",
+    "SimpleIn Solutions builds scalable digital solutions using modern technologies. Custom software development, web & mobile apps, AI automation, IT hardware, and enterprise IT services in AP & Telangana.",
   keywords: [
     "IT Services",
     "Software Development",
@@ -33,11 +33,12 @@ export const metadata: Metadata = {
     "Mobile App Development",
     "Cloud Solutions",
     "IT Consulting",
-    "Cybersecurity",
-    "AI Solutions",
+    "AI Automation",
     "IT Hardware Sales",
     "Digital Transformation",
     "SimpleIn Solutions",
+    "IT Services Telangana",
+    "IT Services Andhra Pradesh",
   ],
   authors: [{ name: "SimpleIn Solutions" }],
   creator: "SimpleIn Solutions",
@@ -46,15 +47,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "SimpleIn Solutions",
-    title: "SimpleIn Solutions — Smart IT Solutions for a Digital Future",
+    title: "SimpleIn Solutions — Every Service Made Simple",
     description:
-      "Premium IT services, software development, and hardware solutions for businesses of all sizes.",
+      "We build scalable digital solutions using modern technologies. Custom software, web & mobile apps, AI automation, and enterprise IT services.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SimpleIn Solutions — Smart IT Solutions for a Digital Future",
+    title: "SimpleIn Solutions — Every Service Made Simple",
     description:
-      "Premium IT services, software development, and hardware solutions for businesses of all sizes.",
+      "We build scalable digital solutions using modern technologies. Custom software, web & mobile apps, AI automation, and enterprise IT services.",
   },
   robots: {
     index: true,
@@ -78,22 +79,26 @@ export default function RootLayout({
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "SimpleIn Solutions",
-      description: "Smart IT Solutions for a Digital Future",
+      description: "Every Service Made Simple — Custom software development, IT services, and hardware solutions.",
       url: "https://simpleinsolutions.com",
-      logo: "https://simpleinsolutions.com/logo.png",
       sameAs: [],
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+91-98765-43210",
+        telephone: "+91-9392551177",
         contactType: "sales",
-        availableLanguage: ["English", "Hindi"],
+        availableLanguage: ["English", "Hindi", "Telugu"],
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "AP & Telangana",
+        addressCountry: "IN",
       },
     };
 
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

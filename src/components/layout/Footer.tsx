@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Phone, Clock, ArrowUp } from "lucide-react";
-import { useState } from "react";
+import { Mail, Phone, Clock, ArrowUp, MapPin } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState } from "react";
 
 const LinkedinIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
@@ -20,6 +21,16 @@ const FacebookIcon = ({ className }: { className?: string }) => (
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"]
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,23 +46,26 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-background pt-32 pb-12 border-t border-[var(--border-color)]">
+    <footer ref={containerRef} className="relative bg-background pt-32 pb-12 border-t border-[var(--border-color)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-24 md:mb-32">
           <Link href="/" className="inline-block group">
-            <h2 className="text-[12vw] sm:text-8xl md:text-[8rem] lg:text-[10rem] font-bold leading-none tracking-tighter text-foreground group-hover:text-[var(--accent)] transition-colors">
+            <motion.h2 
+              style={{ scale, opacity, y }}
+              className="text-[12vw] sm:text-8xl md:text-[8rem] lg:text-[10rem] font-bold leading-none tracking-tighter text-foreground transition-colors uppercase origin-left"
+            >
               SimpleIn.
-            </h2>
+            </motion.h2>
           </Link>
           <p className="text-xl md:text-3xl font-light text-muted-foreground max-w-2xl mt-8 leading-tight">
-            Smart IT Solutions for a Digital Future. We empower businesses with cutting-edge technology.
+            Every Service Made Simple. <br /> We build scalable digital solutions using modern technologies.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-24">
           {/* Column 1: Services */}
           <div className="lg:col-span-3">
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Services</h3>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Services</h3>
             <ul className="space-y-4">
               {[
                 { name: "Custom Software", href: "/services#custom-software" },
@@ -59,12 +73,14 @@ export default function Footer() {
                 { name: "AI & Automation", href: "/services#ai-automation" },
                 { name: "Cloud & DevOps", href: "/services#cloud-deployment" },
                 { name: "Enterprise Systems", href: "/services#enterprise-software" },
+                { name: "Digital Marketing", href: "/services#digital-marketing" },
+                { name: "Networking & Security", href: "/services#networking-security" },
                 { name: "IT Hardware Sales", href: "/hardware" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-base text-muted-foreground hover:text-[var(--accent)] transition-colors"
+                    className="text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -75,7 +91,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="lg:col-span-2">
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Company</h3>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Company</h3>
             <ul className="space-y-4">
               {[
                 { name: "About Us", href: "/about" },
@@ -85,7 +101,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-base text-muted-foreground hover:text-[var(--accent)] transition-colors"
+                    className="text-base text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -96,22 +112,33 @@ export default function Footer() {
 
           {/* Column 3: Contact */}
           <div className="lg:col-span-3">
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Contact</h3>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Contact</h3>
             <ul className="space-y-4 text-base text-muted-foreground">
               <li className="flex items-start gap-3 hover:text-foreground transition-colors">
-                <a href="tel:+919876543210" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" /> +91 98765 43210
+                <a href="tel:+919392551177" className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 shrink-0" /> +91 93925 51177
                 </a>
               </li>
               <li className="flex items-start gap-3 hover:text-foreground transition-colors">
-                <a href="mailto:info@simpleinsolutions.com" className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" /> info@simpleinsolutions.com
+                <a href="tel:+919848334984" className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 shrink-0" /> +91 984 8334 984
+                </a>
+              </li>
+              <li className="flex items-start gap-3 hover:text-foreground transition-colors">
+                <a href="mailto:sreekar0312@gmail.com" className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 shrink-0" /> sreekar0312@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3 hover:text-foreground transition-colors cursor-default">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
+                  <Clock className="w-4 h-4 shrink-0" />
                   <span>Mon-Fri: 9:00 AM – 6:00 PM (IST)</span>
+                </div>
+              </li>
+              <li className="flex items-start gap-3 hover:text-foreground transition-colors cursor-default">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 shrink-0" />
+                  <span>AP & TELANGANA</span>
                 </div>
               </li>
             </ul>
@@ -119,7 +146,7 @@ export default function Footer() {
 
           {/* Column 4: Newsletter & Social */}
           <div className="lg:col-span-4 lg:pl-12">
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Newsletter</h3>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Newsletter</h3>
             <form onSubmit={handleSubscribe} className="relative flex items-center border-b border-[var(--border-color)] focus-within:border-foreground transition-colors mb-12 pb-2">
               <input
                 type="email"
@@ -131,13 +158,13 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="text-foreground hover:text-[var(--accent)] font-medium text-sm transition-colors uppercase tracking-wider"
+                className="text-foreground hover:text-muted-foreground font-bold text-sm transition-colors uppercase tracking-wider"
               >
                 {subscribed ? "Subscribed" : "Subscribe"}
               </button>
             </form>
 
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 text-foreground">Social</h3>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Social</h3>
             <div className="flex gap-4">
               {[
                 { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
@@ -165,14 +192,12 @@ export default function Footer() {
           <p className="text-sm font-medium tracking-wide text-muted-foreground">
             © {new Date().getFullYear()} SimpleIn Solutions. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms & Conditions</Link>
-            <Link href="/cookie-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link>
-            <Link href="/disclaimer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Disclaimer</Link>
             <button
               onClick={scrollToTop}
-              className="w-10 h-10 rounded-none border border-[var(--border-color)] flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors ml-4"
+              className="w-10 h-10 rounded-none border border-[var(--border-color)] flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors ml-2 sm:ml-4"
               aria-label="Scroll to top"
             >
               <ArrowUp className="w-4 h-4" />
