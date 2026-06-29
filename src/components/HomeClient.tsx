@@ -41,8 +41,9 @@ const faqs = [
   },
   {
     question: "What is your typical project timeline?",
-    answer: "Timelines depend on the complexity and scope of the project. A standard web application may take 2-4 months, while complex enterprise systems can take 6+ months. We define clear milestones during the Discovery phase."
+    answer: "The timeline depends on the project. The minimum time for completing any project is 14 days and the maximum timeline could go up to 2 months."
   },
+
   {
     question: "Do you provide post-deployment support?",
     answer: "Absolutely. We consider ourselves long-term technology partners. We provide continuous maintenance, bug fixes, performance monitoring, and feature upgrades post-deployment."
@@ -261,7 +262,6 @@ export default function HomeClient() {
                     { icon: Wifi, name: "Wi-Fi Infrastructure" },
                     { icon: Shield, name: "Firewalls" },
                     { icon: HardDrive, name: "Storage (NAS/SAN)" },
-                    { icon: FileCheck, name: "AMC Contracts" },
                   ].map((item) => (
                     <div key={item.name} className="flex items-center gap-3 text-base font-medium text-foreground">
                       <item.icon className="w-5 h-5 text-muted-foreground flex-shrink-0" />
@@ -499,15 +499,14 @@ export default function HomeClient() {
                 Get In Touch.
               </h2>
               <p className="text-xl text-muted-foreground font-light mb-12 max-w-md leading-[1.6]">
-                Reach out and our team will respond within 24 hours to discuss your technological requirements.
+                Reach out and our team will respond shortly to discuss your technological requirements.
               </p>
               
               <div className="space-y-8 mb-12 lg:mb-0">
                 {[
-                  { icon: Phone, title: "Call Us", info: "+91 93925 51177", link: "tel:+919392551177" },
-                  { icon: Phone, title: "Secondary", info: "+91 984 8334 984", link: "tel:+919848334984" },
-                  { icon: Mail, title: "Email Us", info: "sreekar0312@gmail.com", link: "mailto:sreekar0312@gmail.com" },
-                  { icon: Clock, title: "Working Hours", info: "Mon-Fri, 9AM - 6PM (IST)", link: "#" },
+                  { icon: Phone, title: "Call Us", info: "+91 984 8334 984", link: "tel:+919848334984" },
+                  { icon: Mail, title: "Email Us", info: "info@SimpleInsolutions.com", link: "mailto:info@SimpleInsolutions.com" },
+                  { icon: Clock, title: "Working Hours", info: "Available 24/7", link: "#" },
                 ].map((item, idx) => (
                   <a key={idx} href={item.link} className="group flex items-start gap-6">
                     <div className="w-14 h-14 border border-[var(--border-color)] flex items-center justify-center group-hover:border-foreground group-hover:bg-foreground group-hover:text-background transition-colors duration-300 bg-[var(--surface)] text-foreground shrink-0">

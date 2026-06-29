@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import { generateBusinessSchema } from "@/utils/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | SimpleIn Solutions",
   },
   description:
-    "SimpleIn Solutions builds scalable digital solutions using modern technologies. Custom software development, web & mobile apps, AI automation, IT hardware, and enterprise IT services in AP & Telangana.",
+    "SimpleIn Solutions builds scalable digital solutions using modern technologies. Custom software development, web & mobile apps, AI automation, IT hardware, and enterprise IT services worldwide.",
   keywords: [
     "IT Services",
     "Software Development",
@@ -37,8 +38,8 @@ export const metadata: Metadata = {
     "IT Hardware Sales",
     "Digital Transformation",
     "SimpleIn Solutions",
-    "IT Services Telangana",
-    "IT Services Andhra Pradesh",
+    "Global IT Services",
+    "Worldwide Software Development",
   ],
   authors: [{ name: "SimpleIn Solutions" }],
   creator: "SimpleIn Solutions",
@@ -50,12 +51,21 @@ export const metadata: Metadata = {
     title: "SimpleIn Solutions — Every Service Made Simple",
     description:
       "We build scalable digital solutions using modern technologies. Custom software, web & mobile apps, AI automation, and enterprise IT services.",
+    images: [
+      {
+        url: "https://simpleinsolutions.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SimpleIn Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "SimpleIn Solutions — Every Service Made Simple",
     description:
       "We build scalable digital solutions using modern technologies. Custom software, web & mobile apps, AI automation, and enterprise IT services.",
+    images: ["https://simpleinsolutions.com/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -75,25 +85,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-    const jsonLd = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "SimpleIn Solutions",
-      description: "Every Service Made Simple — Custom software development, IT services, and hardware solutions.",
-      url: "https://simpleinsolutions.com",
-      sameAs: [],
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+91-9392551177",
-        contactType: "sales",
-        availableLanguage: ["English", "Hindi", "Telugu"],
-      },
-      address: {
-        "@type": "PostalAddress",
-        addressRegion: "AP & Telangana",
-        addressCountry: "IN",
-      },
-    };
+    const jsonLd = generateBusinessSchema();
 
   return (
     <html
@@ -108,7 +100,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col overflow-x-hidden">
+      <body className="min-h-full flex flex-col overflow-x-hidden" suppressHydrationWarning>
         <ThemeProvider>
           <a
             href="#main-content"

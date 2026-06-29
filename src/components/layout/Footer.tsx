@@ -115,32 +115,28 @@ export default function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Contact</h3>
             <ul className="space-y-4 text-base text-muted-foreground">
               <li className="flex items-start gap-3 hover:text-foreground transition-colors">
-                <a href="tel:+919392551177" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 shrink-0" /> +91 93925 51177
-                </a>
-              </li>
-              <li className="flex items-start gap-3 hover:text-foreground transition-colors">
                 <a href="tel:+919848334984" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 shrink-0" /> +91 984 8334 984
+                  <Phone className="w-4 h-4 shrink-0" /> <span>+91 984 8334 984</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 hover:text-foreground transition-colors">
-                <a href="mailto:sreekar0312@gmail.com" className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 shrink-0" /> sreekar0312@gmail.com
+                <a href="mailto:info@SimpleInsolutions.com" className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 shrink-0" /> <span>info@SimpleInsolutions.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 hover:text-foreground transition-colors cursor-default">
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 shrink-0" />
-                  <span>Mon-Fri: 9:00 AM – 6:00 PM (IST)</span>
+                  <span>Available 24/7</span>
                 </div>
               </li>
               <li className="flex items-start gap-3 hover:text-foreground transition-colors cursor-default">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 shrink-0" />
-                  <span>AP & TELANGANA</span>
+                  <span>Serving Worldwide</span>
                 </div>
               </li>
+
             </ul>
           </div>
 

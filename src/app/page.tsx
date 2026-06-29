@@ -1,5 +1,7 @@
 import HomeClient from "@/components/HomeClient";
 import { Metadata } from "next";
+import { generateFAQSchema } from "@/utils/seo";
+import { generalFAQs } from "@/data/faq";
 
 export const metadata: Metadata = {
   title: "SimpleIn Solutions | Smart IT Solutions for a Digital Future",
@@ -12,6 +14,20 @@ export const metadata: Metadata = {
     description: "Premium IT services, custom software development, and enterprise IT hardware.",
     url: "https://simpleinsolutions.com",
     type: "website",
+    images: [
+      {
+        url: "https://simpleinsolutions.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SimpleIn Solutions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SimpleIn Solutions | Smart IT Solutions for a Digital Future",
+    description: "Premium IT services, custom software development, and enterprise IT hardware.",
+    images: ["https://simpleinsolutions.com/og-image.jpg"],
   },
 };
 
@@ -28,11 +44,17 @@ export default function Home() {
     },
   };
 
+  const faqSchema = generateFAQSchema(generalFAQs);
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <HomeClient />
     </>

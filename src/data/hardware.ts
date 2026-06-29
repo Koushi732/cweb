@@ -24,14 +24,7 @@ export const hardwareCategories: HardwareCategory[] = [
     features: ["Custom build configurations", "Enterprise management tools", "Energy-efficient models", "Compact form factors"],
     brands: [],
   },
-  {
-    id: "servers",
-    title: "Enterprise Servers",
-    icon: "Server",
-    description: "Enterprise-grade servers for data centers, on-premise deployments, and hybrid cloud environments with maximum uptime.",
-    features: ["Rack and tower configurations", "Hot-swappable components", "Redundant power supplies", "Remote management"],
-    brands: [],
-  },
+
   {
     id: "networking",
     title: "Networking Equipment",
@@ -40,38 +33,7 @@ export const hardwareCategories: HardwareCategory[] = [
     features: ["Managed and unmanaged options", "PoE capabilities", "SD-WAN ready", "Network monitoring tools"],
     brands: [],
   },
-  {
-    id: "routers-switches",
-    title: "Routers & Switches",
-    icon: "Network",
-    description: "Enterprise routing and switching solutions for building secure, high-performance networks at any scale.",
-    features: ["Layer 2 and Layer 3 switching", "Advanced routing protocols", "VLAN support", "Quality of Service (QoS)"],
-    brands: [],
-  },
-  {
-    id: "wifi",
-    title: "Wi-Fi Infrastructure",
-    icon: "Wifi",
-    description: "Enterprise-grade wireless access points and controllers for seamless, high-density wireless coverage.",
-    features: ["Wi-Fi 6/6E solutions", "Cloud-managed controllers", "Guest network isolation", "Seamless roaming"],
-    brands: [],
-  },
-  {
-    id: "firewalls",
-    title: "Firewalls & Security Appliances",
-    icon: "Shield",
-    description: "Next-generation firewalls and unified threat management appliances to protect your network perimeter.",
-    features: ["Intrusion prevention (IPS)", "VPN connectivity", "Deep packet inspection", "Web filtering"],
-    brands: [],
-  },
-  {
-    id: "storage",
-    title: "Storage Solutions (NAS/SAN)",
-    icon: "HardDrive",
-    description: "Enterprise storage solutions from NAS to SAN, including all-flash arrays and hybrid storage for demanding workloads.",
-    features: ["Scalable capacity", "Data deduplication", "Snapshot and replication", "Tiered storage options"],
-    brands: [],
-  },
+
   {
     id: "printers",
     title: "Printers & Office Equipment",
@@ -120,20 +82,6 @@ export const hardwareCategories: HardwareCategory[] = [
     features: ["On-site installation", "OS deployment", "Network configuration", "User training"],
     brands: [],
   },
-  {
-    id: "amc",
-    title: "Annual Maintenance Contracts (AMC)",
-    icon: "FileCheck",
-    description: "Comprehensive Annual Maintenance Contracts that cover preventive maintenance, repairs, and replacement parts.",
-    features: ["Preventive maintenance schedules", "Priority support response", "Hardware repair", "Regular health checks"],
-    brands: [],
-  },
-  {
-    id: "enterprise-support",
-    title: "Enterprise IT Support",
-    icon: "Headphones",
-    description: "Dedicated IT support services to troubleshoot hardware issues, manage warranties, and minimize downtime.",
-    features: ["Remote troubleshooting", "On-site support", "Warranty management", "Asset lifecycle tracking"],
-    brands: [],
-  },
+
+
 ];

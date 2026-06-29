@@ -14,11 +14,12 @@ export const generalFAQs: FAQItem[] = [
   },
   {
     question: "What is your typical project timeline?",
-    answer: "Project timelines vary based on complexity and scope. A typical MVP takes 8-12 weeks, while enterprise projects range from 3-9 months. We provide detailed timelines during our discovery phase and maintain transparency throughout.",
+    answer: "The timeline depends on the project. The minimum time for completing any project is 14 days and the maximum timeline could go up to 2 months.",
   },
+
   {
     question: "Do you offer post-launch support and maintenance?",
-    answer: "Absolutely. We offer flexible support and maintenance packages including proactive monitoring, bug fixes, security updates, performance optimization, and feature enhancements. Our AMC contracts ensure your systems run at peak performance.",
+    answer: "Absolutely. We offer flexible support and maintenance packages including proactive monitoring, bug fixes, security updates, performance optimization, and feature enhancements.",
   },
   {
     question: "Can you work with our existing technology stack?",
@@ -43,6 +44,18 @@ export const serviceFAQs: FAQItem[] = [
     question: "What is your engagement model?",
     answer: "We operate on a custom consultation and quotation model. Every business has unique requirements, so instead of fixed pricing packages, we provide a free initial consultation, requirement analysis, and a tailored proposal to ensure you get exactly what you need.",
   },
+  {
+    question: "Do you sign Non-Disclosure Agreements (NDAs)?",
+    answer: "Yes, we prioritize your intellectual property. We are fully open to signing NDAs before you share any confidential business ideas or data with us.",
+  },
+  {
+    question: "Will I own the source code of the custom software?",
+    answer: "Yes, once the project is completed and fully paid for, we transfer the complete intellectual property (IP) rights and source code to you.",
+  },
+  {
+    question: "Can you redesign or update my existing application?",
+    answer: "Absolutely. We offer application modernization services where we can upgrade legacy software with new features, better performance, and a modern UI/UX.",
+  },
 ];
 
 export const hardwareFAQs: FAQItem[] = [
@@ -55,7 +68,15 @@ export const hardwareFAQs: FAQItem[] = [
     answer: "We supply a wide range of enterprise-grade hardware from leading global manufacturers. We focus on sourcing the right equipment tailored to your specific performance, security, and budgetary requirements.",
   },
   {
-    question: "Do you offer Annual Maintenance Contracts (AMC)?",
-    answer: "Yes, our AMC packages cover preventive maintenance, repairs, parts replacement, and priority support. We offer customizable plans to suit your hardware fleet and budget requirements.",
+    question: "Do you handle bulk hardware procurement for large teams?",
+    answer: "Yes, we specialize in bulk procurement for startups, scaling businesses, and enterprises, ensuring consistent specifications and competitive pricing across all devices.",
+  },
+  {
+    question: "Do you offer warranty support on the hardware?",
+    answer: "All hardware we supply comes with the standard manufacturer warranty. We also assist our clients in claiming warranties and offer extended support options if needed.",
+  },
+  {
+    question: "Do you help us choose the right hardware for our specific needs?",
+    answer: "Yes, our hardware procurement consulting ensures you purchase equipment that perfectly matches your performance requirements. We help you avoid overspending on unnecessary specs while preventing future bottlenecks.",
   },
 ];

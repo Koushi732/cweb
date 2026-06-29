@@ -49,7 +49,7 @@ export default function ContactClient() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-xl sm:text-3xl font-light text-muted-foreground max-w-3xl leading-[1.6]"
           >
-            Have a question or ready to start your project? Reach out to us and our team will respond within 24 hours.
+            Have a question or ready to start your project? Reach out to us and our team will respond shortly.
           </motion.p>
         </div>
       </section>
@@ -60,16 +60,16 @@ export default function ContactClient() {
           <StaggerChildren className="grid sm:grid-cols-1 md:grid-cols-3 gap-0 bg-background border border-[var(--border-color)]">
             {[
               {
-                icon: Phone, title: "Call Us", info: "+91 93925 51177",
-                subInfo: "Mon - Fri, 9 AM - 6 PM", href: "tel:+919392551177",
+                icon: Phone, title: "Call Us", info: "+91 984 8334 984",
+                subInfo: "Available Anytime", href: "tel:+919848334984",
               },
               {
-                icon: Mail, title: "General Email", info: "sreekar0312@gmail.com",
-                subInfo: "Support during business hours", href: "mailto:sreekar0312@gmail.com",
+                icon: Mail, title: "General Email", info: "info@SimpleInsolutions.com",
+                subInfo: "Support always available", href: "mailto:info@SimpleInsolutions.com",
               },
               {
-                icon: MessageCircle, title: "WhatsApp", info: "+91 93925 51177",
-                subInfo: "Quick response", href: "https://wa.me/919392551177",
+                icon: MessageCircle, title: "WhatsApp", info: "+91 984 8334 984",
+                subInfo: "Quick response", href: "https://wa.me/919848334984",
               },
             ].map((item, index) => (
               <StaggerItem key={item.title}>
@@ -108,7 +108,7 @@ export default function ContactClient() {
                 </span>
                 <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-[-0.02em]">We&apos;d Love to Hear From You.</h2>
                 <p className="text-lg text-muted-foreground font-light mb-12">
-                  Fill out the form and our team will get back to you within 24 hours.
+                  Fill out the form and our team will get back to you shortly.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-10" noValidate>
@@ -167,7 +167,7 @@ export default function ContactClient() {
                       id="service"
                       value={form.service}
                       onChange={(e) => setForm({ ...form, service: e.target.value })}
-                      className="peer w-full bg-transparent border-b border-[var(--border-color)] text-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg appearance-none cursor-pointer rounded-none"
+                      className="peer w-full bg-transparent border-b border-[var(--border-color)] text-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg appearance-none cursor-pointer rounded-none [&>option]:bg-background [&>option]:text-foreground"
                     >
                       <option value="">Select a service</option>
                       <option value="software">Custom Software Development</option>
@@ -217,14 +217,14 @@ export default function ContactClient() {
                       <Mail className="w-5 h-5 text-muted-foreground group-hover:text-foreground mt-0.5 flex-shrink-0 transition-colors" />
                       <div>
                         <p className="font-bold text-foreground">Sales Inquiries</p>
-                        <a href="mailto:sreekar0312@gmail.com" className="text-muted-foreground font-light hover:text-foreground transition-colors">sreekar0312@gmail.com</a>
+                        <a href="mailto:info@SimpleInsolutions.com" className="text-muted-foreground font-light hover:text-foreground transition-colors">info@SimpleInsolutions.com</a>
                       </div>
                     </li>
                     <li className="flex items-start gap-4">
                       <Mail className="w-5 h-5 text-muted-foreground group-hover:text-foreground mt-0.5 flex-shrink-0 transition-colors" />
                       <div>
                         <p className="font-bold text-foreground">Technical Support</p>
-                        <a href="mailto:sreekar0312@gmail.com" className="text-muted-foreground font-light hover:text-foreground transition-colors">sreekar0312@gmail.com</a>
+                        <a href="mailto:info@SimpleInsolutions.com" className="text-muted-foreground font-light hover:text-foreground transition-colors">info@SimpleInsolutions.com</a>
                       </div>
                     </li>
                   </ul>
@@ -236,15 +236,8 @@ export default function ContactClient() {
                     <li className="flex items-start gap-4">
                       <Clock className="w-5 h-5 text-muted-foreground group-hover:text-foreground mt-0.5 flex-shrink-0 transition-colors" />
                       <div>
-                        <p className="font-bold text-foreground">Monday - Friday</p>
-                        <p className="text-muted-foreground font-light">9:00 AM - 6:00 PM (IST)</p>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-4 opacity-50">
-                      <Clock className="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
-                      <div>
-                        <p className="font-bold text-foreground">Saturday - Sunday</p>
-                        <p className="text-muted-foreground font-light">Closed</p>
+                        <p className="font-bold text-foreground">Available 24/7</p>
+                        <p className="text-muted-foreground font-light">We can take on work at any time</p>
                       </div>
                     </li>
                   </ul>

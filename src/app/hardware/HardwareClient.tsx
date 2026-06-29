@@ -199,7 +199,7 @@ export default function HardwareClient() {
                     id="quote-product"
                     value={quoteForm.product}
                     onChange={(e) => setQuoteForm({ ...quoteForm, product: e.target.value })}
-                    className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg appearance-none cursor-pointer rounded-none"
+                    className="w-full bg-transparent border-b border-[var(--border-color)] text-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-lg appearance-none cursor-pointer rounded-none [&>option]:bg-background [&>option]:text-foreground"
                     required
                   >
                     <option value="" disabled className="text-muted-foreground">Select a category</option>
