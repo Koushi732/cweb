@@ -108,9 +108,6 @@ export default function HomeClient() {
           }}
         />
 
-        {/* Abstract Premium Geometry */}
-        <div className="absolute top-1/4 right-[10%] w-[500px] h-[500px] border border-[var(--border-color)] rounded-full opacity-20 animate-spin-slow pointer-events-none z-0" />
-        <div className="absolute top-[30%] right-[15%] w-[300px] h-[300px] border border-[var(--border-color)] rounded-full opacity-30 animate-spin-slow pointer-events-none z-0" style={{ animationDirection: 'reverse', animationDuration: '40s' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-5xl">
