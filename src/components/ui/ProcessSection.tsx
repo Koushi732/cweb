@@ -1,107 +1,142 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Search, Map, PenTool, Code2, CheckSquare, Rocket, Settings, CheckCircle2 } from "lucide-react";
 import { engagementProcess } from "@/data/process";
+import ScrollAnimationWrapper from "@/components/ui/ScrollAnimationWrapper";
 
 const iconMap: Record<string, React.ElementType> = {
   Search, Map, PenTool, Code2, CheckSquare, Rocket, Settings
 };
 
 export default function ProcessSection() {
+  const [activeStep, setActiveStep] = useState(1);
+
   return (
-    <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)] text-foreground overflow-hidden">
+    <section className="py-32 bg-[var(--surface)] border-y border-[var(--border-color)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.span 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block text-xs font-bold text-foreground uppercase tracking-widest mb-6"
-          >
-            How We Work
-          </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl font-bold tracking-tight mb-6"
-          >
-            Our Client Engagement Process
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-muted-foreground font-light leading-relaxed"
-          >
-            We act as a long-term technology partner. Our structured approach ensures clarity, transparency, and measurable business value at every step.
-          </motion.p>
-        </div>
+        <ScrollAnimationWrapper className="mb-20">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div className="max-w-3xl">
+              <span className="inline-block text-xs font-bold text-foreground uppercase tracking-widest mb-6 font-mono">
+                How We Work
+              </span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                Client Engagement Process.
+              </h2>
+              <p className="text-xl text-muted-foreground font-light leading-relaxed">
+                We act as a long-term technology partner. Our structured approach ensures clarity, transparency, and measurable business value at every step.
+              </p>
+            </div>
+          </div>
+        </ScrollAnimationWrapper>
 
-        <div className="relative">
-          {/* Vertical line for desktop timeline */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-[var(--border-color)] -translate-x-1/2" />
-          
-          <div className="space-y-16 lg:space-y-32">
-            {engagementProcess.map((step, index) => {
-              const Icon = iconMap[step.icon] || Settings;
-              const isEven = index % 2 === 0;
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+          {/* Timeline Navigation */}
+          <div className="lg:w-1/3 relative">
+            {/* Mobile Progress Bar (Horizontal) */}
+            <div className="lg:hidden absolute top-6 left-0 right-0 h-0.5 bg-[var(--border-color)] z-0">
+              <motion.div 
+                className="h-full bg-foreground" 
+                initial={false}
+                animate={{ width: `${((activeStep - 1) / (engagementProcess.length - 1)) * 100}%` }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              />
+            </div>
+            
+            {/* Desktop Progress Bar (Vertical) */}
+            <div className="hidden lg:block absolute left-[27px] top-4 bottom-4 w-0.5 bg-[var(--border-color)] z-0">
+               <motion.div 
+                className="w-full bg-foreground" 
+                initial={false}
+                animate={{ height: `${((activeStep - 1) / (engagementProcess.length - 1)) * 100}%` }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              />
+            </div>
 
-              return (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="relative flex flex-col lg:flex-row items-center gap-8 lg:gap-0 group"
-                >
-                  {/* Timeline dot */}
-                  <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-none bg-background border-2 border-[var(--border-color)] group-hover:border-foreground items-center justify-center z-10 transition-colors duration-500">
-                    <span className="text-sm font-bold text-muted-foreground group-hover:text-foreground transition-colors">{step.step}</span>
-                  </div>
+            <div className="flex lg:flex-col overflow-x-auto lg:overflow-visible gap-8 lg:gap-12 relative z-10 pb-4 lg:pb-0 scrollbar-hide snap-x">
+              {engagementProcess.map((step) => {
+                const isActive = activeStep === step.step;
+                const isPast = activeStep > step.step;
 
-                  {/* Mobile step number */}
-                  <div className="lg:hidden w-12 h-12 rounded-none bg-[var(--surface)] border border-[var(--border-color)] text-foreground flex items-center justify-center font-bold text-xl mb-4 shrink-0">
-                    {step.step}
-                  </div>
+                return (
+                  <button
+                    key={step.step}
+                    onClick={() => setActiveStep(step.step)}
+                    className="flex lg:items-center flex-col lg:flex-row gap-4 lg:gap-8 group text-left min-w-[120px] lg:min-w-0 snap-start outline-none"
+                  >
+                    <div 
+                      className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 border-2 transition-all duration-300 ${
+                        isActive 
+                          ? "bg-foreground border-foreground text-background scale-110 shadow-lg" 
+                          : isPast 
+                            ? "bg-[var(--surface)] border-foreground text-foreground" 
+                            : "bg-[var(--surface)] border-[var(--border-color)] text-muted-foreground group-hover:border-foreground/50"
+                      }`}
+                    >
+                      <span className="font-mono font-bold text-lg">{step.step}</span>
+                    </div>
+                    <h3 
+                      className={`font-bold text-sm lg:text-xl transition-colors ${
+                        isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground/80"
+                      }`}
+                    >
+                      {step.title}
+                    </h3>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
-                  {/* Content Box */}
-                  <div className={`w-full lg:w-1/2 ${isEven ? "lg:pr-24 lg:text-right" : "lg:pl-24 lg:ml-auto"}`}>
-                    <div className={`bg-background p-8 border border-[var(--border-color)] hover:border-foreground transition-colors duration-300 relative ${isEven ? "lg:ml-auto" : ""}`}>
-                      <div className={`flex items-center gap-4 mb-6 ${isEven ? "lg:flex-row-reverse" : ""}`}>
-                        <div className="w-12 h-12 rounded-none bg-[var(--surface)] border border-[var(--border-color)] group-hover:bg-foreground group-hover:text-background transition-colors flex items-center justify-center text-foreground shrink-0">
-                          <Icon className="w-6 h-6 text-foreground group-hover:text-background transition-colors" />
+          {/* Dynamic Detail Panel */}
+          <div className="lg:w-2/3">
+            <AnimatePresence mode="wait">
+              {engagementProcess.filter(s => s.step === activeStep).map((step) => {
+                const Icon = iconMap[step.icon] || Settings;
+                return (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="bg-background border border-[var(--border-color)] p-8 lg:p-16 relative overflow-hidden"
+                  >
+                    <Icon className="absolute -right-8 -bottom-8 w-64 h-64 text-foreground/[0.03] pointer-events-none" />
+                    
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-6 mb-8">
+                        <div className="w-16 h-16 rounded-none bg-foreground text-background flex items-center justify-center shrink-0">
+                          <Icon className="w-8 h-8" />
                         </div>
-                        <h3 className="text-2xl font-bold tracking-tight">{step.title}</h3>
+                        <h3 className="text-3xl sm:text-4xl font-bold tracking-tight">{step.title}</h3>
                       </div>
                       
-                      <p className="text-muted-foreground text-lg font-light mb-8 leading-relaxed">
+                      <p className="text-xl text-muted-foreground font-light mb-12 leading-relaxed">
                         {step.description}
                       </p>
 
-                      <ul className={`grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 ${isEven ? "lg:text-left text-left" : "text-left"}`}>
+                      <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground mb-6 font-mono border-b border-[var(--border-color)] pb-4">Key Activities</h4>
+                      <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4 mb-12">
                         {step.activities.map((activity, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-foreground">
-                            <CheckCircle2 className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors shrink-0 mt-0.5" />
-                            <span>{activity}</span>
+                          <li key={i} className="flex items-start gap-3">
+                            <CheckCircle2 className="w-4 h-4 text-foreground mt-1 shrink-0" />
+                            <span className="text-muted-foreground text-sm leading-relaxed">{activity}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <div className={`bg-[var(--surface)] p-4 border border-[var(--border-color)] ${isEven ? "lg:text-left text-left" : "text-left"}`}>
-                        <span className="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
+                      <div className="bg-[var(--surface)] p-6 border border-[var(--border-color)]">
+                        <span className="block text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2 font-mono">
                           {step.step === 7 ? "Goal" : "Deliverable"}
                         </span>
-                        <span className="text-sm text-foreground font-medium">{step.deliverable}</span>
+                        <span className="text-foreground font-semibold text-lg">{step.deliverable}</span>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
           </div>
         </div>
       </div>

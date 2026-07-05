@@ -3,14 +3,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon, ChevronDown, Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch, Laptop, Monitor, Server, Wifi, HardDrive, Printer, Headphones, Building2, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { Menu, X, Sun, Moon, ChevronDown, Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch, Laptop, Monitor, Server, Wifi, HardDrive, Printer, Headphones, Building2, ArrowRight, Camera, Fingerprint, Building, ShoppingCart, Zap, Network } from "lucide-react";
 import { useTheme } from "@/components/ui/ThemeProvider";
 import { navigation } from "@/data/navigation";
+import Logo from "@/components/ui/Logo";
 
 const iconMap: Record<string, React.ElementType> = {
   Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch,
   Laptop, Monitor, Server, Wifi, HardDrive, Printer, Headphones, Building2,
+  Camera, Fingerprint, Building, ShoppingCart, Zap, Network
 };
 
 export default function Navbar() {
@@ -19,6 +21,16 @@ export default function Navbar() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const pathname = usePathname();
   const { resolvedTheme, setTheme } = useTheme();
+  const { scrollY } = useScroll();
+  const isHomePage = pathname === "/";
+  const logoOpacity = useTransform(scrollY, [150, 300], [0, 1]);
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (isHomePage) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -57,16 +69,19 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo — Matches business card typography */}
-            <Link href="/" className="flex items-center gap-3 group" aria-label="SimpleIn Solutions Home">
-              <div className="flex flex-col">
-                <span className="text-[1.35rem] font-extrabold tracking-tight text-foreground leading-none uppercase">
-                  Simple<span className="font-extrabold">In</span>
-                </span>
-                <span className="text-[0.55rem] font-semibold tracking-[0.3em] uppercase text-muted-foreground mt-0.5">
-                  Solutions
-                </span>
-              </div>
+            {/* Logo — Animated Image Logo */}
+            <Link 
+              href="/" 
+              className="flex items-center gap-3 group relative h-10 w-40 md:w-48" 
+              aria-label="SimpleIn Solutions Home"
+              onClick={handleLogoClick}
+            >
+              <motion.div
+                style={{ opacity: isHomePage ? logoOpacity : 1 }}
+                className="absolute inset-0 flex items-center group-hover:scale-[1.03] group-hover:opacity-90 transition-all duration-500 ease-out origin-left"
+              >
+                <Logo priority />
+              </motion.div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -80,7 +95,8 @@ export default function Navbar() {
                       onMouseEnter={() => setMegaMenuOpen(true)}
                       onMouseLeave={() => setMegaMenuOpen(false)}
                     >
-                      <button
+                      <Link
+                        href={item.href}
                         aria-expanded={megaMenuOpen}
                         aria-haspopup="true"
                         className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-colors ${pathname === item.href || pathname.startsWith("/services") || pathname.startsWith("/hardware")
@@ -90,7 +106,7 @@ export default function Navbar() {
                       >
                         {item.name}
                         <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${megaMenuOpen ? "rotate-180" : ""}`} />
-                      </button>
+                      </Link>
 
                       {/* Mega Menu */}
                       <AnimatePresence>
@@ -179,9 +195,9 @@ export default function Navbar() {
               </button>
 
               {/* CTA Button */}
-              <Link
-                href="/contact"
-                className="hidden sm:flex items-center gap-2 px-5 py-2 bg-foreground text-background text-sm font-semibold tracking-wide hover:opacity-90 transition-opacity"
+              <Link 
+                href="/contact#contact-form" 
+                className="hidden md:inline-flex items-center justify-center h-10 px-6 bg-foreground text-background font-bold text-xs uppercase tracking-[0.1em] hover:opacity-90 transition-opacity"
               >
                 Get a Quote
               </Link>
@@ -249,9 +265,9 @@ export default function Navbar() {
                   );
                 })}
                 <div className="pt-8">
-                  <Link
-                    href="/contact"
-                    className="block w-full text-center px-6 py-4 bg-foreground text-background text-sm font-bold uppercase tracking-widest hover:opacity-90 transition-opacity"
+                  <Link 
+                    href="/contact#contact-form" 
+                    className="flex items-center justify-center w-full h-12 bg-foreground text-background font-bold text-xs uppercase tracking-[0.1em]"
                     onClick={() => setIsMobileOpen(false)}
                   >
                     Get a Quote

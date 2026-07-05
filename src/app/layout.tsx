@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import HeroLogoProvider from "@/components/ui/HeroLogoProvider";
 import { generateBusinessSchema } from "@/utils/seo";
 
 const inter = Inter({
@@ -102,16 +103,18 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col overflow-x-hidden" suppressHydrationWarning>
         <ThemeProvider>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-foreground text-background font-bold rounded-none"
-          >
-            Skip to main content
-          </a>
-          <Navbar />
-          <main id="main-content" className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppButton />
+          <HeroLogoProvider>
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-foreground text-background font-bold rounded-none"
+            >
+              Skip to main content
+            </a>
+            <Navbar />
+            <main id="main-content" className="flex-1">{children}</main>
+            <Footer />
+            <WhatsAppButton />
+          </HeroLogoProvider>
         </ThemeProvider>
       </body>
     </html>

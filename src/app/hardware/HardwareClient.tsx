@@ -96,7 +96,7 @@ export default function HardwareClient() {
               const Icon = iconMap[category.icon] || Monitor;
               return (
                 <StaggerItem key={category.id}>
-                  <div className="group h-full p-10 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors flex flex-col hover:bg-foreground hover:text-background">
+                  <div id={category.id} className="group h-full p-10 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors flex flex-col hover:bg-foreground hover:text-background scroll-mt-32">
                     <div className="mb-8">
                       <Icon className="w-10 h-10 text-muted-foreground group-hover:text-background transition-colors" />
                     </div>

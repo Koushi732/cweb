@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Phone, Clock, ArrowUp, MapPin } from "lucide-react";
+import { Mail, Phone, ArrowUp } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 
@@ -68,6 +68,7 @@ export default function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Services</h3>
             <ul className="space-y-4">
               {[
+                { name: "IT Hardware Sales", href: "/hardware" },
                 { name: "Custom Software", href: "/services#custom-software" },
                 { name: "Web & Mobile", href: "/services#web-development" },
                 { name: "AI & Automation", href: "/services#ai-automation" },
@@ -75,7 +76,6 @@ export default function Footer() {
                 { name: "Enterprise Systems", href: "/services#enterprise-software" },
                 { name: "Digital Marketing", href: "/services#digital-marketing" },
                 { name: "Networking & Security", href: "/services#networking-security" },
-                { name: "IT Hardware Sales", href: "/hardware" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -112,7 +112,7 @@ export default function Footer() {
 
           {/* Column 3: Contact */}
           <div className="lg:col-span-3">
-            <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Contact</h3>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Reach Us</h3>
             <ul className="space-y-4 text-base text-muted-foreground">
               <li className="flex items-start gap-3 hover:text-foreground transition-colors">
                 <a href="tel:+919848334984" className="flex items-center gap-2">
@@ -124,19 +124,6 @@ export default function Footer() {
                   <Mail className="w-4 h-4 shrink-0" /> <span>info@SimpleInsolutions.com</span>
                 </a>
               </li>
-              <li className="flex items-start gap-3 hover:text-foreground transition-colors cursor-default">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 shrink-0" />
-                  <span>Available 24/7</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 hover:text-foreground transition-colors cursor-default">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 shrink-0" />
-                  <span>Serving Worldwide</span>
-                </div>
-              </li>
-
             </ul>
           </div>
 

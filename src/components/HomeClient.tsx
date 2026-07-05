@@ -15,8 +15,9 @@ import { services } from "@/data/services";
 import { industries } from "@/data/industries";
 import { allTechnologies } from "@/data/technologies";
 import { useState } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
+import Logo from "@/components/ui/Logo";
 
-const ProcessSection = dynamic(() => import("@/components/ui/ProcessSection"), { ssr: true });
 const WhyChooseUsSection = dynamic(() => import("@/components/ui/WhyChooseUsSection"), { ssr: true });
 
 const iconMap: Record<string, React.ElementType> = {
@@ -82,10 +83,17 @@ export default function HomeClient() {
     setMousePos({ x, y });
   };
 
+  const { scrollY } = useScroll();
+  const logoScale = useTransform(scrollY, [0, 300], [1, 0.35]);
+  const logoY = useTransform(scrollY, [0, 300], [0, -120]);
+  const logoOpacity = useTransform(scrollY, [150, 300], [1, 0]);
+  const logoX = useTransform(scrollY, [0, 300], [0, -100]); // slightly move left
+
   return (
     <>
       {/* ==================== SECTION 1: HERO ==================== */}
       <section 
+        id="hero"
         className="relative min-h-[100vh] flex flex-col justify-center bg-background border-b border-[var(--border-color)] overflow-hidden pt-32 pb-24"
         onMouseMove={handleMouseMove}
       >
@@ -109,19 +117,28 @@ export default function HomeClient() {
             <ScrollAnimationWrapper animation="text-reveal">
               <div className="inline-flex items-center gap-3 px-6 py-3 bg-[var(--surface)] text-xs font-bold tracking-[0.2em] uppercase text-foreground mb-8 font-mono border border-[var(--border-color)] shadow-sm">
                 <span className="w-2 h-2 bg-foreground rounded-full animate-pulse" />
-                Every Service Made Simple
+                Welcome To
               </div>
             </ScrollAnimationWrapper>
 
-            <ScrollAnimationWrapper animation="mask-up" delay={0.1}>
-              <h1 className="text-5xl sm:text-7xl lg:text-[7.5rem] font-bold text-foreground leading-[0.95] tracking-[-0.04em] mb-8">
-                Building Intelligent <br className="hidden lg:block"/> Digital Solutions.
-              </h1>
-            </ScrollAnimationWrapper>
+            {/* Animated Logo Heading */}
+            <motion.div 
+              className="flex justify-start mb-12 min-h-[100px] sm:min-h-[140px] md:min-h-[170px] relative w-full max-w-[75vw] sm:max-w-xl origin-left"
+              style={{ scale: logoScale, y: logoY, x: logoX, opacity: logoOpacity }}
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full h-full origin-left"
+              >
+                <Logo priority />
+              </motion.div>
+            </motion.div>
 
             <ScrollAnimationWrapper animation="mask-up" delay={0.2}>
-              <p className="text-xl sm:text-2xl text-muted-foreground font-light leading-[1.6] mb-12 max-w-3xl">
-                We design, develop, and deliver enterprise-grade software, web applications, mobile apps, and IT infrastructure that power your business forward.
+              <p className="text-xl sm:text-3xl text-muted-foreground font-light leading-[1.6] mb-16 max-w-3xl">
+                Every Service Made Simple
               </p>
             </ScrollAnimationWrapper>
 
@@ -138,7 +155,7 @@ export default function HomeClient() {
                 </MagneticButton>
                 <MagneticButton>
                   <Link
-                    href="/contact"
+                    href="/contact#contact-form"
                     className="group flex items-center justify-center gap-3 px-10 py-5 border border-foreground bg-transparent text-foreground font-bold text-sm uppercase tracking-[0.1em] hover:bg-foreground hover:text-background transition-colors rounded-none"
                   >
                     Get a Quote
@@ -159,14 +176,14 @@ export default function HomeClient() {
                 Who We Are
               </span>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-[-0.04em] mb-8">
-                Your Technology Partner for the Digital Age.
+                Engineering Enterprise Solutions at Scale.
               </h2>
             </ScrollAnimationWrapper>
 
             <ScrollAnimationWrapper animation="slide-right">
               <div className="mb-16">
                 <p className="text-xl md:text-2xl text-muted-foreground font-light leading-[1.6] mb-8">
-                  SimpleIn Solutions is a modern IT services company dedicated to helping businesses accelerate growth through innovative technology. We focus on delivering reliable, scalable, and business-driven solutions that create measurable value for our clients. No shortcuts, just solid engineering and honest partnerships.
+                  SimpleIn Solutions architects, develops, and scales mission-critical technology for modern enterprises. We deliver robust software, intelligent automation, and resilient infrastructure with an uncompromising standard for engineering excellence.
                 </p>
                 <Link
                   href="/about"
@@ -207,9 +224,9 @@ export default function HomeClient() {
                   <div className="mb-8">
                     <Code2 className="w-12 h-12 text-foreground" />
                   </div>
-                  <h3 className="text-3xl font-bold tracking-[-0.02em] mb-4">IT Services</h3>
+                  <h3 className="text-3xl font-bold tracking-[-0.02em] mb-4">Enterprise Engineering</h3>
                   <p className="text-lg text-muted-foreground font-light leading-[1.6] mb-10">
-                    End-to-end software development, cloud migration, cybersecurity, and AI-powered solutions to accelerate your digital transformation.
+                    Full-stack software engineering, scalable cloud architectures, and intelligent automation designed to power global enterprises.
                   </p>
                 </div>
                 
@@ -247,9 +264,9 @@ export default function HomeClient() {
                   <div className="mb-8">
                     <Monitor className="w-12 h-12 text-foreground" />
                   </div>
-                  <h3 className="text-3xl font-bold tracking-[-0.02em] mb-4">IT Hardware</h3>
+                  <h3 className="text-3xl font-bold tracking-[-0.02em] mb-4">Enterprise Infrastructure</h3>
                   <p className="text-lg text-muted-foreground font-light leading-[1.6] mb-10">
-                    Premium IT hardware from leading brands with expert procurement, installation, and maintenance services for enterprises.
+                    Enterprise-grade IT infrastructure procurement, deployment, and management, delivering uncompromised performance and security.
                   </p>
                 </div>
                 
@@ -419,9 +436,6 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* ==================== SECTION 7: PROCESS WORKFLOW ==================== */}
-      <ProcessSection />
-
       {/* ==================== SECTION 8: WHY CHOOSE US ==================== */}
       <WhyChooseUsSection />
 
@@ -474,11 +488,11 @@ export default function HomeClient() {
             Ready to Build <br /> Something Great?
           </h2>
           <p className="text-xl md:text-2xl font-light max-w-2xl mx-auto mb-16 text-muted-foreground">
-            Let&apos;s discuss how SimpleIn Solutions can help you integrate, automate, and scale your technology operations.
+            Let&apos;s discuss how SimpleIn Solutions can architect, automate, and scale your technology operations.
           </p>
           <div className="flex justify-center">
             <Link
-              href="/contact"
+              href="/contact#contact-form"
               className="group flex items-center justify-center gap-4 px-12 py-6 bg-background text-foreground font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
             >
               Start a Conversation <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />

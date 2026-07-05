@@ -29,8 +29,8 @@ export default function WhyChooseUsSection() {
         <StaggerChildren className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {differentiators.map((item, index) => {
             const Icon = iconMap[item.icon] || CheckCircle2;
-            // Make the first item take up 2 columns on large screens for a dynamic layout
-            const isFeatured = index === 0;
+            // Make the first and last item take up 2 columns on large screens for a dynamic layout
+            const isFeatured = index === 0 || index === differentiators.length - 1;
 
             return (
               <StaggerItem

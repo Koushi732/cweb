@@ -1,22 +1,34 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2, Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch, Palette, Wrench, Megaphone, Network } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
 import { services } from "@/data/services";
 import dynamic from "next/dynamic";
-import { serviceFAQs } from "@/data/faq";
 
 const ProcessSection = dynamic(() => import("@/components/ui/ProcessSection"), { ssr: true });
-const WhyChooseUsSection = dynamic(() => import("@/components/ui/WhyChooseUsSection"), { ssr: true });
 
 const iconMap: Record<string, React.ElementType> = {
   Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch, Palette, Wrench, Megaphone, Network
 };
 
 export default function ServicesClient() {
+  const [activeService, setActiveService] = useState<string | null>(null);
+
+  const handleServiceSelect = (id: string) => {
+    if (activeService === id) {
+      setActiveService(null);
+      return;
+    }
+    setActiveService(id);
+    setTimeout(() => {
+      document.getElementById('service-details')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
   return (
     <>
       {/* Hero */}
@@ -62,7 +74,7 @@ export default function ServicesClient() {
         </div>
       </section>
 
-      {/* Services Overview Grid */}
+      {/* Services Master-Detail View */}
       <section className="py-32 bg-background" id="services-list">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimationWrapper className="mb-16">
@@ -77,123 +89,130 @@ export default function ServicesClient() {
             </p>
           </ScrollAnimationWrapper>
 
-          <StaggerChildren className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+          <StaggerChildren className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
             {services.map((service) => {
               const Icon = iconMap[service.icon] || Code2;
+              const isActive = activeService === service.id;
+              
               return (
                 <StaggerItem key={service.id}>
-                  <Link
-                    href={`#${service.id}`}
-                    className="group block h-full border-t border-[var(--border-color)] pt-8 hover:border-foreground transition-colors"
+                  <button
+                    id={service.id}
+                    onClick={() => handleServiceSelect(service.id)}
+                    className={`w-full text-left h-full border p-6 transition-all duration-300 group scroll-mt-32 ${
+                      isActive 
+                        ? 'border-foreground bg-foreground text-background shadow-lg scale-[1.02]' 
+                        : 'border-[var(--border-color)] hover:border-foreground/50 bg-background hover:bg-[var(--surface)] text-foreground'
+                    }`}
                   >
                     <div className="mb-6">
-                      <Icon className="w-8 h-8 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <Icon className={`w-8 h-8 transition-colors ${isActive ? 'text-background' : 'text-muted-foreground group-hover:text-foreground'}`} />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{service.description}</p>
-                  </Link>
+                    <h3 className={`text-lg font-bold mb-3 ${isActive ? 'text-background' : 'text-foreground'}`}>{service.title}</h3>
+                    <p className={`text-sm leading-relaxed line-clamp-2 ${isActive ? 'text-background/80' : 'text-muted-foreground'}`}>{service.description}</p>
+                  </button>
                 </StaggerItem>
               );
             })}
           </StaggerChildren>
-        </div>
-      </section>
+          
+          {/* Dynamic Detail Panel */}
+          <div id="service-details" className="scroll-mt-32">
+            <AnimatePresence mode="wait">
+              {services.filter(s => s.id === activeService).map((service) => {
+                const Icon = iconMap[service.icon] || Code2;
+                const currentIndex = services.findIndex(s => s.id === activeService);
+                const prevService = currentIndex > 0 ? services[currentIndex - 1] : null;
+                const nextService = currentIndex < services.length - 1 ? services[currentIndex + 1] : null;
 
-      {/* Detailed Service Sections */}
-      {services.map((service, index) => {
-        const Icon = iconMap[service.icon] || Code2;
-        return (
-          <section
-            key={service.id}
-            id={service.id}
-            className={`py-32 border-t border-[var(--border-color)] ${index % 2 === 0 ? "bg-background" : "bg-[var(--surface)]"}`}
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
-                <ScrollAnimationWrapper className="lg:col-span-5 lg:sticky lg:top-40">
-                  <span className="text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-4 block font-mono">
-                    Service {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h2 className="text-4xl sm:text-6xl font-bold tracking-[-0.02em] text-foreground mb-6">{service.title}</h2>
-                  <p className="text-xl md:text-2xl font-light text-muted-foreground leading-[1.6] mb-8">{service.description}</p>
-                  <Icon className="w-16 h-16 text-foreground/10" />
-                </ScrollAnimationWrapper>
+                return (
+                  <motion.div
+                    key={service.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="bg-[var(--surface)] border border-[var(--border-color)] p-6 lg:p-10 relative overflow-hidden"
+                  >
+                    <Icon className="absolute -right-8 -top-8 w-64 h-64 text-foreground/[0.03] pointer-events-none" />
+                    
+                    <div className="relative z-10 max-w-4xl">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="w-12 h-12 bg-foreground text-background flex items-center justify-center shrink-0">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">{service.title}</h3>
+                      </div>
+                      
+                      <p className="text-lg sm:text-xl font-light leading-[1.6] mb-8 text-foreground/90">
+                        {service.description}
+                      </p>
 
-                <div className="lg:col-span-7 space-y-16">
-                  <ScrollAnimationWrapper>
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground mb-8 font-mono">Key Benefits</h3>
-                    <ul className="space-y-6">
-                      {service.benefits.map((benefit) => (
-                        <li key={benefit} className="flex items-start gap-4">
-                          <CheckCircle2 className="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
-                          <span className="text-lg text-muted-foreground">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-3 mt-12 px-8 py-5 border border-foreground bg-foreground text-background font-bold text-sm uppercase tracking-[0.1em] hover:bg-transparent hover:text-foreground transition-colors rounded-none"
-                    >
-                      Discuss This Service <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </ScrollAnimationWrapper>
-
-                  <ScrollAnimationWrapper>
-                    <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground mb-8 font-mono">Technologies</h3>
-                    <div className="flex flex-wrap gap-3">
-                      {service.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-4 py-3 border border-[var(--border-color)] bg-background text-sm font-bold text-foreground uppercase tracking-[0.1em] rounded-none font-mono"
+                      <div className="grid md:grid-cols-2 gap-8">
+                        <div>
+                          <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground mb-4 font-mono border-b border-[var(--border-color)] pb-3">Key Benefits</h4>
+                          <ul className="space-y-3">
+                            {service.benefits.map((benefit) => (
+                              <li key={benefit} className="flex items-start gap-3">
+                                <CheckCircle2 className="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-muted-foreground">{benefit}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground mb-4 font-mono border-b border-[var(--border-color)] pb-3">Technologies</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {service.technologies.map((tech) => (
+                              <span
+                                key={tech}
+                                className="px-2.5 py-1 border border-[var(--border-color)] bg-background text-[10px] font-bold text-foreground uppercase tracking-[0.1em] rounded-none font-mono"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                          
+                          <div className="mt-8">
+                            <Link
+                              href="/contact"
+                              className="inline-flex items-center gap-3 px-6 py-3 bg-foreground text-background font-bold text-xs uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none w-full justify-center sm:w-auto"
+                            >
+                              Discuss This Service <ArrowRight className="w-4 h-4" />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Navigation Controls */}
+                      <div className="mt-10 pt-6 border-t border-[var(--border-color)] flex items-center justify-between">
+                        <button
+                          onClick={() => prevService && handleServiceSelect(prevService.id)}
+                          disabled={!prevService}
+                          className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] text-muted-foreground hover:text-foreground transition-colors disabled:opacity-20 disabled:cursor-not-allowed font-mono"
                         >
-                          {tech}
-                        </span>
-                      ))}
+                          ← Previous Service
+                        </button>
+                        <button
+                          onClick={() => nextService && handleServiceSelect(nextService.id)}
+                          disabled={!nextService}
+                          className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] text-muted-foreground hover:text-foreground transition-colors disabled:opacity-20 disabled:cursor-not-allowed font-mono"
+                        >
+                          Next Service →
+                        </button>
+                      </div>
                     </div>
-                  </ScrollAnimationWrapper>
-                </div>
-              </div>
-            </div>
-          </section>
-        );
-      })}
-
-      {/* Why Choose Us */}
-      <WhyChooseUsSection />
-
-      {/* Process Section */}
-      <ProcessSection />
-
-      {/* FAQ */}
-      <section className="py-32 bg-background border-t border-[var(--border-color)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-16">
-            <h2 className="text-4xl sm:text-6xl font-bold tracking-[-0.02em] text-foreground mb-6">
-              FAQ.
-            </h2>
-          </ScrollAnimationWrapper>
-
-          <div className="border-t border-[var(--border-color)]">
-            {serviceFAQs.map((faq, i) => (
-              <ScrollAnimationWrapper key={i} delay={i * 0.05}>
-                <details className="group border-b border-[var(--border-color)]">
-                  <summary className="flex items-center justify-between gap-4 py-8 cursor-pointer text-xl font-bold text-foreground list-none">
-                    {faq.question}
-                    <span className="text-muted-foreground transition-transform group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
-                  <div className="pb-8 text-lg text-muted-foreground font-light leading-relaxed">
-                    {faq.answer}
-                  </div>
-                </details>
-              </ScrollAnimationWrapper>
-            ))}
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
           </div>
         </div>
       </section>
 
+      {/* Process Section */}
+      <ProcessSection />
       {/* CTA */}
       <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)] text-foreground">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

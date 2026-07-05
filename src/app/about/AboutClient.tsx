@@ -8,8 +8,7 @@ import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/componen
 import dynamic from "next/dynamic";
 import { coreValues } from "@/data/team";
 
-const ProcessSection = dynamic(() => import("@/components/ui/ProcessSection"), { ssr: true });
-const WhyChooseUsSection = dynamic(() => import("@/components/ui/WhyChooseUsSection"), { ssr: true });
+
 
 const iconMap: Record<string, React.ElementType> = {
   Lightbulb, Award, Shield, Users, Zap, Target, Heart,
@@ -58,13 +57,13 @@ export default function AboutClient() {
             <ScrollAnimationWrapper animation="slide-right">
               <div className="space-y-12 text-xl text-muted-foreground font-light leading-[1.8]">
                 <p>
-                  SimpleIn Solutions acts as a long-term technology partner, helping Startups, SMBs, and Growing Enterprises design, build, automate, and scale their digital operations.
+                  SimpleIn Solutions acts as a strategic technology partner, helping SMBs and modern enterprises architect, automate, and scale their digital infrastructure.
                 </p>
                 <p>
-                  We focus on delivering practical, high-quality, and future-ready technology solutions that align with your business objectives, rather than simply completing development projects.
+                  We focus on engineering high-performance, future-ready technology solutions that directly align with your business objectives, moving beyond simple project delivery to actual business transformation.
                 </p>
                 <p>
-                  By building integrated digital ecosystems, we streamline your operations, improve collaboration, and support long-term growth. No shortcuts, just solid engineering and honest partnerships.
+                  By building integrated digital ecosystems, we streamline your operations, improve collaboration, and ensure scalable long-term growth. No shortcuts, just uncompromising engineering standards and honest partnerships.
                 </p>
               </div>
             </ScrollAnimationWrapper>
@@ -93,7 +92,7 @@ export default function AboutClient() {
                 </div>
                 <h3 className="text-3xl font-bold mb-6 text-foreground tracking-[-0.01em]">Our Mission</h3>
                 <p className="text-lg text-muted-foreground font-light leading-[1.6]">
-                  Our mission is to help businesses accelerate growth through innovative software development, AI automation, cloud technologies, enterprise IT solutions, and digital transformation. We focus on delivering reliable, scalable, and business-driven technology solutions that create measurable value for our clients.
+                  To accelerate enterprise growth by architecting state-of-the-art software, integrating AI-driven automation, and deploying resilient cloud infrastructure. We are committed to engineering excellence and delivering scalable technology that creates compounding value for our clients.
                 </p>
               </div>
             </ScrollAnimationWrapper>
@@ -105,7 +104,7 @@ export default function AboutClient() {
                 </div>
                 <h3 className="text-3xl font-bold mb-6 text-foreground tracking-[-0.01em]">Our Vision</h3>
                 <p className="text-lg text-muted-foreground font-light leading-[1.6]">
-                  To become a globally trusted technology company recognized for building intelligent digital products, delivering high-quality IT services, and empowering businesses through innovation, automation, and modern software solutions.
+                  To be the global benchmark for enterprise technology partnerships, recognized for uncompromising quality, engineering intelligence, and our ability to drive industry-defining digital transformation.
                 </p>
               </div>
             </ScrollAnimationWrapper>
@@ -147,12 +146,6 @@ export default function AboutClient() {
           </StaggerChildren>
         </div>
       </section>
-
-      {/* Why Choose Us */}
-      <WhyChooseUsSection />
-
-      {/* Process */}
-      <ProcessSection />
 
       {/* CTA */}
       <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)] text-foreground">
