@@ -4,9 +4,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import HeroLogoProvider from "@/components/ui/HeroLogoProvider";
 import { generateBusinessSchema } from "@/utils/seo";
+import ChatWidget from "@/components/chat/ChatWidget";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -113,7 +113,7 @@ export default function RootLayout({
             <Navbar />
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />
-            <WhatsAppButton />
+            <ChatWidget />
           </HeroLogoProvider>
         </ThemeProvider>
       </body>
