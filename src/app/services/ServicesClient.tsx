@@ -32,7 +32,7 @@ export default function ServicesClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-24 bg-background overflow-hidden border-b border-[var(--border-color)]">
+      <section className="relative pt-24 pb-16 bg-background overflow-hidden border-b border-[var(--border-color)]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080801a_1px,transparent_1px),linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:64px_64px] animate-[shimmer_60s_linear_infinite] opacity-50" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[{ label: "IT Services" }]} />
@@ -40,7 +40,7 @@ export default function ServicesClient() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-[10vw] sm:text-7xl md:text-[7rem] font-bold text-foreground leading-none tracking-[-0.04em] mt-8 mb-8"
+            className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-none tracking-[-0.04em] mt-8 mb-8"
           >
             Our Services.
           </motion.h1>
@@ -48,7 +48,7 @@ export default function ServicesClient() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-xl sm:text-3xl font-light text-muted-foreground max-w-3xl leading-[1.6]"
+            className="text-lg sm:text-2xl font-light text-muted-foreground max-w-2xl leading-[1.6]"
           >
             Comprehensive IT services designed to accelerate your digital transformation and drive business growth.
           </motion.p>
@@ -60,13 +60,13 @@ export default function ServicesClient() {
           >
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-3 px-8 py-5 bg-foreground text-background font-bold text-sm hover:opacity-90 transition-opacity uppercase tracking-[0.1em] rounded-none"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background font-semibold text-sm hover:opacity-90 transition-opacity uppercase tracking-[0.1em] rounded-none"
             >
               Get Started <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="#services-list"
-              className="inline-flex items-center justify-center gap-3 px-8 py-5 border border-foreground text-foreground font-bold text-sm hover:bg-foreground hover:text-background transition-colors uppercase tracking-[0.1em] rounded-none"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-foreground text-foreground font-semibold text-sm hover:bg-foreground hover:text-background transition-colors uppercase tracking-[0.1em] rounded-none"
             >
               Explore Services
             </Link>
@@ -75,16 +75,16 @@ export default function ServicesClient() {
       </section>
 
       {/* Services Master-Detail View */}
-      <section className="py-32 bg-background" id="services-list">
+      <section className="py-24 bg-background" id="services-list">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimationWrapper className="mb-16">
             <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-4 font-mono">
               What We Offer
             </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.02em] text-foreground mb-6">
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.02em] text-foreground mb-6">
               Complete IT Service Portfolio
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl font-light leading-[1.6]">
+            <p className="text-lg text-muted-foreground max-w-2xl font-light leading-[1.6]">
               From custom software development to AI integration and cloud infrastructure.
             </p>
           </ScrollAnimationWrapper>
@@ -99,17 +99,17 @@ export default function ServicesClient() {
                   <button
                     id={service.id}
                     onClick={() => handleServiceSelect(service.id)}
-                    className={`w-full text-left h-full border p-6 transition-all duration-300 group scroll-mt-32 ${
+                    className={`w-full text-left h-full border p-5 transition-all duration-300 group scroll-mt-32 ${
                       isActive 
                         ? 'border-foreground bg-foreground text-background shadow-lg scale-[1.02]' 
                         : 'border-[var(--border-color)] hover:border-foreground/50 bg-background hover:bg-[var(--surface)] text-foreground'
                     }`}
                   >
-                    <div className="mb-6">
-                      <Icon className={`w-8 h-8 transition-colors ${isActive ? 'text-background' : 'text-muted-foreground group-hover:text-foreground'}`} />
+                    <div className="mb-5">
+                      <Icon className={`w-7 h-7 transition-colors ${isActive ? 'text-background' : 'text-muted-foreground group-hover:text-foreground'}`} />
                     </div>
-                    <h3 className={`text-lg font-bold mb-3 ${isActive ? 'text-background' : 'text-foreground'}`}>{service.title}</h3>
-                    <p className={`text-sm leading-relaxed line-clamp-2 ${isActive ? 'text-background/80' : 'text-muted-foreground'}`}>{service.description}</p>
+                    <h3 className={`text-base font-bold mb-2 ${isActive ? 'text-background' : 'text-foreground'}`}>{service.title}</h3>
+                    <p className={`text-sm leading-relaxed line-clamp-2 max-w-prose ${isActive ? 'text-background/80' : 'text-muted-foreground'}`}>{service.description}</p>
                   </button>
                 </StaggerItem>
               );
@@ -132,7 +132,7 @@ export default function ServicesClient() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="bg-[var(--surface)] border border-[var(--border-color)] p-6 lg:p-10 relative overflow-hidden"
+                    className="bg-[var(--surface)] border border-[var(--border-color)] p-6 lg:p-8 relative overflow-hidden"
                   >
                     <Icon className="absolute -right-8 -top-8 w-64 h-64 text-foreground/[0.03] pointer-events-none" />
                     
@@ -141,10 +141,10 @@ export default function ServicesClient() {
                         <div className="w-12 h-12 bg-foreground text-background flex items-center justify-center shrink-0">
                           <Icon className="w-6 h-6" />
                         </div>
-                        <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">{service.title}</h3>
+                        <h3 className="text-2xl font-bold tracking-tight">{service.title}</h3>
                       </div>
                       
-                      <p className="text-lg sm:text-xl font-light leading-[1.6] mb-8 text-foreground/90">
+                      <p className="text-base sm:text-lg font-light leading-[1.6] mb-6 max-w-3xl text-foreground/90">
                         {service.description}
                       </p>
 
@@ -214,18 +214,18 @@ export default function ServicesClient() {
       {/* Process Section */}
       <ProcessSection />
       {/* CTA */}
-      <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)] text-foreground">
+      <section className="py-24 bg-[var(--surface)] border-b border-[var(--border-color)] text-foreground">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollAnimationWrapper>
-            <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-[-0.04em] mb-8 leading-none">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6 leading-none">
               Ready to Start?
             </h2>
-            <p className="text-xl sm:text-2xl text-muted-foreground font-light mb-12 max-w-2xl mx-auto leading-[1.6]">
+            <p className="text-lg sm:text-xl text-muted-foreground font-light mb-10 max-w-2xl mx-auto leading-[1.6]">
               Let&apos;s discuss how we can help you achieve your technology goals.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-10 py-5 border border-foreground bg-foreground text-background font-bold text-sm uppercase tracking-[0.1em] hover:bg-background hover:text-foreground transition-colors rounded-none"
+              className="inline-flex items-center gap-3 px-8 py-4 border border-foreground bg-foreground text-background font-semibold text-sm uppercase tracking-[0.1em] hover:bg-background hover:text-foreground transition-colors rounded-none"
             >
               Get a Consultation <ArrowRight className="w-5 h-5" />
             </Link>

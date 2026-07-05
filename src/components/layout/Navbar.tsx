@@ -197,7 +197,7 @@ export default function Navbar() {
               {/* CTA Button */}
               <Link 
                 href="/contact#contact-form" 
-                className="hidden md:inline-flex items-center justify-center h-10 px-6 bg-foreground text-background font-bold text-xs uppercase tracking-[0.1em] hover:opacity-90 transition-opacity"
+                className="hidden md:inline-flex items-center justify-center h-10 px-6 bg-foreground text-background font-semibold text-xs uppercase tracking-[0.1em] hover:opacity-90 transition-opacity"
               >
                 Get a Quote
               </Link>

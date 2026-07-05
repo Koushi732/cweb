@@ -9,7 +9,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="py-32 bg-[var(--surface)] border-y border-[var(--border-color)] overflow-hidden relative">
+    <section className="py-24 bg-[var(--surface)] border-y border-[var(--border-color)] overflow-hidden relative">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[var(--background)] to-transparent opacity-50 pointer-events-none" />
       
@@ -18,10 +18,10 @@ export default function WhyChooseUsSection() {
           <span className="inline-block text-xs font-bold text-foreground uppercase tracking-widest mb-6">
             The SimpleIn Advantage
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-8 max-w-3xl leading-tight">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-8 max-w-3xl leading-tight">
             Why Partner With Us?
           </h2>
-          <p className="text-xl text-muted-foreground font-light max-w-2xl leading-relaxed">
+          <p className="text-lg text-muted-foreground font-light max-w-2xl leading-relaxed">
             We focus on creating measurable business value through modern technology, transparent communication, and quality engineering.
           </p>
         </ScrollAnimationWrapper>
@@ -36,7 +36,7 @@ export default function WhyChooseUsSection() {
               <StaggerItem
                 key={item.id}
                 className={`group relative bg-background border border-[var(--border-color)] hover:border-foreground transition-all duration-500 overflow-hidden ${
-                  isFeatured ? "md:col-span-2 lg:col-span-2 p-10 lg:p-12" : "p-8 lg:p-10"
+                  isFeatured ? "md:col-span-2 lg:col-span-2 p-8 lg:p-10" : "p-6 lg:p-8"
                 }`}
               >
                 {/* Hover gradient background effect */}
@@ -44,16 +44,16 @@ export default function WhyChooseUsSection() {
                 
                 <div className="relative z-10 flex flex-col h-full">
                   <div className={`mb-6 flex items-center justify-center rounded-none bg-[var(--surface)] border border-[var(--border-color)] group-hover:bg-foreground group-hover:text-background transition-colors ${
-                    isFeatured ? "w-16 h-16" : "w-12 h-12"
+                    isFeatured ? "w-14 h-14" : "w-10 h-10"
                   }`}>
-                    <Icon className={`${isFeatured ? "w-8 h-8" : "w-6 h-6"} text-foreground group-hover:text-background transition-colors`} />
+                    <Icon className={`${isFeatured ? "w-7 h-7" : "w-5 h-5"} text-foreground group-hover:text-background transition-colors`} />
                   </div>
                   
-                  <h3 className={`${isFeatured ? "text-2xl lg:text-3xl" : "text-xl"} font-bold tracking-tight text-foreground mb-4`}>
+                  <h3 className={`${isFeatured ? "text-xl lg:text-2xl" : "text-lg"} font-bold tracking-tight text-foreground mb-4`}>
                     {item.title}
                   </h3>
                   
-                  <p className={`text-muted-foreground font-light leading-relaxed mt-auto ${isFeatured ? "text-lg max-w-2xl" : "text-base"}`}>
+                  <p className={`text-muted-foreground font-light leading-relaxed mt-auto ${isFeatured ? "text-base max-w-2xl" : "text-[15px]"}`}>
                     {item.description}
                   </p>
                 </div>

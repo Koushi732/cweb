@@ -46,23 +46,23 @@ export default function Footer() {
   };
 
   return (
-    <footer ref={containerRef} className="relative bg-background pt-32 pb-12 border-t border-[var(--border-color)] overflow-hidden">
+    <footer ref={containerRef} className="relative bg-background pt-24 pb-12 border-t border-[var(--border-color)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-24 md:mb-32">
+        <div className="mb-20 md:mb-24">
           <Link href="/" className="inline-block group">
             <motion.h2 
               style={{ scale, opacity, y }}
-              className="text-[12vw] sm:text-8xl md:text-[8rem] lg:text-[10rem] font-bold leading-none tracking-tighter text-foreground transition-colors uppercase origin-left"
+              className="text-7xl sm:text-8xl lg:text-[8rem] font-bold leading-none tracking-tighter text-foreground transition-colors uppercase origin-left"
             >
               SimpleIn.
             </motion.h2>
           </Link>
-          <p className="text-xl md:text-3xl font-light text-muted-foreground max-w-2xl mt-8 leading-tight">
+          <p className="text-lg md:text-2xl font-light text-muted-foreground max-w-2xl mt-6 leading-tight">
             Every Service Made Simple. <br /> We build scalable digital solutions using modern technologies.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Column 1: Services */}
           <div className="lg:col-span-3">
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Services</h3>
@@ -80,7 +80,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-base text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -101,7 +101,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-base text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-[15px] text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -113,7 +113,7 @@ export default function Footer() {
           {/* Column 3: Contact */}
           <div className="lg:col-span-3">
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Reach Us</h3>
-            <ul className="space-y-4 text-base text-muted-foreground">
+            <ul className="space-y-4 text-[15px] text-muted-foreground">
               <li className="flex items-start gap-3 hover:text-foreground transition-colors">
                 <a href="tel:+919848334984" className="flex items-center gap-2">
                   <Phone className="w-4 h-4 shrink-0" /> <span>+91 984 8334 984</span>
@@ -136,7 +136,7 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="w-full bg-transparent text-base text-foreground placeholder:text-muted-foreground focus:outline-none"
+                className="w-full bg-transparent text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none"
                 required
               />
               <button

@@ -39,7 +39,7 @@ export default function ContactClient() {
   return (
     <>
       {/* Hero + Form */}
-      <section id="contact-form" className="relative pt-32 pb-32 bg-background overflow-hidden border-b border-[var(--border-color)]">
+      <section id="contact-form" className="relative pt-24 pb-24 bg-background overflow-hidden border-b border-[var(--border-color)]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080801a_1px,transparent_1px),linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:64px_64px] animate-[shimmer_60s_linear_infinite] opacity-50" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -49,7 +49,7 @@ export default function ContactClient() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="text-[10vw] sm:text-6xl md:text-[6rem] font-bold text-foreground leading-none tracking-[-0.04em] mt-8 mb-8"
+                className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-none tracking-[-0.04em] mt-8 mb-8"
               >
                 Get in Touch.
               </motion.h1>
@@ -57,7 +57,7 @@ export default function ContactClient() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="text-xl sm:text-2xl font-light text-muted-foreground max-w-xl leading-[1.6] mb-12"
+                className="text-lg sm:text-xl font-light text-muted-foreground max-w-xl leading-[1.6] mb-12"
               >
                 Have a question or ready to start your project? Fill out the form and our team will get back to you shortly.
               </motion.p>
@@ -85,7 +85,7 @@ export default function ContactClient() {
             </div>
 
             <ScrollAnimationWrapper animation="slide-left">
-              <div className="bg-[var(--surface)] p-8 sm:p-10 border border-[var(--border-color)] relative overflow-hidden group">
+              <div className="bg-[var(--surface)] p-6 sm:p-8 border border-[var(--border-color)] relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-foreground/5 blur-3xl rounded-full pointer-events-none group-hover:bg-foreground/10 transition-colors duration-500" />
                 
                 <div className="mb-8 border-b border-[var(--border-color)] pb-6">
@@ -169,7 +169,7 @@ export default function ContactClient() {
                     disabled={submitted}
                     aria-disabled={submitted}
                     aria-live="polite"
-                    className={`w-full flex items-center justify-center gap-3 px-6 py-4 font-bold text-xs uppercase tracking-[0.1em] transition-colors rounded-none ${submitted ? 'bg-[var(--surface)] text-muted-foreground cursor-not-allowed' : 'bg-foreground text-background hover:opacity-90'}`}
+                    className={`w-full flex items-center justify-center gap-3 px-6 py-4 font-semibold text-sm uppercase tracking-[0.1em] transition-colors rounded-none ${submitted ? 'bg-[var(--surface)] text-muted-foreground cursor-not-allowed' : 'bg-foreground text-background hover:opacity-90'}`}
                   >
                     {submitted ? "✓ Message Sent!" : <>Send Message <Send className="w-4 h-4" /></>}
                   </button>
@@ -181,7 +181,7 @@ export default function ContactClient() {
       </section>
 
       {/* Contact Info Cards (overlapping hero) */}
-      <section className="relative -mt-12 pb-32 z-20">
+      <section className="relative -mt-12 pb-24 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <StaggerChildren className="grid sm:grid-cols-1 md:grid-cols-3 gap-0 bg-background border border-[var(--border-color)]">
             {[
@@ -221,11 +221,11 @@ export default function ContactClient() {
       </section>
 
       {/* Direct Contacts & Working Hours */}
-      <section className="pb-32 border-b border-[var(--border-color)]">
+      <section className="pb-24 border-b border-[var(--border-color)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 h-full">
             <ScrollAnimationWrapper animation="slide-left" className="h-full">
-              <div className="p-10 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors group h-full">
+              <div className="p-8 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors group h-full">
                 <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-foreground mb-8 font-mono">Direct Contacts</h3>
                 <ul className="space-y-6 text-base">
                   <li className="flex items-start gap-4">
@@ -247,7 +247,7 @@ export default function ContactClient() {
             </ScrollAnimationWrapper>
 
             <ScrollAnimationWrapper animation="slide-right" className="h-full">
-              <div className="p-10 bg-[var(--surface)] border border-[var(--border-color)] hover:border-foreground transition-colors group h-full">
+              <div className="p-8 bg-[var(--surface)] border border-[var(--border-color)] hover:border-foreground transition-colors group h-full">
                 <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-foreground mb-8 font-mono">Working Hours</h3>
                 <ul className="space-y-6 text-base">
                   <li className="flex items-start gap-4">

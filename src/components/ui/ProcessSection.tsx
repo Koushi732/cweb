@@ -12,7 +12,7 @@ export default function ProcessSection() {
   const [activeStep, setActiveStep] = useState(1);
 
   return (
-    <section className="py-32 bg-[var(--surface)] border-y border-[var(--border-color)] overflow-hidden">
+    <section className="py-24 bg-[var(--surface)] border-y border-[var(--border-color)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollAnimationWrapper className="mb-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
@@ -20,10 +20,10 @@ export default function ProcessSection() {
               <span className="inline-block text-xs font-bold text-foreground uppercase tracking-widest mb-6 font-mono">
                 How We Work
               </span>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6 leading-tight">
                 Client Engagement Process.
               </h2>
-              <p className="text-xl text-muted-foreground font-light leading-relaxed">
+              <p className="text-lg text-muted-foreground font-light leading-[1.6]">
                 We act as a long-term technology partner. Our structured approach ensures clarity, transparency, and measurable business value at every step.
               </p>
             </div>
@@ -100,19 +100,19 @@ export default function ProcessSection() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="bg-background border border-[var(--border-color)] p-8 lg:p-16 relative overflow-hidden"
+                    className="bg-background border border-[var(--border-color)] p-6 lg:p-12 relative overflow-hidden"
                   >
                     <Icon className="absolute -right-8 -bottom-8 w-64 h-64 text-foreground/[0.03] pointer-events-none" />
                     
                     <div className="relative z-10">
                       <div className="flex items-center gap-6 mb-8">
-                        <div className="w-16 h-16 rounded-none bg-foreground text-background flex items-center justify-center shrink-0">
-                          <Icon className="w-8 h-8" />
+                        <div className="w-14 h-14 rounded-none bg-foreground text-background flex items-center justify-center shrink-0">
+                          <Icon className="w-7 h-7" />
                         </div>
-                        <h3 className="text-3xl sm:text-4xl font-bold tracking-tight">{step.title}</h3>
+                        <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">{step.title}</h3>
                       </div>
                       
-                      <p className="text-xl text-muted-foreground font-light mb-12 leading-relaxed">
+                      <p className="text-lg text-muted-foreground max-w-2xl font-light mb-10 leading-[1.6]">
                         {step.description}
                       </p>
 

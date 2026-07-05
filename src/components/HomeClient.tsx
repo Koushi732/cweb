@@ -94,7 +94,7 @@ export default function HomeClient() {
       {/* ==================== SECTION 1: HERO ==================== */}
       <section 
         id="hero"
-        className="relative min-h-[100vh] flex flex-col justify-center bg-background border-b border-[var(--border-color)] overflow-hidden pt-32 pb-24"
+        className="relative min-h-[100vh] flex flex-col justify-center bg-background border-b border-[var(--border-color)] overflow-hidden pt-24 pb-16"
         onMouseMove={handleMouseMove}
       >
         {/* Animated grid pattern */}
@@ -118,24 +118,25 @@ export default function HomeClient() {
               </div>
             </ScrollAnimationWrapper>
 
-            {/* Animated Logo Heading */}
-            <motion.div 
-              className="flex justify-start mb-12 min-h-[100px] sm:min-h-[140px] md:min-h-[170px] relative w-full max-w-[75vw] sm:max-w-xl origin-left"
-              style={{ scale: logoScale, y: logoY, x: logoX, opacity: logoOpacity }}
-            >
+            <ScrollAnimationWrapper animation="fade-up" delay={0.2}>
               <motion.div
-                initial={{ opacity: 0, y: 15, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full h-full origin-left"
+                style={{ scale: logoScale, y: logoY, x: logoX, opacity: logoOpacity }}
+                className="flex justify-start mb-10 min-h-[90px] sm:min-h-[120px] md:min-h-[150px] relative w-full max-w-[70vw] sm:max-w-lg origin-left"
               >
-                <Logo priority />
+                <motion.div
+                  initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="w-full h-full origin-left"
+                >
+                  <Logo priority />
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </ScrollAnimationWrapper>
 
-            <ScrollAnimationWrapper animation="mask-up" delay={0.2}>
-              <p className="text-xl sm:text-3xl text-muted-foreground font-light leading-[1.6] mb-16 max-w-3xl">
-                Every Service Made Simple
+            <ScrollAnimationWrapper animation="fade-up" delay={0.25}>
+              <p className="text-lg sm:text-2xl text-muted-foreground font-light leading-[1.6] mb-12 max-w-2xl">
+                We design, develop, and deliver enterprise-grade software and intelligent IT infrastructure.
               </p>
             </ScrollAnimationWrapper>
 
@@ -144,7 +145,7 @@ export default function HomeClient() {
                 <MagneticButton>
                   <Link
                     href="/services"
-                    className="group flex items-center justify-center gap-3 px-10 py-5 bg-foreground text-background font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
+                    className="group flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background font-semibold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
                   >
                     Explore Services
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -153,7 +154,7 @@ export default function HomeClient() {
                 <MagneticButton>
                   <Link
                     href="/contact#contact-form"
-                    className="group flex items-center justify-center gap-3 px-10 py-5 border border-foreground bg-transparent text-foreground font-bold text-sm uppercase tracking-[0.1em] hover:bg-foreground hover:text-background transition-colors rounded-none"
+                    className="group flex items-center justify-center gap-3 px-8 py-4 border border-foreground bg-transparent text-foreground font-semibold text-sm uppercase tracking-[0.1em] hover:bg-foreground hover:text-background transition-colors rounded-none"
                   >
                     Get a Quote
                   </Link>
@@ -165,21 +166,21 @@ export default function HomeClient() {
       </section>
 
       {/* ==================== SECTION 2: COMPANY INTRO ==================== */}
-      <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)]">
+      <section className="py-24 bg-[var(--surface)] border-b border-[var(--border-color)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 md:gap-24 items-start">
             <ScrollAnimationWrapper animation="slide-left">
               <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-6 font-mono">
                 Who We Are
               </span>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-[-0.04em] mb-8">
+              <h2 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-[-0.04em] mb-6">
                 Engineering Enterprise Solutions at Scale.
               </h2>
             </ScrollAnimationWrapper>
 
             <ScrollAnimationWrapper animation="slide-right">
               <div className="mb-16">
-                <p className="text-xl md:text-2xl text-muted-foreground font-light leading-[1.6] mb-8">
+                <p className="text-lg md:text-xl text-muted-foreground font-light leading-[1.6] mb-8 max-w-prose">
                   SimpleIn Solutions architects, develops, and scales mission-critical technology for modern enterprises. We deliver robust software, intelligent automation, and resilient infrastructure with an uncompromising standard for engineering excellence.
                 </p>
                 <Link
@@ -195,19 +196,19 @@ export default function HomeClient() {
       </section>
 
       {/* ==================== SECTION 3: SERVICES OVERVIEW ==================== */}
-      <section className="py-32 border-b border-[var(--border-color)] bg-background">
+      <section className="py-24 border-b border-[var(--border-color)] bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimationWrapper className="mb-20 grid lg:grid-cols-2 gap-12 items-end">
             <div>
               <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-6 font-mono">
                 Capabilities
               </span>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6">
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-6">
                 Comprehensive IT Solutions
               </h2>
             </div>
             <div>
-              <p className="text-xl text-muted-foreground font-light max-w-xl leading-[1.6]">
+              <p className="text-lg text-muted-foreground font-light max-w-xl leading-[1.6]">
                 Two major pillars of our business — cutting-edge IT services and reliable hardware solutions — all under one roof.
               </p>
             </div>
@@ -216,13 +217,13 @@ export default function HomeClient() {
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* IT Services */}
             <ScrollAnimationWrapper animation="slide-left">
-              <div className="h-full p-10 md:p-14 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors group">
+              <div className="h-full p-8 md:p-12 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors group">
                 <div className="mb-10">
                   <div className="mb-8">
-                    <Code2 className="w-12 h-12 text-foreground" />
+                    <Code2 className="w-10 h-10 text-foreground" />
                   </div>
-                  <h3 className="text-3xl font-bold tracking-[-0.02em] mb-4">Enterprise Engineering</h3>
-                  <p className="text-lg text-muted-foreground font-light leading-[1.6] mb-10">
+                  <h3 className="text-2xl font-bold tracking-[-0.02em] mb-4">Enterprise Engineering</h3>
+                  <p className="text-base text-muted-foreground font-light leading-[1.6] mb-10 max-w-prose">
                     Full-stack software engineering, scalable cloud architectures, and intelligent automation designed to power global enterprises.
                   </p>
                 </div>
@@ -256,13 +257,13 @@ export default function HomeClient() {
 
             {/* IT Hardware */}
             <ScrollAnimationWrapper animation="slide-right">
-              <div className="h-full p-10 md:p-14 bg-[var(--surface)] border border-[var(--border-color)] hover:border-foreground transition-colors group">
+              <div className="h-full p-8 md:p-12 bg-[var(--surface)] border border-[var(--border-color)] hover:border-foreground transition-colors group">
                 <div className="mb-10">
                   <div className="mb-8">
-                    <Monitor className="w-12 h-12 text-foreground" />
+                    <Monitor className="w-10 h-10 text-foreground" />
                   </div>
-                  <h3 className="text-3xl font-bold tracking-[-0.02em] mb-4">Enterprise Infrastructure</h3>
-                  <p className="text-lg text-muted-foreground font-light leading-[1.6] mb-10">
+                  <h3 className="text-2xl font-bold tracking-[-0.02em] mb-4">Enterprise Infrastructure</h3>
+                  <p className="text-base text-muted-foreground font-light leading-[1.6] mb-10 max-w-prose">
                     Enterprise-grade IT infrastructure procurement, deployment, and management, delivering uncompromised performance and security.
                   </p>
                 </div>
@@ -297,14 +298,14 @@ export default function HomeClient() {
       </section>
 
       {/* ==================== SECTION 4: SERVICES GRID (HIGH CONTRAST REWRITE) ==================== */}
-      <section className="py-32 border-b border-[var(--border-color)] bg-[var(--surface)]">
+      <section className="py-24 border-b border-[var(--border-color)] bg-[var(--surface)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimationWrapper className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div>
               <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-6 font-mono">
                 Services
               </span>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-4">
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-4">
                 What We Build
               </h2>
             </div>
@@ -328,17 +329,17 @@ export default function HomeClient() {
                     {/* Hover wipe effect */}
                     <div className="absolute inset-0 bg-foreground translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] z-0" />
                     
-                    <div className="relative z-10 p-10 md:p-12 flex flex-col h-full">
+                    <div className="relative z-10 p-8 md:p-10 flex flex-col h-full">
                       <div className="mb-8 flex items-center justify-between">
-                        <Icon className="w-10 h-10 text-foreground group-hover:text-background transition-colors duration-500" />
+                        <Icon className="w-8 h-8 text-foreground group-hover:text-background transition-colors duration-500" />
                         <span className="text-muted-foreground group-hover:text-background/50 font-mono text-sm transition-colors duration-500">
                           {String(index + 1).padStart(2, '0')}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-bold tracking-tight mb-4 text-foreground group-hover:text-background transition-colors duration-500">
+                      <h3 className="text-xl font-bold tracking-tight mb-4 text-foreground group-hover:text-background transition-colors duration-500">
                         {service.title}
                       </h3>
-                      <p className="text-base text-muted-foreground group-hover:text-background/80 font-light leading-[1.6] mb-8 flex-grow transition-colors duration-500">
+                      <p className="text-[15px] text-muted-foreground max-w-prose group-hover:text-background/80 font-light leading-[1.6] mb-8 flex-grow transition-colors duration-500">
                         {service.shortDescription}
                       </p>
                       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.1em] text-foreground group-hover:text-background transition-colors duration-500 font-mono">
@@ -354,13 +355,13 @@ export default function HomeClient() {
       </section>
 
       {/* ==================== SECTION 5: INDUSTRIES ==================== */}
-      <section className="py-32 border-b border-[var(--border-color)] bg-background">
+      <section className="py-24 border-b border-[var(--border-color)] bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimationWrapper className="mb-20 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6">
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-6">
               Industries We Serve
             </h2>
-            <p className="text-xl text-muted-foreground font-light leading-[1.6]">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light leading-[1.6]">
               Domain expertise across diverse sectors enables us to deliver solutions that address industry-specific challenges.
             </p>
           </ScrollAnimationWrapper>
@@ -370,8 +371,8 @@ export default function HomeClient() {
               const Icon = iconMap[industry.icon] || Briefcase;
               return (
                 <StaggerItem key={industry.id}>
-                  <div className="group flex flex-col items-center justify-center text-center gap-5 px-6 py-14 bg-background hover:bg-foreground hover:text-background transition-colors duration-300 cursor-default h-full">
-                    <Icon className="w-8 h-8 text-muted-foreground group-hover:text-background transition-colors duration-300" />
+                  <div className="group flex flex-col items-center justify-center text-center gap-5 px-6 py-12 bg-background hover:bg-foreground hover:text-background transition-colors duration-300 cursor-default h-full">
+                    <Icon className="w-6 h-6 text-muted-foreground group-hover:text-background transition-colors duration-300" />
                     <span className="text-sm font-bold uppercase tracking-[0.1em]">{industry.title}</span>
                   </div>
                 </StaggerItem>
@@ -383,7 +384,7 @@ export default function HomeClient() {
 
       {/* ==================== SECTION 6: TECHNOLOGY STACK (REDESIGNED) ==================== */}
       <section 
-        className="py-32 border-b border-[var(--border-color)] bg-background relative overflow-hidden"
+        className="py-24 border-b border-[var(--border-color)] bg-background relative overflow-hidden"
       >
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -391,10 +392,10 @@ export default function HomeClient() {
             <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-6 font-mono">
               Technology Stack
             </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6">
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-6">
               Engineering Excellence.
             </h2>
-            <p className="text-xl text-muted-foreground font-light max-w-2xl leading-[1.6]">
+            <p className="text-lg text-muted-foreground font-light max-w-2xl leading-[1.6]">
               We utilize modern, battle-tested technologies to build scalable and high-performance digital products.
             </p>
           </ScrollAnimationWrapper>
@@ -402,7 +403,7 @@ export default function HomeClient() {
           <StaggerChildren className="grid lg:grid-cols-3 gap-8 mb-20">
             {techCategories.map((category) => (
               <StaggerItem key={category.name} className="h-full">
-                <SpotlightCard className="p-10 bg-[var(--surface)] hover:border-foreground/40" spotlightColor="rgba(128,128,128,0.12)">
+                <SpotlightCard className="p-8 bg-[var(--surface)] hover:border-foreground/40" spotlightColor="rgba(128,128,128,0.12)">
                   <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground mb-8 font-mono border-b border-[var(--border-color)] pb-4 relative z-10">{category.name}</h3>
                   <div className="flex flex-col gap-4 relative z-10">
                     {category.techs.map((tech) => (
@@ -424,7 +425,7 @@ export default function HomeClient() {
             {[...techStack, ...techStack, ...techStack].map((tech, i) => (
               <span
                 key={i}
-                className="mx-12 text-3xl sm:text-4xl lg:text-5xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors duration-300 cursor-default select-none tracking-[-0.04em]"
+                className="mx-12 text-3xl sm:text-4xl lg:text-[2.5rem] font-bold text-muted-foreground/30 hover:text-foreground transition-colors duration-300 cursor-default select-none tracking-[-0.04em]"
               >
                 {tech}
               </span>
@@ -437,13 +438,13 @@ export default function HomeClient() {
       <WhyChooseUsSection />
 
       {/* ==================== SECTION 9: FAQ ==================== */}
-      <section className="py-32 border-b border-[var(--border-color)] bg-[var(--surface)]">
+      <section className="py-24 border-b border-[var(--border-color)] bg-[var(--surface)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimationWrapper className="text-center mb-16">
             <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-6 font-mono">
               FAQ
             </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6">
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-6">
               Common Questions.
             </h2>
           </ScrollAnimationWrapper>
@@ -458,13 +459,13 @@ export default function HomeClient() {
                     onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                     className="w-full flex items-center justify-between p-8 text-left"
                   >
-                    <span className="text-xl font-bold tracking-tight text-foreground">{faq.question}</span>
+                    <span className="text-lg font-bold tracking-tight text-foreground">{faq.question}</span>
                     <span className="ml-4 shrink-0 text-foreground">
-                      {openFaq === idx ? <Minus className="w-6 h-6" /> : <Plus className="w-6 h-6" />}
+                      {openFaq === idx ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                     </span>
                   </button>
                   {openFaq === idx && (
-                    <div className="px-8 pb-8 pt-0 text-lg text-muted-foreground font-light leading-relaxed">
+                    <div className="px-8 pb-8 pt-0 text-base text-muted-foreground font-light leading-relaxed">
                       {faq.answer}
                     </div>
                   )}
@@ -476,21 +477,21 @@ export default function HomeClient() {
       </section>
 
       {/* ==================== SECTION 10: CTA ==================== */}
-      <section className="py-40 bg-foreground text-background text-center px-4 relative overflow-hidden">
+      <section className="py-32 bg-foreground text-background text-center px-4 relative overflow-hidden">
         {/* Subtle background element */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-background/5 rounded-full blur-[100px] pointer-events-none" />
         
         <ScrollAnimationWrapper className="relative z-10">
-          <h2 className="text-5xl sm:text-7xl lg:text-[8rem] font-bold tracking-[-0.04em] mb-8 max-w-6xl mx-auto leading-[0.9]">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-[-0.04em] mb-8 max-w-5xl mx-auto leading-[1]">
             Ready to Build <br /> Something Great?
           </h2>
-          <p className="text-xl md:text-2xl font-light max-w-2xl mx-auto mb-16 text-muted-foreground">
+          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 text-muted-foreground">
             Let&apos;s discuss how SimpleIn Solutions can architect, automate, and scale your technology operations.
           </p>
           <div className="flex justify-center">
             <Link
               href="/contact#contact-form"
-              className="group flex items-center justify-center gap-4 px-12 py-6 bg-background text-foreground font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
+              className="group flex items-center justify-center gap-4 px-10 py-5 bg-background text-foreground font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
             >
               Start a Conversation <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Link>
@@ -498,91 +499,7 @@ export default function HomeClient() {
         </ScrollAnimationWrapper>
       </section>
 
-      {/* ==================== SECTION 11: CONTACT ==================== */}
-      <section className="py-32 bg-background border-b border-[var(--border-color)]" id="contact">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 md:gap-24">
-            <ScrollAnimationWrapper animation="slide-left">
-              <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-6 font-mono">
-                Let&apos;s Connect.
-              </span>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6">
-                Get In Touch.
-              </h2>
-              <p className="text-xl text-muted-foreground font-light mb-12 max-w-md leading-[1.6]">
-                Reach out and our team will respond shortly to discuss your technological requirements.
-              </p>
-              
-              <div className="space-y-8 mb-12 lg:mb-0">
-                {[
-                  { icon: Phone, title: "Call Us", info: "+91 984 8334 984", link: "tel:+919848334984" },
-                  { icon: Mail, title: "Email Us", info: "info@SimpleInsolutions.com", link: "mailto:info@SimpleInsolutions.com" },
-                  { icon: Clock, title: "Working Hours", info: "Available 24/7", link: "#" },
-                ].map((item, idx) => (
-                  <a key={idx} href={item.link} className="group flex items-start gap-6">
-                    <div className="w-14 h-14 border border-[var(--border-color)] flex items-center justify-center group-hover:border-foreground group-hover:bg-foreground group-hover:text-background transition-colors duration-300 bg-[var(--surface)] text-foreground shrink-0">
-                      <item.icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-sm uppercase tracking-[0.1em] mb-2 font-mono group-hover:text-foreground transition-colors">{item.title}</h3>
-                      <p className="text-muted-foreground font-light group-hover:text-foreground transition-colors">{item.info}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </ScrollAnimationWrapper>
 
-            <ScrollAnimationWrapper animation="slide-right">
-              <form onSubmit={handleFormSubmit} className="space-y-10 bg-[var(--surface)] p-10 sm:p-14 border border-[var(--border-color)]">
-                <div className="space-y-8">
-                  <div>
-                    <label htmlFor="contact-name" className="block text-xs font-bold tracking-[0.2em] uppercase mb-3 text-foreground font-mono">Name</label>
-                    <input
-                      id="contact-name"
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Your name"
-                      className="w-full px-0 py-3 bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors rounded-none text-xl"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="contact-email" className="block text-xs font-bold tracking-[0.2em] uppercase mb-3 text-foreground font-mono">Email</label>
-                    <input
-                      id="contact-email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="your@email.com"
-                      className="w-full px-0 py-3 bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors rounded-none text-xl"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="contact-message" className="block text-xs font-bold tracking-[0.2em] uppercase mb-3 text-foreground font-mono">Message</label>
-                    <textarea
-                      id="contact-message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about your project..."
-                      className="w-full px-0 py-3 bg-transparent border-b border-[var(--border-color)] text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors resize-none rounded-none text-xl"
-                      required
-                    />
-                  </div>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-3 px-8 py-6 bg-foreground text-background font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
-                >
-                  {formSubmitted ? "✓ Message Sent!" : <>Send Message <Send className="w-5 h-5" /></>}
-                </button>
-              </form>
-            </ScrollAnimationWrapper>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
