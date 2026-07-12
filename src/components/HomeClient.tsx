@@ -30,44 +30,17 @@ const iconMap: Record<string, React.ElementType> = {
 const techStack = allTechnologies;
 
 const techCategories = [
-  { name: "Frontend", techs: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"] },
-  { name: "Backend", techs: ["Node.js", "Python", "Go", "GraphQL", "REST APIs"] },
-  { name: "Database & Cloud", techs: ["PostgreSQL", "MongoDB", "Redis", "AWS", "Docker", "Kubernetes"] },
+  { name: "Frontend", icon: Monitor, techs: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"] },
+  { name: "Backend", icon: Server, techs: ["Node.js", "Python", "Go", "GraphQL", "REST APIs"] },
+  { name: "Database & Cloud", icon: Cloud, techs: ["PostgreSQL", "MongoDB", "Redis", "AWS", "Docker", "Kubernetes"] },
 ];
 
-const faqs = [
-  {
-    question: "Do you build custom software from scratch?",
-    answer: "Yes, we specialize in building custom software tailored exactly to your business requirements. We do not rely on pre-built templates for complex business applications."
-  },
-  {
-    question: "What is your typical project timeline?",
-    answer: "The timeline depends on the project. The minimum time for completing any project is 14 days and the maximum timeline could go up to 2 months."
-  },
-
-  {
-    question: "Do you provide post-deployment support?",
-    answer: "Absolutely. We consider ourselves long-term technology partners. We provide continuous maintenance, bug fixes, performance monitoring, and feature upgrades post-deployment."
-  },
-  {
-    question: "What technologies do you use?",
-    answer: "We use modern, scalable technologies including React, Next.js, Node.js, Python, PostgreSQL, AWS, and Docker, ensuring your software is fast, secure, and future-proof."
-  },
-  {
-    question: "Can you supply hardware for our new office?",
-    answer: "Yes, we provide complete enterprise IT hardware procurement, including workstations, servers, networking equipment, and security systems, followed by professional installation."
-  },
-  {
-    question: "What is your pricing model?",
-    answer: "We offer both fixed-price contracts for well-defined projects and dedicated team/time-and-material models for ongoing, evolving development needs. We ensure complete transparency with no hidden costs."
-  }
-];
 
 export default function HomeClient() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [mousePos, setMousePos] = useState({ x: '50%', y: '50%' });
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -112,7 +85,7 @@ export default function HomeClient() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-5xl">
             <ScrollAnimationWrapper animation="text-reveal">
-              <div className="inline-flex items-center gap-3 px-6 py-3 bg-[var(--surface)] text-xs font-bold tracking-[0.2em] uppercase text-foreground mb-8 font-mono border border-[var(--border-color)] shadow-sm">
+              <div className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] uppercase text-muted-foreground mb-8 font-mono">
                 <span className="w-2 h-2 bg-foreground rounded-full animate-pulse" />
                 Welcome To
               </div>
@@ -135,8 +108,11 @@ export default function HomeClient() {
             </ScrollAnimationWrapper>
 
             <ScrollAnimationWrapper animation="fade-up" delay={0.25}>
-              <p className="text-lg sm:text-2xl text-muted-foreground font-light leading-[1.6] mb-12 max-w-2xl">
-                We design, develop, and deliver enterprise-grade software and intelligent IT infrastructure.
+              <h3 className="text-3xl sm:text-4xl text-foreground font-bold tracking-[-0.02em] mb-4">
+                Every Service Made Simple.
+              </h3>
+              <p className="text-lg sm:text-xl text-muted-foreground font-light leading-[1.6] mb-12 max-w-2xl">
+                Transforming complex challenges into elegant, future-proof technological solutions.
               </p>
             </ScrollAnimationWrapper>
 
@@ -174,14 +150,14 @@ export default function HomeClient() {
                 Who We Are
               </span>
               <h2 className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-[-0.04em] mb-6">
-                Engineering Enterprise Solutions at Scale.
+                Architects of the Complete IT Ecosystem.
               </h2>
             </ScrollAnimationWrapper>
 
             <ScrollAnimationWrapper animation="slide-right">
               <div className="mb-16">
                 <p className="text-lg md:text-xl text-muted-foreground font-light leading-[1.6] mb-8 max-w-prose">
-                  SimpleIn Solutions architects, develops, and scales mission-critical technology for modern enterprises. We deliver robust software, intelligent automation, and resilient infrastructure with an uncompromising standard for engineering excellence.
+                  We are a unified team of software engineers and infrastructure specialists. We design custom software to solve complex challenges and supply the enterprise-grade hardware to power it—giving you one reliable partner for your entire technology foundation.
                 </p>
                 <Link
                   href="/about"
@@ -192,6 +168,95 @@ export default function HomeClient() {
               </div>
             </ScrollAnimationWrapper>
           </div>
+        </div>
+      </section>
+
+      {/* ==================== SECTION 1.5: THE SIMPLEIN ACRONYM (ADVANCED HOVER) ==================== */}
+      <section className="py-20 border-b border-[var(--border-color)] bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <ScrollAnimationWrapper className="mb-12 text-center">
+            <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-4 font-mono">
+              The Philosophy
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em]">
+              The Core of SimpleIn.
+            </h2>
+          </ScrollAnimationWrapper>
+
+          <ScrollAnimationWrapper animation="fade-up">
+            <div className="flex flex-col md:flex-row h-auto md:h-[250px] w-full gap-4">
+              {[
+                { letter: "S", title: "Simple", desc: "Technology that is easy to use.", bg: "bg-[var(--surface)]" },
+                { letter: "I", title: "Innovative", desc: "Driven by AI, automation, and modern engineering.", bg: "bg-[var(--surface-hover)]" },
+                { letter: "N", title: "Next", desc: "Building future-ready digital solutions for tomorrow's businesses.", bg: "bg-foreground" },
+              ].map((item, idx) => {
+                const isHovered = activeAccordion === idx;
+                const isDark = item.bg === "bg-foreground";
+                
+                return (
+                  <motion.div
+                    key={item.letter}
+                    onHoverStart={() => setActiveAccordion(idx)}
+                    onHoverEnd={() => setActiveAccordion(null)}
+                    onClick={() => setActiveAccordion(idx)}
+                    layout
+                    animate={{ 
+                      flex: isHovered ? 3 : 1 
+                    }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className={`relative overflow-hidden cursor-pointer rounded-2xl flex flex-col justify-between p-6 sm:p-8 min-h-[200px] md:min-h-0 ${item.bg} border border-[var(--border-color)]`}
+                  >
+                    {/* Background Letter Watermark */}
+                    <motion.div 
+                      className={`absolute -right-8 -bottom-16 text-[15rem] leading-none font-bold select-none ${isDark ? 'text-background/5' : 'text-foreground/5'}`}
+                      animate={{ scale: isHovered ? 1.1 : 1, right: isHovered ? '-2rem' : '-3rem' }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+                      {item.letter}
+                    </motion.div>
+
+                    {/* Top Letter */}
+                    <div className={`text-6xl font-bold tracking-tighter ${isDark ? 'text-background' : 'text-foreground'}`}>
+                      {item.letter}
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10 mt-auto">
+                      <motion.h3 
+                        layout="position"
+                        className={`text-2xl sm:text-3xl font-bold uppercase tracking-[0.2em] mb-4 whitespace-nowrap ${isDark ? 'text-background' : 'text-foreground'}`}
+                      >
+                        {item.title}
+                      </motion.h3>
+                      <motion.div 
+                        initial={false}
+                        animate={{ 
+                          height: isHovered ? "auto" : 0, 
+                          opacity: isHovered ? 1 : 0,
+                          marginTop: isHovered ? "1rem" : "0"
+                        }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className={`text-lg font-light leading-[1.6] max-w-sm ${isDark ? 'text-background/80' : 'text-muted-foreground'}`}>
+                          {item.desc}
+                        </p>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </ScrollAnimationWrapper>
+          
+          <ScrollAnimationWrapper animation="fade-up" delay={0.2}>
+            <div className="mt-20 text-center border-t border-[var(--border-color)] pt-16">
+              <p className="text-2xl md:text-3xl font-light leading-[1.4] text-foreground tracking-[-0.02em]">
+                <span className="font-bold">Simple</span> solutions with <span className="font-bold">innovative</span> thinking to prepare businesses for what's <span className="font-bold">next</span>.
+              </p>
+            </div>
+          </ScrollAnimationWrapper>
         </div>
       </section>
 
@@ -222,7 +287,7 @@ export default function HomeClient() {
                   <div className="mb-8">
                     <Code2 className="w-10 h-10 text-foreground" />
                   </div>
-                  <h3 className="text-2xl font-bold tracking-[-0.02em] mb-4">Enterprise Engineering</h3>
+                  <h3 className="text-2xl font-bold tracking-[-0.02em] mb-4">Software Solutions</h3>
                   <p className="text-base text-muted-foreground font-light leading-[1.6] mb-10 max-w-prose">
                     Full-stack software engineering, scalable cloud architectures, and intelligent automation designed to power global enterprises.
                   </p>
@@ -262,7 +327,7 @@ export default function HomeClient() {
                   <div className="mb-8">
                     <Monitor className="w-10 h-10 text-foreground" />
                   </div>
-                  <h3 className="text-2xl font-bold tracking-[-0.02em] mb-4">Enterprise Infrastructure</h3>
+                  <h3 className="text-2xl font-bold tracking-[-0.02em] mb-4">Hardware Solutions</h3>
                   <p className="text-base text-muted-foreground font-light leading-[1.6] mb-10 max-w-prose">
                     Enterprise-grade IT infrastructure procurement, deployment, and management, delivering uncompromised performance and security.
                   </p>
@@ -297,90 +362,8 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* ==================== SECTION 4: SERVICES GRID (HIGH CONTRAST REWRITE) ==================== */}
-      <section className="py-24 border-b border-[var(--border-color)] bg-[var(--surface)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div>
-              <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-6 font-mono">
-                Services
-              </span>
-              <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-4">
-                What We Build
-              </h2>
-            </div>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] text-foreground hover:text-muted-foreground transition-colors border-b border-foreground pb-1"
-            >
-              View All Services <ArrowRight className="w-4 h-4" />
-            </Link>
-          </ScrollAnimationWrapper>
 
-          <StaggerChildren className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {services.slice(0, 6).map((service, index) => {
-              const Icon = iconMap[service.icon] || Code2;
-              return (
-                <StaggerItem key={service.id}>
-                  <Link 
-                    href={`/services#${service.id}`} 
-                    className="group block relative overflow-hidden border border-[var(--border-color)] bg-background h-full"
-                  >
-                    {/* Hover wipe effect */}
-                    <div className="absolute inset-0 bg-foreground translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] z-0" />
-                    
-                    <div className="relative z-10 p-8 md:p-10 flex flex-col h-full">
-                      <div className="mb-8 flex items-center justify-between">
-                        <Icon className="w-8 h-8 text-foreground group-hover:text-background transition-colors duration-500" />
-                        <span className="text-muted-foreground group-hover:text-background/50 font-mono text-sm transition-colors duration-500">
-                          {String(index + 1).padStart(2, '0')}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold tracking-tight mb-4 text-foreground group-hover:text-background transition-colors duration-500">
-                        {service.title}
-                      </h3>
-                      <p className="text-[15px] text-muted-foreground max-w-prose group-hover:text-background/80 font-light leading-[1.6] mb-8 flex-grow transition-colors duration-500">
-                        {service.shortDescription}
-                      </p>
-                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.1em] text-foreground group-hover:text-background transition-colors duration-500 font-mono">
-                        Explore <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-500" />
-                      </div>
-                    </div>
-                  </Link>
-                </StaggerItem>
-              );
-            })}
-          </StaggerChildren>
-        </div>
-      </section>
 
-      {/* ==================== SECTION 5: INDUSTRIES ==================== */}
-      <section className="py-24 border-b border-[var(--border-color)] bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-20 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-6">
-              Industries We Serve
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light leading-[1.6]">
-              Domain expertise across diverse sectors enables us to deliver solutions that address industry-specific challenges.
-            </p>
-          </ScrollAnimationWrapper>
-
-          <StaggerChildren className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-[var(--border-color)] border border-[var(--border-color)] mb-16">
-            {industries.slice(0, 12).map((industry) => {
-              const Icon = iconMap[industry.icon] || Briefcase;
-              return (
-                <StaggerItem key={industry.id}>
-                  <div className="group flex flex-col items-center justify-center text-center gap-5 px-6 py-12 bg-background hover:bg-foreground hover:text-background transition-colors duration-300 cursor-default h-full">
-                    <Icon className="w-6 h-6 text-muted-foreground group-hover:text-background transition-colors duration-300" />
-                    <span className="text-sm font-bold uppercase tracking-[0.1em]">{industry.title}</span>
-                  </div>
-                </StaggerItem>
-              );
-            })}
-          </StaggerChildren>
-        </div>
-      </section>
 
       {/* ==================== SECTION 6: TECHNOLOGY STACK (REDESIGNED) ==================== */}
       <section 
@@ -393,88 +376,36 @@ export default function HomeClient() {
               Technology Stack
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-6">
-              Engineering Excellence.
+              The Arsenal of Innovation.
             </h2>
             <p className="text-lg text-muted-foreground font-light max-w-2xl leading-[1.6]">
               We utilize modern, battle-tested technologies to build scalable and high-performance digital products.
             </p>
           </ScrollAnimationWrapper>
-
-          <StaggerChildren className="grid lg:grid-cols-3 gap-8 mb-20">
-            {techCategories.map((category) => (
-              <StaggerItem key={category.name} className="h-full">
-                <SpotlightCard className="p-8 bg-[var(--surface)] hover:border-foreground/40" spotlightColor="rgba(128,128,128,0.12)">
-                  <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground mb-8 font-mono border-b border-[var(--border-color)] pb-4 relative z-10">{category.name}</h3>
-                  <div className="flex flex-col gap-4 relative z-10">
-                    {category.techs.map((tech) => (
-                      <div key={tech} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                        <span className="text-lg font-medium text-foreground">{tech}</span>
-                      </div>
-                    ))}
-                  </div>
-                </SpotlightCard>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
         </div>
 
-        {/* Marquee for Visual Impact */}
-        <div className="relative border-t border-b border-[var(--border-color)] py-12 bg-[var(--surface)]">
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...techStack, ...techStack, ...techStack].map((tech, i) => (
-              <span
-                key={i}
-                className="mx-12 text-3xl sm:text-4xl lg:text-[2.5rem] font-bold text-muted-foreground/30 hover:text-foreground transition-colors duration-300 cursor-default select-none tracking-[-0.04em]"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+        <div className="relative border-t border-b border-[var(--border-color)] py-16 md:py-24 bg-[var(--surface)] flex flex-col gap-8 md:gap-16 overflow-hidden w-full">
+          {techCategories.map((category, index) => (
+            <div key={category.name} className="flex w-full relative">
+              <div className={`flex whitespace-nowrap ${index % 2 === 0 ? 'animate-marquee' : 'animate-marquee-reverse'}`}>
+                {[...category.techs, ...category.techs, ...category.techs, ...category.techs, ...category.techs, ...category.techs].map((tech, i) => (
+                  <div key={i} className="flex items-center">
+                    <span className="mx-6 md:mx-12 text-4xl sm:text-6xl lg:text-[5rem] font-bold text-muted-foreground/20 hover:text-foreground transition-colors duration-300 cursor-default select-none tracking-[-0.04em]">
+                      {tech}
+                    </span>
+                    <span className="text-foreground/10 text-3xl md:text-5xl mx-2 md:mx-4">•</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ==================== SECTION 8: WHY CHOOSE US ==================== */}
       <WhyChooseUsSection />
 
-      {/* ==================== SECTION 9: FAQ ==================== */}
-      <section className="py-24 border-b border-[var(--border-color)] bg-[var(--surface)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="text-center mb-16">
-            <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-6 font-mono">
-              FAQ
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-6">
-              Common Questions.
-            </h2>
-          </ScrollAnimationWrapper>
 
-          <StaggerChildren className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <StaggerItem key={idx}>
-                <div 
-                  className={`border border-[var(--border-color)] bg-background transition-colors ${openFaq === idx ? "border-foreground" : "hover:border-muted-foreground"}`}
-                >
-                  <button
-                    onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                    className="w-full flex items-center justify-between p-8 text-left"
-                  >
-                    <span className="text-lg font-bold tracking-tight text-foreground">{faq.question}</span>
-                    <span className="ml-4 shrink-0 text-foreground">
-                      {openFaq === idx ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                    </span>
-                  </button>
-                  {openFaq === idx && (
-                    <div className="px-8 pb-8 pt-0 text-base text-muted-foreground font-light leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  )}
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </div>
-      </section>
 
       {/* ==================== SECTION 10: CTA ==================== */}
       <section className="py-32 bg-foreground text-background text-center px-4 relative overflow-hidden">

@@ -137,7 +137,7 @@ export default function ContactClient() {
                         placeholder=" "
                         className="peer w-full bg-transparent border-b border-[var(--border-color)] text-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-base rounded-none"
                       />
-                      <label htmlFor="phone" className="absolute left-0 top-4 text-muted-foreground transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-foreground peer-[&:not(:placeholder-shown)]:-top-2 peer-[&:not(:placeholder-shown)]:text-[10px] peer-[&:not(:placeholder-shown)]:text-foreground font-mono uppercase tracking-[0.2em] font-bold pointer-events-none">Phone (Optional)</label>
+                      <label htmlFor="phone" className="absolute left-0 top-4 text-muted-foreground transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-foreground peer-[&:not(:placeholder-shown)]:-top-2 peer-[&:not(:placeholder-shown)]:text-[10px] peer-[&:not(:placeholder-shown)]:text-foreground font-mono uppercase tracking-[0.2em] font-bold pointer-events-none">Phone</label>
                     </div>
                     <div className="relative pt-4">
                       <input
@@ -148,7 +148,7 @@ export default function ContactClient() {
                         placeholder=" "
                         className="peer w-full bg-transparent border-b border-[var(--border-color)] text-foreground focus:outline-none focus:border-foreground transition-colors pb-3 text-base rounded-none"
                       />
-                      <label htmlFor="company" className="absolute left-0 top-4 text-muted-foreground transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-foreground peer-[&:not(:placeholder-shown)]:-top-2 peer-[&:not(:placeholder-shown)]:text-[10px] peer-[&:not(:placeholder-shown)]:text-foreground font-mono uppercase tracking-[0.2em] font-bold pointer-events-none">Company (Optional)</label>
+                      <label htmlFor="company" className="absolute left-0 top-4 text-muted-foreground transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-foreground peer-[&:not(:placeholder-shown)]:-top-2 peer-[&:not(:placeholder-shown)]:text-[10px] peer-[&:not(:placeholder-shown)]:text-foreground font-mono uppercase tracking-[0.2em] font-bold pointer-events-none">Company</label>
                     </div>
                   </div>
                   <div className="relative pt-4">
@@ -187,14 +187,14 @@ export default function ContactClient() {
             {[
               {
                 icon: Phone, title: "Call Us", info: "+91 984 8334 984",
-                subInfo: "Available Anytime", href: "tel:+919848334984",
+                subInfo: "", href: "tel:+919848334984",
               },
               {
                 icon: Mail, title: "General Email", info: "info@SimpleInsolutions.com",
-                subInfo: "Support always available", href: "mailto:info@SimpleInsolutions.com",
+                subInfo: "", href: "mailto:info@SimpleInsolutions.com",
               },
               {
-                icon: MessageCircle, title: "WhatsApp", info: "Quick response",
+                icon: MessageCircle, title: "WhatsApp", info: "Chat with us directly",
                 subInfo: "", href: "https://wa.me/919848334984",
               },
             ].map((item, index) => (
@@ -220,49 +220,7 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* Direct Contacts & Working Hours */}
-      <section className="pb-24 border-b border-[var(--border-color)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 h-full">
-            <ScrollAnimationWrapper animation="slide-left" className="h-full">
-              <div className="p-8 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors group h-full">
-                <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-foreground mb-8 font-mono">Direct Contacts</h3>
-                <ul className="space-y-6 text-base">
-                  <li className="flex items-start gap-4">
-                    <Mail className="w-5 h-5 text-muted-foreground group-hover:text-foreground mt-0.5 flex-shrink-0 transition-colors" />
-                    <div>
-                      <p className="font-bold text-foreground">Sales Inquiries</p>
-                      <a href="mailto:info@SimpleInsolutions.com" className="text-muted-foreground font-light hover:text-foreground transition-colors">info@SimpleInsolutions.com</a>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <Mail className="w-5 h-5 text-muted-foreground group-hover:text-foreground mt-0.5 flex-shrink-0 transition-colors" />
-                    <div>
-                      <p className="font-bold text-foreground">Technical Support</p>
-                      <a href="mailto:info@SimpleInsolutions.com" className="text-muted-foreground font-light hover:text-foreground transition-colors">info@SimpleInsolutions.com</a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </ScrollAnimationWrapper>
 
-            <ScrollAnimationWrapper animation="slide-right" className="h-full">
-              <div className="p-8 bg-[var(--surface)] border border-[var(--border-color)] hover:border-foreground transition-colors group h-full">
-                <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-foreground mb-8 font-mono">Working Hours</h3>
-                <ul className="space-y-6 text-base">
-                  <li className="flex items-start gap-4">
-                    <Clock className="w-5 h-5 text-muted-foreground group-hover:text-foreground mt-0.5 flex-shrink-0 transition-colors" />
-                    <div>
-                      <p className="font-bold text-foreground">Available 24/7</p>
-                      <p className="text-muted-foreground font-light">We can take on work at any time</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </ScrollAnimationWrapper>
-          </div>
-        </div>
-      </section>
 
       {/* Communication Section */}
       <CommunicationSection />

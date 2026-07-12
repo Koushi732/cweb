@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@custom-variant dark (&:where(.dark, .dark *));
 /* ===== DESIGN TOKENS — SIMPLEIN MONOCHROME PREMIUM ===== */
 @theme {
   --color-background: var(--background);
@@ -189,11 +189,11 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 120s linear infinite;
 }
 
 .animate-marquee-reverse {
-  animation: marquee-reverse 30s linear infinite;
+  animation: marquee-reverse 120s linear infinite;
 }
 
 .animate-fade-in-up {
@@ -347,4 +347,17 @@ body {
   html {
     scroll-behavior: auto !important;
   }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 12px)); }
 }

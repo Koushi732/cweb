@@ -46,21 +46,21 @@ export default function Footer() {
   };
 
   return (
-    <footer ref={containerRef} className="relative bg-background pt-24 pb-12 border-t border-[var(--border-color)] overflow-hidden">
+    <footer ref={containerRef} className="relative bg-background pt-0 pb-12 border-t border-[var(--border-color)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-20 md:mb-24">
+        <motion.div style={{ opacity, y }} className="mb-20 md:mb-24">
           <Link href="/" className="inline-block group">
             <motion.h2 
-              style={{ scale, opacity, y }}
+              style={{ scale }}
               className="text-7xl sm:text-8xl lg:text-[8rem] font-bold leading-none tracking-tighter text-foreground transition-colors uppercase origin-left"
             >
               SimpleIn.
             </motion.h2>
           </Link>
           <p className="text-lg md:text-2xl font-light text-muted-foreground max-w-2xl mt-6 leading-tight">
-            Every Service Made Simple. <br /> We build scalable digital solutions using modern technologies.
+            Every Service Made Simple.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Column 1: Services */}
@@ -96,6 +96,7 @@ export default function Footer() {
               {[
                 { name: "About Us", href: "/about" },
                 { name: "Industries", href: "/industries" },
+                { name: "FAQ", href: "/faq" },
                 { name: "Contact", href: "/contact" },
               ].map((link) => (
                 <li key={link.name}>
@@ -130,18 +131,18 @@ export default function Footer() {
           {/* Column 4: Newsletter & Social */}
           <div className="lg:col-span-4 lg:pl-12">
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Newsletter</h3>
-            <form onSubmit={handleSubscribe} className="relative flex items-center border-b border-[var(--border-color)] focus-within:border-foreground transition-colors mb-12 pb-2">
+            <form onSubmit={handleSubscribe} className="relative flex items-center border-b border-[var(--border-color)] focus-within:border-foreground transition-colors mb-12 pb-2 gap-4">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="w-full bg-transparent text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none"
+                className="flex-1 bg-transparent text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none border-none focus:ring-0 p-0"
                 required
               />
               <button
                 type="submit"
-                className="text-foreground hover:text-muted-foreground font-bold text-sm transition-colors uppercase tracking-wider"
+                className="shrink-0 text-foreground hover:text-muted-foreground font-bold text-sm transition-colors uppercase tracking-wider"
               >
                 {subscribed ? "Subscribed" : "Subscribe"}
               </button>
@@ -150,10 +151,10 @@ export default function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6 text-foreground">Social</h3>
             <div className="flex gap-4">
               {[
-                { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
-                { icon: TwitterIcon, href: "#", label: "Twitter" },
-                { icon: InstagramIcon, href: "#", label: "Instagram" },
-                { icon: FacebookIcon, href: "#", label: "Facebook" },
+                { icon: LinkedinIcon, href: "https://www.linkedin.com/company/simpleinsolutions", label: "LinkedIn" },
+                { icon: TwitterIcon, href: "https://x.com/simpleinsolutions", label: "Twitter" },
+                { icon: InstagramIcon, href: "https://instagram.com/simpleinsolutions", label: "Instagram" },
+                { icon: FacebookIcon, href: "https://facebook.com/simpleinsolutions", label: "Facebook" },
               ].map((social) => (
                 <a
                   key={social.label}
@@ -176,8 +177,8 @@ export default function Footer() {
             © {new Date().getFullYear()} SimpleIn Solutions. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms & Conditions</Link>
+            <span className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-default">Privacy Policy</span>
+            <span className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-default">Terms & Conditions</span>
             <button
               onClick={scrollToTop}
               className="w-10 h-10 rounded-none border border-[var(--border-color)] flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors ml-2 sm:ml-4"

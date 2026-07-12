@@ -1,10 +1,10 @@
 import React from "react";
 import { communicationPolicy } from "@/data/communication";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Lightbulb, Shield } from "lucide-react";
 
 export default function CommunicationSection() {
-  const { initialResponse, channels, projectCommunication, documentation, support } = communicationPolicy;
+  const { projectCommunication, documentation, support } = communicationPolicy;
 
   return (
     <section className="py-32 bg-[var(--surface)] border-b border-[var(--border-color)]">
@@ -21,60 +21,77 @@ export default function CommunicationSection() {
           </p>
         </ScrollAnimationWrapper>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-20">
-          {/* Initial Response */}
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-12">
+          {/* Strategic Consultation */}
           <ScrollAnimationWrapper animation="fade-up">
-            <div className="bg-background border border-[var(--border-color)] p-10 hover:border-foreground transition-colors h-full">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-[var(--surface)] border border-[var(--border-color)] rounded-none">
-                  <initialResponse.icon className="w-6 h-6 text-foreground" />
-                </div>
-                <h3 className="text-2xl font-bold tracking-tight">{initialResponse.title}</h3>
+            <div className="bg-background border border-[var(--border-color)] p-6 sm:p-8 hover:border-foreground transition-colors h-full group">
+              <div className="flex items-center gap-4 mb-5">
+                <Lightbulb className="w-6 h-6 text-foreground" />
+                <h3 className="text-lg font-bold tracking-tight">Strategic Consultation</h3>
               </div>
-              <p className="text-muted-foreground text-lg font-light leading-relaxed mb-6">
-                {initialResponse.description}
+              <p className="text-muted-foreground font-light leading-relaxed mb-6">
+                We begin with a deep dive into your business to understand your core operational challenges and architect a tailored roadmap.
               </p>
-              <div className="bg-[var(--surface)] border-l-2 border-foreground p-6">
-                <p className="text-foreground font-medium italic">
-                  &quot;{initialResponse.commitment}&quot;
-                </p>
-              </div>
+              <ul className="space-y-3">
+                {[
+                  "Business requirement analysis",
+                  "Technology stack selection",
+                  "Architecture & planning",
+                  "Feasibility studies"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-foreground flex-shrink-0 mt-0.5" />
+                    <span className="text-sm font-medium text-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </ScrollAnimationWrapper>
 
-          {/* Channels */}
+          {/* Long-Term Partnership */}
           <ScrollAnimationWrapper animation="fade-up" delay={0.1}>
-            <div className="bg-background border border-[var(--border-color)] p-10 hover:border-foreground transition-colors h-full">
-              <h3 className="text-2xl font-bold tracking-tight mb-8">Supported Channels</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                {channels.map((channel) => (
-                  <div key={channel.name} className="flex flex-col items-center text-center gap-3 p-4 bg-[var(--surface)] border border-[var(--border-color)] rounded-none group hover:border-foreground hover:bg-foreground transition-colors">
-                    <channel.icon className="w-6 h-6 text-muted-foreground group-hover:text-background transition-colors" />
-                    <span className="text-sm font-medium text-foreground group-hover:text-background transition-colors">{channel.name}</span>
-                  </div>
-                ))}
+            <div className="bg-background border border-[var(--border-color)] p-6 sm:p-8 hover:border-foreground transition-colors h-full group">
+              <div className="flex items-center gap-4 mb-5">
+                <Shield className="w-6 h-6 text-foreground" />
+                <h3 className="text-lg font-bold tracking-tight">Long-Term Partnership</h3>
               </div>
+              <p className="text-muted-foreground font-light leading-relaxed mb-6">
+                SimpleIn serves as your dedicated technology partner, providing continuous support and proactive enhancements to scale alongside your business.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Dedicated account management",
+                  "Proactive system monitoring",
+                  "Continuous feature development",
+                  "Scalability & growth planning"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-foreground flex-shrink-0 mt-0.5" />
+                    <span className="text-sm font-medium text-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </ScrollAnimationWrapper>
         </div>
 
         {/* 3 Pillars */}
-        <StaggerChildren className="grid md:grid-cols-3 gap-8">
+        <StaggerChildren className="grid md:grid-cols-3 gap-6">
           {[projectCommunication, documentation, support].map((pillar) => (
             <StaggerItem key={pillar.title}>
-              <div className="h-full bg-background border border-[var(--border-color)] p-10 hover:border-foreground transition-colors group">
-                <div className="flex items-center gap-4 mb-6">
-                  <pillar.icon className="w-8 h-8 text-foreground" />
-                  <h3 className="text-xl font-bold tracking-tight">{pillar.title}</h3>
+              <div className="h-full bg-background border border-[var(--border-color)] p-6 sm:p-8 hover:border-foreground transition-colors group">
+                <div className="flex items-center gap-4 mb-5">
+                  <pillar.icon className="w-6 h-6 text-foreground" />
+                  <h3 className="text-lg font-bold tracking-tight">{pillar.title}</h3>
                 </div>
-                <p className="text-muted-foreground font-light leading-relaxed mb-8 h-24">
+                <p className="text-muted-foreground font-light leading-relaxed mb-6">
                   {pillar.description}
                 </p>
-                <ul className="space-y-4">
+                <ul className="space-y-3">
                   {pillar.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-foreground flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground font-medium">{item}</span>
+                      <span className="text-sm font-medium text-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>

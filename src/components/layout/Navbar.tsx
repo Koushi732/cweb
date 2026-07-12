@@ -95,8 +95,8 @@ export default function Navbar() {
                       onMouseEnter={() => setMegaMenuOpen(true)}
                       onMouseLeave={() => setMegaMenuOpen(false)}
                     >
-                      <Link
-                        href={item.href}
+                      <button
+                        type="button"
                         aria-expanded={megaMenuOpen}
                         aria-haspopup="true"
                         className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-colors ${pathname === item.href || pathname.startsWith("/services") || pathname.startsWith("/hardware")
@@ -106,7 +106,7 @@ export default function Navbar() {
                       >
                         {item.name}
                         <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${megaMenuOpen ? "rotate-180" : ""}`} />
-                      </Link>
+                      </button>
 
                       {/* Mega Menu */}
                       <AnimatePresence>
@@ -240,16 +240,24 @@ export default function Navbar() {
                   if (item.name === "Hardware") return null;
                   return (
                     <div key={item.name}>
-                      <Link
-                        href={item.href}
-                        className={`block py-4 text-3xl font-bold tracking-tight transition-colors border-b border-[var(--border-color)] ${pathname === item.href
-                            ? "text-foreground"
-                            : "text-muted-foreground hover:text-foreground"
-                          }`}
-                        onClick={() => setIsMobileOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
+                      {item.megaMenu ? (
+                        <div
+                          className={`block py-4 text-3xl font-bold tracking-tight transition-colors border-b border-[var(--border-color)] text-foreground`}
+                        >
+                          {item.name}
+                        </div>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className={`block py-4 text-3xl font-bold tracking-tight transition-colors border-b border-[var(--border-color)] ${pathname === item.href
+                              ? "text-foreground"
+                              : "text-muted-foreground hover:text-foreground"
+                            }`}
+                          onClick={() => setIsMobileOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      )}
                       {item.megaMenu && (
                         <div className="ml-4 mt-2 mb-4 space-y-2 border-l border-[var(--border-color)] pl-4">
                           <Link

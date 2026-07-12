@@ -64,12 +64,6 @@ export default function ServicesClient() {
             >
               Get Started <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="#services-list"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-foreground text-foreground font-semibold text-sm hover:bg-foreground hover:text-background transition-colors uppercase tracking-[0.1em] rounded-none"
-            >
-              Explore Services
-            </Link>
           </motion.div>
         </div>
       </section>

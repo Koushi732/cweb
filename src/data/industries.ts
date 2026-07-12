@@ -156,17 +156,7 @@ export const industries: Industry[] = [
       "Service Booking Portals"
     ],
   },
-  {
-    id: "government",
-    title: "Government & Public Sector",
-    icon: "Building2",
-    description: "Secure, reliable, and scalable portals designed to improve public service delivery and citizen engagement.",
-    solutions: [
-      "Citizen Portals",
-      "Document Management",
-      "Internal Operations Dashboards"
-    ],
-  },
+
   {
     id: "startups",
     title: "Startups",

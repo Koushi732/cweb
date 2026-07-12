@@ -10,7 +10,6 @@ import {
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
 import { hardwareCategories } from "@/data/hardware";
-import { hardwareFAQs } from "@/data/faq";
 import { useState } from "react";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -65,12 +64,6 @@ export default function HardwareClient() {
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background font-semibold text-sm hover:opacity-90 transition-opacity uppercase tracking-[0.1em] rounded-none"
             >
               Request a Quote <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="#products"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-foreground text-foreground font-semibold text-sm hover:bg-foreground hover:text-background transition-colors uppercase tracking-[0.1em] rounded-none"
-            >
-              Browse Products
             </Link>
           </motion.div>
         </div>
@@ -239,35 +232,6 @@ export default function HardwareClient() {
               </button>
             </form>
           </ScrollAnimationWrapper>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-24 bg-[var(--surface)] border-b border-[var(--border-color)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.02em] text-foreground mb-6">
-              FAQ.
-            </h2>
-          </ScrollAnimationWrapper>
-
-          <div className="border-t border-[var(--border-color)]">
-            {hardwareFAQs.map((faq, i) => (
-              <ScrollAnimationWrapper key={i} delay={i * 0.05}>
-                <details className="group border-b border-[var(--border-color)]">
-                  <summary className="flex items-center justify-between gap-4 py-6 cursor-pointer text-lg font-bold text-foreground list-none">
-                    {faq.question}
-                    <span className="text-muted-foreground transition-transform group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
-                  <div className="pb-8 text-base text-muted-foreground font-light leading-relaxed">
-                    {faq.answer}
-                  </div>
-                </details>
-              </ScrollAnimationWrapper>
-            ))}
-          </div>
         </div>
       </section>
 

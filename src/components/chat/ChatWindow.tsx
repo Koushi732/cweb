@@ -10,6 +10,7 @@ import { welcomeMessage, type ActionType } from "@/lib/chat/knowledgeBase";
 import { ConversationEngine, type ChatResponse } from "@/lib/chat/engine/ConversationEngine";
 import { ConversationContext, createFreshContext, ChatComponent } from "@/lib/chat/engine/Storage";
 import { RenderComponent } from "./ChatComponents";
+import Logo from "@/components/ui/Logo";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -295,14 +296,16 @@ export default function ChatWindow({
 
   return (
     <div className="flex flex-col h-full bg-background/95 backdrop-blur-xl border border-[var(--border-color)] shadow-[0_8px_60px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden">
-      {/* ───────── HEADER ───────── */}
       <div className="relative flex items-center justify-between px-5 py-4 border-b border-[var(--border-color)] bg-[var(--surface)]/80 backdrop-blur-md shrink-0">
         <div className="flex items-center gap-3">
-          <div className="relative shrink-0">
-            <div className="w-10 h-10 rounded-xl bg-foreground text-background flex items-center justify-center text-xs font-bold tracking-tight select-none">
-              SI
-            </div>
-            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-[var(--surface)] rounded-full">
+          <div className="relative shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-foreground border border-[var(--border-color)] shadow-sm px-1.5 overflow-hidden">
+            {/* In Light Mode (page is white), show the Dark Logo (black bg, white text) */}
+            <img src="/logo-dark.png" alt="Logo" className="w-full h-auto object-contain dark:hidden" />
+            
+            {/* In Dark Mode (page is black), show the Light Logo (white bg, black text) */}
+            <img src="/logo-light.png" alt="Logo" className="w-full h-auto object-contain hidden dark:block" />
+            
+            <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-[var(--surface)] rounded-full">
               <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-50" />
             </span>
           </div>

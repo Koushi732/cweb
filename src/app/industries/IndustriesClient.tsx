@@ -2,16 +2,20 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Heart, GraduationCap, ShoppingBag, Factory, Truck, Landmark, Building, Building2, Rocket, Briefcase } from "lucide-react";
+import { ArrowRight, CheckCircle2, Heart, GraduationCap, ShoppingBag, Factory, Truck, Landmark, Building, Building2, Rocket, Briefcase, HeartHandshake, Monitor, Wrench, Settings, Users, Target } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
 import { industries } from "@/data/industries";
 
 const iconMap: Record<string, React.ElementType> = {
-  Heart, GraduationCap, ShoppingBag, Factory, Truck, Landmark, Building, Building2, Rocket, Briefcase,
+  Heart, GraduationCap, ShoppingBag, Factory, Truck, Landmark, Building, Building2, Rocket, Briefcase, HeartHandshake, Monitor, Wrench, Settings, Users, Target
 };
 
+// We won't need the bento grid function anymore
+
 export default function IndustriesClient() {
+  const mainIndustries = industries.filter(i => !["startups", "smb", "enterprises"].includes(i.id));
+  const businessSizes = industries.filter(i => ["startups", "smb", "enterprises"].includes(i.id));
   return (
     <>
       {/* Hero */}
@@ -38,46 +42,81 @@ export default function IndustriesClient() {
         </div>
       </section>
 
-      {/* Industries Grid */}
+      {/* Industries Bento Grid */}
       <section className="py-24 bg-[var(--surface)] border-b border-[var(--border-color)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimationWrapper className="mb-20">
+          <ScrollAnimationWrapper className="mb-20 grid lg:grid-cols-2 gap-12 items-end">
+            <div>
+              <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-6 font-mono">
+                Sectors We Work In
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-6">
+                Tailored Solutions.
+              </h2>
+            </div>
+            <div>
+              <p className="text-lg text-muted-foreground font-light max-w-xl leading-[1.6]">
+                We understand that every industry has unique operational challenges. Our approach is to design and develop technology solutions tailored to each client&apos;s specific business goals.
+              </p>
+            </div>
+          </ScrollAnimationWrapper>
+
+          <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {mainIndustries.map((industry) => {
+              const Icon = iconMap[industry.icon] || Briefcase;
+              
+              return (
+                <StaggerItem key={industry.id}>
+                  <div className="group relative p-8 bg-background border border-[var(--border-color)] hover:border-foreground hover:bg-foreground hover:text-background transition-colors flex flex-col items-center justify-center text-center h-full">
+                    <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="w-10 h-10 text-muted-foreground group-hover:text-background transition-colors" />
+                    </div>
+                    <h3 className="text-base sm:text-lg font-bold text-foreground group-hover:text-background transition-colors tracking-tight mb-3">
+                      {industry.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground group-hover:text-background/80 font-light leading-relaxed">
+                      {industry.description}
+                    </p>
+                  </div>
+                </StaggerItem>
+              );
+            })}
+          </StaggerChildren>
+        </div>
+      </section>
+
+      {/* Business Size / Scale Section */}
+      <section className="py-24 bg-background border-b border-[var(--border-color)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollAnimationWrapper className="mb-16 text-center max-w-3xl mx-auto">
             <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-4 font-mono">
-              Sectors We Work In
+              Operating at Every Scale
             </span>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.02em] text-foreground mb-6">
-              Tailored Solutions.
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.02em] text-foreground mb-6">
+              Scaled to Your Size.
             </h2>
-            <p className="text-lg md:text-xl font-light text-muted-foreground max-w-3xl leading-[1.6]">
-              We understand that every industry has unique operational challenges. Our approach is to design and develop technology solutions tailored to each client&apos;s specific business goals rather than offering one-size-fits-all products.
+            <p className="text-lg text-muted-foreground font-light leading-[1.6]">
+              Whether you are building your first MVP or modernizing legacy enterprise systems, we adapt our engineering approach to match your scale, speed, and budget.
             </p>
           </ScrollAnimationWrapper>
 
-          <StaggerChildren className="grid md:grid-cols-2 gap-8">
-            {industries.map((industry) => {
-              const Icon = iconMap[industry.icon] || Briefcase;
+          <StaggerChildren className="grid md:grid-cols-3 gap-6">
+            {businessSizes.map((size) => {
+              const Icon = iconMap[size.icon] || Rocket;
               return (
-                <StaggerItem key={industry.id}>
-                  <div className="group relative p-8 md:p-10 bg-background border border-[var(--border-color)] hover:border-foreground hover:bg-foreground hover:text-background transition-colors flex flex-col h-full">
-                    <div className="flex items-start gap-6 mb-8">
-                      <div className="mb-4 group-hover:scale-110 transition-transform flex-shrink-0">
-                        <Icon className="w-8 h-8 text-muted-foreground group-hover:text-background transition-colors" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-background transition-colors tracking-tight">{industry.title}</h3>
-                      </div>
+                <StaggerItem key={size.id}>
+                  <div className="p-8 md:p-10 bg-[var(--surface)] border border-[var(--border-color)] hover:border-foreground transition-all duration-300 h-full flex flex-col group text-center items-center">
+                    <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center border border-[var(--border-color)] mb-8 group-hover:scale-110 group-hover:bg-foreground transition-all duration-500 shadow-sm">
+                      <Icon className="w-8 h-8 text-foreground group-hover:text-background transition-colors" />
                     </div>
-                    <p className="text-[15px] text-muted-foreground group-hover:text-muted leading-[1.6] mb-8 flex-grow transition-colors">{industry.description}</p>
-                    <div className="pt-6 border-t border-[var(--border-color)] group-hover:border-background/20 transition-colors">
-                      <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground group-hover:text-background mb-4 font-mono transition-colors">Key Solutions</p>
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        {industry.solutions.map((solution) => (
-                          <div key={solution} className="flex items-start gap-3 text-sm text-muted-foreground group-hover:text-background transition-colors">
-                            <CheckCircle2 className="w-4 h-4 text-foreground group-hover:text-background flex-shrink-0 mt-0.5 transition-colors" />
-                            <span>{solution}</span>
-                          </div>
-                        ))}
-                      </div>
+                    <h3 className="text-2xl font-bold tracking-tight mb-4">{size.title}</h3>
+                    <p className="text-muted-foreground font-light leading-[1.6] mb-8 flex-grow">{size.description}</p>
+                    <div className="flex flex-wrap justify-center gap-2">
+                      {size.solutions.slice(0, 2).map((sol) => (
+                        <span key={sol} className="text-xs font-bold text-foreground bg-background border border-[var(--border-color)] px-2 py-1 uppercase tracking-widest font-mono">
+                          {sol}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </StaggerItem>

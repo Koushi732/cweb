@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Lightbulb, Target, Eye, Users, Shield, Zap, Award, Heart } from "lucide-react";
+import { ArrowRight, Lightbulb, Target, Eye, Users, Shield, Zap, Award, Heart, HeartHandshake } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
 import dynamic from "next/dynamic";
@@ -11,7 +11,7 @@ import { coreValues } from "@/data/team";
 
 
 const iconMap: Record<string, React.ElementType> = {
-  Lightbulb, Award, Shield, Users, Zap, Target, Heart,
+  Lightbulb, Award, Shield, Users, Zap, Target, Heart, HeartHandshake, Eye
 };
 
 export default function AboutClient() {
@@ -57,13 +57,13 @@ export default function AboutClient() {
             <ScrollAnimationWrapper animation="slide-right">
               <div className="space-y-8 text-lg text-muted-foreground font-light leading-[1.6] max-w-prose">
                 <p>
-                  SimpleIn Solutions acts as a strategic technology partner, helping SMBs and modern enterprises architect, automate, and scale their digital infrastructure.
+                  At SimpleIn Solutions, we don’t just write code—we build the entire technological foundation your business runs on. We realized early on that piecing together software from one vendor and hardware from another only leads to friction and costly inefficiencies.
                 </p>
                 <p>
-                  We focus on engineering high-performance, future-ready technology solutions that directly align with your business objectives, moving beyond simple project delivery to actual business transformation.
+                  That’s why we evolved into a unified technology powerhouse. We engineer custom software, design modern applications, and pair them directly with the high-performance hardware systems—from physical servers to advanced networking infrastructure—required to bring them to life.
                 </p>
                 <p>
-                  By building integrated digital ecosystems, we streamline your operations, improve collaboration, and ensure scalable long-term growth. No shortcuts, just uncompromising engineering standards and honest partnerships.
+                  Whether you are scaling a startup or modernizing a massive enterprise, we provide an all-in-one ecosystem. We take full accountability for your digital and physical infrastructure, ensuring seamless integration, flawless performance, and zero compromises.
                 </p>
               </div>
             </ScrollAnimationWrapper>
@@ -92,7 +92,7 @@ export default function AboutClient() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground tracking-[-0.01em]">Our Mission</h3>
                 <p className="text-[15px] max-w-prose text-muted-foreground font-light leading-[1.6]">
-                  To accelerate enterprise growth by architecting state-of-the-art software, integrating AI-driven automation, and deploying resilient cloud infrastructure. We are committed to engineering excellence and delivering scalable technology that creates compounding value for our clients.
+                  To empower businesses by eliminating the disconnect between software and hardware. We deliver expertly crafted applications alongside robust, enterprise-grade physical infrastructure—giving our clients a single, reliable partner to scale their entire operation.
                 </p>
               </div>
             </ScrollAnimationWrapper>
@@ -104,7 +104,7 @@ export default function AboutClient() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground tracking-[-0.01em]">Our Vision</h3>
                 <p className="text-[15px] max-w-prose text-muted-foreground font-light leading-[1.6]">
-                  To be the global benchmark for enterprise technology partnerships, recognized for uncompromising quality, engineering intelligence, and our ability to drive industry-defining digital transformation.
+                  To redefine the IT industry by becoming the ultimate one-stop technology partner—where elite software engineering and premium hardware provisioning converge to create flawless, future-proof digital environments.
                 </p>
               </div>
             </ScrollAnimationWrapper>
