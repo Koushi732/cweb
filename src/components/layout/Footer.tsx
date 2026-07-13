@@ -22,7 +22,7 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const containerRef = useRef<HTMLElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end end"]
@@ -50,11 +50,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div style={{ opacity, y }} className="mb-20 md:mb-24">
           <Link href="/" className="inline-block group">
-            <motion.h2 
+            <motion.h2
               style={{ scale }}
               className="text-7xl sm:text-8xl lg:text-[8rem] font-bold leading-none tracking-tighter text-foreground transition-colors uppercase origin-left"
             >
-              SimpleIn.
+              SIMPLY.INNOVATIVE
             </motion.h2>
           </Link>
           <p className="text-lg md:text-2xl font-light text-muted-foreground max-w-2xl mt-6 leading-tight">

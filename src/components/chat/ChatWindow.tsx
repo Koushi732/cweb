@@ -299,11 +299,11 @@ export default function ChatWindow({
       <div className="relative flex items-center justify-between px-5 py-4 border-b border-[var(--border-color)] bg-[var(--surface)]/80 backdrop-blur-md shrink-0">
         <div className="flex items-center gap-3">
           <div className="relative shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-foreground border border-[var(--border-color)] shadow-sm px-1.5 overflow-hidden">
-            {/* In Light Mode (page is white), show the Dark Logo (black bg, white text) */}
-            <img src="/logo-dark.png" alt="Logo" className="w-full h-auto object-contain dark:hidden" />
+            {/* Light Mode Logo */}
+            <img src="/dark-back-logo.png" alt="Logo" className="w-full h-auto object-contain dark:hidden" />
             
-            {/* In Dark Mode (page is black), show the Light Logo (white bg, black text) */}
-            <img src="/logo-light.png" alt="Logo" className="w-full h-auto object-contain hidden dark:block" />
+            {/* Dark Mode Logo */}
+            <img src="/light-back-logo.png" alt="Logo" className="w-full h-auto object-contain hidden dark:block" />
             
             <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-[var(--surface)] rounded-full">
               <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-50" />

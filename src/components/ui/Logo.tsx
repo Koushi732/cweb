@@ -11,11 +11,10 @@ export default function Logo({ className = "", priority = false }: LogoProps) {
     <div className={`relative flex items-center justify-center ${className}`}>
       {/* 
         Light Theme Logo
-        Uses: logo-light.png 
         Visibility: Hidden in dark mode 
       */}
       <Image
-        src="/logo-light.png"
+        src="/light-back-logo.png"
         alt="SimpleIn Solutions"
         width={400}
         height={120}
@@ -25,11 +24,10 @@ export default function Logo({ className = "", priority = false }: LogoProps) {
 
       {/* 
         Dark Theme Logo 
-        Uses: logo-dark.png
         Visibility: Block in dark mode, hidden in light mode 
       */}
       <Image
-        src="/logo-dark.png"
+        src="/dark-back-logo.png"
         alt="SimpleIn Solutions"
         width={400}
         height={120}

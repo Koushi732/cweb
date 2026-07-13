@@ -120,19 +120,11 @@ export default function HomeClient() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <MagneticButton>
                   <Link
-                    href="/services"
+                    href="#expertise"
                     className="group flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background font-semibold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
                   >
                     Explore Services
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </MagneticButton>
-                <MagneticButton>
-                  <Link
-                    href="/contact#contact-form"
-                    className="group flex items-center justify-center gap-3 px-8 py-4 border border-foreground bg-transparent text-foreground font-semibold text-sm uppercase tracking-[0.1em] hover:bg-foreground hover:text-background transition-colors rounded-none"
-                  >
-                    Get a Quote
                   </Link>
                 </MagneticButton>
               </div>
@@ -187,9 +179,8 @@ export default function HomeClient() {
           <ScrollAnimationWrapper animation="fade-up">
             <div className="flex flex-col md:flex-row h-auto md:h-[250px] w-full gap-4">
               {[
-                { letter: "S", title: "Simple", desc: "Technology that is easy to use.", bg: "bg-[var(--surface)]" },
-                { letter: "I", title: "Innovative", desc: "Driven by AI, automation, and modern engineering.", bg: "bg-[var(--surface-hover)]" },
-                { letter: "N", title: "Next", desc: "Building future-ready digital solutions for tomorrow's businesses.", bg: "bg-foreground" },
+                { letter: "S", title: "Simple", desc: "Technology that is easy to use.", bg: "bg-background" },
+                { letter: "IN", title: "Innovative", desc: "Driven by AI, automation, and modern engineering.", bg: "bg-foreground" },
               ].map((item, idx) => {
                 const isHovered = activeAccordion === idx;
                 const isDark = item.bg === "bg-foreground";
@@ -261,12 +252,12 @@ export default function HomeClient() {
       </section>
 
       {/* ==================== SECTION 3: SERVICES OVERVIEW ==================== */}
-      <section className="py-24 border-b border-[var(--border-color)] bg-background">
+      <section id="expertise" className="py-24 border-b border-[var(--border-color)] bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimationWrapper className="mb-20 grid lg:grid-cols-2 gap-12 items-end">
             <div>
               <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-6 font-mono">
-                Capabilities
+                Expertise
               </span>
               <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em] mb-6">
                 Comprehensive IT Solutions
@@ -282,7 +273,7 @@ export default function HomeClient() {
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* IT Services */}
             <ScrollAnimationWrapper animation="slide-left">
-              <div className="h-full p-8 md:p-12 bg-background border border-[var(--border-color)] hover:border-foreground transition-colors group">
+              <div className="h-full p-8 md:p-12 bg-[var(--surface)] border border-[var(--border-color)] hover:border-foreground transition-colors group">
                 <div className="mb-10">
                   <div className="mb-8">
                     <Code2 className="w-10 h-10 text-foreground" />
@@ -384,21 +375,25 @@ export default function HomeClient() {
           </ScrollAnimationWrapper>
         </div>
 
-        <div className="relative border-t border-b border-[var(--border-color)] py-16 md:py-24 bg-[var(--surface)] flex flex-col gap-8 md:gap-16 overflow-hidden w-full">
-          {techCategories.map((category, index) => (
-            <div key={category.name} className="flex w-full relative">
-              <div className={`flex whitespace-nowrap ${index % 2 === 0 ? 'animate-marquee' : 'animate-marquee-reverse'}`}>
-                {[...category.techs, ...category.techs, ...category.techs, ...category.techs, ...category.techs, ...category.techs].map((tech, i) => (
-                  <div key={i} className="flex items-center">
-                    <span className="mx-6 md:mx-12 text-4xl sm:text-6xl lg:text-[5rem] font-bold text-muted-foreground/20 hover:text-foreground transition-colors duration-300 cursor-default select-none tracking-[-0.04em]">
-                      {tech}
-                    </span>
-                    <span className="text-foreground/10 text-3xl md:text-5xl mx-2 md:mx-4">•</span>
-                  </div>
-                ))}
-              </div>
+        <div className="relative border-t border-b border-[var(--border-color)] py-8 md:py-14 bg-[var(--surface)] overflow-hidden w-full group/marquee">
+          {/* Subtle gradient overlay to fade edges */}
+          <div className="absolute inset-y-0 left-0 w-24 md:w-64 bg-gradient-to-r from-[var(--surface)] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-24 md:w-64 bg-gradient-to-l from-[var(--surface)] to-transparent z-10 pointer-events-none" />
+          
+          <div className="flex w-full relative">
+            <div className="flex whitespace-nowrap animate-marquee group-hover/marquee:[animation-play-state:paused] transition-all duration-300 [animation-duration:2000s]">
+              {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, i) => (
+                <div key={i} className="flex items-center group/item">
+                  <span className="mx-6 md:mx-12 text-5xl sm:text-7xl lg:text-[6rem] font-bold text-muted-foreground/15 hover:text-foreground transition-colors duration-500 cursor-default select-none tracking-[-0.02em]">
+                    {tech}
+                  </span>
+                  <span className="text-foreground/10 text-3xl md:text-5xl mx-2 md:mx-4 group-hover/item:text-foreground group-hover/item:rotate-180 transition-all duration-700">
+                    ✦
+                  </span>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
