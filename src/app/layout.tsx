@@ -8,6 +8,7 @@ import HeroLogoProvider from "@/components/ui/HeroLogoProvider";
 import { generateBusinessSchema } from "@/utils/seo";
 import ChatWidget from "@/components/chat/ChatWidget";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -116,6 +117,7 @@ export default function RootLayout({
             <Footer />
             <ChatWidget />
             <Analytics />
+            <SpeedInsights />
           </HeroLogoProvider>
         </ThemeProvider>
       </body>
