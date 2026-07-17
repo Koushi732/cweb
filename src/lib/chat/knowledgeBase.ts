@@ -53,7 +53,7 @@ export interface CompanyKnowledge {
   mission: string;
   vision: string;
   approach: string;
-  whySimplein: string[];
+  whySIMPLEIN: string[];
   projectWorkflow: string[];
   pricingPhilosophy: string;
   contactProcess: string;
@@ -108,7 +108,7 @@ export const companyKnowledge: CompanyKnowledge = {
   mission: "To make every service simple. We believe technology should empower businesses, not complicate them.",
   vision: "To become a trusted global technology partner known for building scalable, reliable, and beautifully designed digital solutions.",
   approach: "We follow a structured yet flexible process:\n\n1. Discovery & Requirements\n2. Technical Planning\n3. UI/UX Design\n4. Agile Development\n5. Testing & QA\n6. Deployment\n7. Ongoing Support & Optimization",
-  whySimplein: [
+  whySIMPLEIN: [
     "End-to-end capabilities — hardware, software, cloud, and support",
     "Modern technology stack (React, Next.js, Python, Flutter)",
     "Enterprise-grade security and scalability",
@@ -131,7 +131,7 @@ export const companyKnowledge: CompanyKnowledge = {
 
 export const contactInfo: ContactInfo = {
   phone: "+91 984 8334 984",
-  email: "info@SimpleInsolutions.com",
+  email: "info@simpleinsolutions.com",
   whatsapp: "https://wa.me/919848334984",
   hours: "Available 24/7",
 };
@@ -385,8 +385,8 @@ export const intents: Intent[] = [
   { id: "intent_industry", keywords: ["industry", "industries", "healthcare", "education", "retail", "manufacturing", "finance", "real estate", "logistics", "startup", "sector"], synonyms: ["domain", "vertical", "segment"], responseType: "industry" },
 
   // --- Company ---
-  { id: "intent_about", keywords: ["about", "company", "who are you", "what is simplein", "what do you do", "tell me about"], synonyms: ["info", "background", "about us", "introduction"], responseType: "company", knowledgeRef: "about" },
-  { id: "intent_why", keywords: ["why simplein", "why choose", "what makes you different", "advantages", "benefits"], synonyms: ["differentiator", "unique", "special"], responseType: "company", knowledgeRef: "why" },
+  { id: "intent_about", keywords: ["about", "company", "who are you", "what is SIMPLEIN", "what do you do", "tell me about"], synonyms: ["info", "background", "about us", "introduction"], responseType: "company", knowledgeRef: "about" },
+  { id: "intent_why", keywords: ["why SIMPLEIN", "why choose", "what makes you different", "advantages", "benefits"], synonyms: ["differentiator", "unique", "special"], responseType: "company", knowledgeRef: "why" },
   { id: "intent_process", keywords: ["process", "how do you work", "workflow", "methodology", "approach", "how does it work"], synonyms: ["steps", "procedure", "method"], responseType: "company", knowledgeRef: "process" },
 
   // --- Contact ---

@@ -41,13 +41,13 @@ export function generateBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "SimpleIn Solutions",
+    name: "SIMPLEIN Solutions",
     description: "Premium IT services, custom software development, and enterprise IT hardware.",
-    url: "https://simpleinsolutions.com",
-    logo: "https://simpleinsolutions.com/logo.png",
-    image: "https://simpleinsolutions.com/og-image.jpg",
+    url: "https://SIMPLEINsolutions.com",
+    logo: "https://SIMPLEINsolutions.com/logo.png",
+    image: "https://SIMPLEINsolutions.com/og-image.jpg",
     telephone: "+91-9848334984",
-    email: "info@SimpleInsolutions.com",
+    email: "info@simpleinsolutions.com",
     address: {
       "@type": "PostalAddress",
       addressRegion: "Worldwide",

@@ -26,7 +26,7 @@ interface Message {
   timestamp: Date;
 }
 
-const STORAGE_KEY = "simplein_chat_v2";
+const STORAGE_KEY = "SIMPLEIN_chat_v2";
 
 function loadState(): { messages: Message[]; context: ConversationContext } | null {
   try {
@@ -200,7 +200,7 @@ export default function ChatWindow({
     if (!actions || actions.length === 0) return null;
     const configs: Record<string, { icon: React.ReactNode; label: string; href?: string; onClick?: () => void }> = {
       whatsapp: { icon: <MessageSquare className="w-3.5 h-3.5" />, label: "WhatsApp", href: "https://wa.me/919848334984" },
-      email: { icon: <Mail className="w-3.5 h-3.5" />, label: "Email Us", href: "mailto:info@SimpleInsolutions.com" },
+      email: { icon: <Mail className="w-3.5 h-3.5" />, label: "Email Us", href: "mailto:info@simpleinsolutions.com" },
       call: { icon: <Phone className="w-3.5 h-3.5" />, label: "Call Us", href: "tel:+919848334984" },
       quote: { icon: <ArrowRight className="w-3.5 h-3.5" />, label: "Get a Quote", href: "/contact#contact-form", onClick: handleCloseAndClear },
       contact: { icon: <ArrowRight className="w-3.5 h-3.5" />, label: "Contact Us", href: "/contact#contact-form", onClick: handleCloseAndClear },

@@ -10,12 +10,12 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://simpleinsolutions.com" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://SIMPLEINsolutions.com" },
       ...items.map((item, i) => ({
         "@type": "ListItem",
         position: i + 2,
         name: item.label,
-        ...(item.href ? { item: `https://simpleinsolutions.com${item.href}` } : {}),
+        ...(item.href ? { item: `https://SIMPLEINsolutions.com${item.href}` } : {}),
       })),
     ],
   };

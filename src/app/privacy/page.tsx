@@ -1,15 +1,15 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | SimpleIn Solutions",
-  description: "Privacy Policy of SimpleIn Solutions outlining how we collect, use, and protect your information.",
+  title: "Privacy Policy | SIMPLEIN Solutions",
+  description: "Privacy Policy of SIMPLEIN Solutions outlining how we collect, use, and protect your information.",
   alternates: {
-    canonical: "https://simpleinsolutions.com/privacy",
+    canonical: "https://SIMPLEINsolutions.com/privacy",
   },
   openGraph: {
-    title: "Privacy Policy | SimpleIn Solutions",
-    description: "Privacy Policy of SimpleIn Solutions outlining how we collect, use, and protect your information.",
-    url: "https://simpleinsolutions.com/privacy",
+    title: "Privacy Policy | SIMPLEIN Solutions",
+    description: "Privacy Policy of SIMPLEIN Solutions outlining how we collect, use, and protect your information.",
+    url: "https://SIMPLEINsolutions.com/privacy",
     type: "website",
   },
 };

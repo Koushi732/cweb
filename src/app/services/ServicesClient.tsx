@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle2, Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch, Palette, Wrench, Megaphone, Network } from "lucide-react";
+import { ArrowRight, CheckCircle2, Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch, Palette, Wrench, Megaphone, Network, Zap, Building2 } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
 import { services } from "@/data/services";
@@ -12,7 +12,7 @@ import dynamic from "next/dynamic";
 const ProcessSection = dynamic(() => import("@/components/ui/ProcessSection"), { ssr: true });
 
 const iconMap: Record<string, React.ElementType> = {
-  Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch, Palette, Wrench, Megaphone, Network
+  Code2, Globe, Smartphone, Cloud, Shield, Brain, Lightbulb, GitBranch, Palette, Wrench, Megaphone, Network, Zap, Building2
 };
 
 export default function ServicesClient() {

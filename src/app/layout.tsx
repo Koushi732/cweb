@@ -21,13 +21,13 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://simpleinsolutions.com"),
+  metadataBase: new URL("https://SIMPLEINsolutions.com"),
   title: {
-    default: "SimpleIn Solutions — Every Service Made Simple",
-    template: "%s | SimpleIn Solutions",
+    default: "SIMPLEIN Solutions — Every Service Made Simple",
+    template: "%s | SIMPLEIN Solutions",
   },
   description:
-    "SimpleIn Solutions builds scalable digital solutions using modern technologies. Custom software development, web & mobile apps, AI automation, IT hardware, and enterprise IT services worldwide.",
+    "SIMPLEIN Solutions builds scalable digital solutions using modern technologies. Custom software development, web & mobile apps, AI automation, IT hardware, and enterprise IT services worldwide.",
   keywords: [
     "IT Services",
     "Software Development",
@@ -38,35 +38,35 @@ export const metadata: Metadata = {
     "AI Automation",
     "IT Hardware Sales",
     "Digital Transformation",
-    "SimpleIn Solutions",
+    "SIMPLEIN Solutions",
     "Global IT Services",
     "Worldwide Software Development",
   ],
-  authors: [{ name: "SimpleIn Solutions" }],
-  creator: "SimpleIn Solutions",
-  publisher: "SimpleIn Solutions",
+  authors: [{ name: "SIMPLEIN Solutions" }],
+  creator: "SIMPLEIN Solutions",
+  publisher: "SIMPLEIN Solutions",
   openGraph: {
     type: "website",
     locale: "en_IN",
-    siteName: "SimpleIn Solutions",
-    title: "SimpleIn Solutions — Every Service Made Simple",
+    siteName: "SIMPLEIN Solutions",
+    title: "SIMPLEIN Solutions — Every Service Made Simple",
     description:
       "We build scalable digital solutions using modern technologies. Custom software, web & mobile apps, AI automation, and enterprise IT services.",
     images: [
       {
-        url: "https://simpleinsolutions.com/og-image.jpg",
+        url: "https://SIMPLEINsolutions.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SimpleIn Solutions",
+        alt: "SIMPLEIN Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SimpleIn Solutions — Every Service Made Simple",
+    title: "SIMPLEIN Solutions — Every Service Made Simple",
     description:
       "We build scalable digital solutions using modern technologies. Custom software, web & mobile apps, AI automation, and enterprise IT services.",
-    images: ["https://simpleinsolutions.com/og-image.jpg"],
+    images: ["https://SIMPLEINsolutions.com/og-image.jpg"],
   },
   robots: {
     index: true,

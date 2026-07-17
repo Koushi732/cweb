@@ -12,25 +12,25 @@ export default function ChatWidget() {
   const [hasHydrated, setHasHydrated] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("simplein_chat_open");
+    const stored = localStorage.getItem("SIMPLEIN_chat_open");
     if (stored === "true") setIsOpen(true);
     setHasHydrated(true);
   }, []);
 
   const open = useCallback(() => {
     setIsOpen(true);
-    localStorage.setItem("simplein_chat_open", "true");
+    localStorage.setItem("SIMPLEIN_chat_open", "true");
   }, []);
 
   const close = useCallback(() => {
     setIsOpen(false);
-    localStorage.setItem("simplein_chat_open", "false");
+    localStorage.setItem("SIMPLEIN_chat_open", "false");
   }, []);
 
   const toggle = useCallback(() => {
     setIsOpen((prev) => {
       const next = !prev;
-      localStorage.setItem("simplein_chat_open", String(next));
+      localStorage.setItem("SIMPLEIN_chat_open", String(next));
       return next;
     });
   }, []);

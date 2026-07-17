@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://simpleinsolutions.com/sitemap.xml",
+    sitemap: "https://SIMPLEINsolutions.com/sitemap.xml",
   };
 }

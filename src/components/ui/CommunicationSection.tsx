@@ -56,7 +56,7 @@ export default function CommunicationSection() {
                 <h3 className="text-lg font-bold tracking-tight">Long-Term Partnership</h3>
               </div>
               <p className="text-muted-foreground font-light leading-relaxed mb-6">
-                SimpleIn serves as your dedicated technology partner, providing continuous support and proactive enhancements to scale alongside your business.
+                SIMPLEIN serves as your dedicated technology partner, providing continuous support and proactive enhancements to scale alongside your business.
               </p>
               <ul className="space-y-3">
                 {[

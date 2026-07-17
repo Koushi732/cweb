@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "SimpleIn Solutions",
-    short_name: "SimpleIn",
+    name: "SIMPLEIN Solutions",
+    short_name: "SIMPLEIN",
     description: "Premium IT services, custom software development, and enterprise IT hardware.",
     start_url: "/",
     display: "standalone",

@@ -1,15 +1,15 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Disclaimer | SimpleIn Solutions",
-  description: "General disclaimer for SimpleIn Solutions website and services.",
+  title: "Disclaimer | SIMPLEIN Solutions",
+  description: "General disclaimer for SIMPLEIN Solutions website and services.",
   alternates: {
-    canonical: "https://simpleinsolutions.com/disclaimer",
+    canonical: "https://SIMPLEINsolutions.com/disclaimer",
   },
   openGraph: {
-    title: "Disclaimer | SimpleIn Solutions",
-    description: "General disclaimer for SimpleIn Solutions website and services.",
-    url: "https://simpleinsolutions.com/disclaimer",
+    title: "Disclaimer | SIMPLEIN Solutions",
+    description: "General disclaimer for SIMPLEIN Solutions website and services.",
+    url: "https://SIMPLEINsolutions.com/disclaimer",
     type: "website",
   },
 };
@@ -31,7 +31,7 @@ export default function DisclaimerPage() {
           <section>
             <h2 className="text-xl font-bold mb-3 tracking-tight">1. General Information</h2>
             <p className="mb-4 text-muted-foreground text-[15px]">
-              The information provided by SimpleIn Solutions on this website is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.
+              The information provided by SIMPLEIN Solutions on this website is for general informational purposes only. All information on the site is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.
             </p>
           </section>
 

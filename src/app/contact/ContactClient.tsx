@@ -190,8 +190,8 @@ export default function ContactClient() {
                 subInfo: "", href: "tel:+919848334984",
               },
               {
-                icon: Mail, title: "General Email", info: "info@SimpleInsolutions.com",
-                subInfo: "", href: "mailto:info@SimpleInsolutions.com",
+                icon: Mail, title: "General Email", info: "info@simpleinsolutions.com",
+                subInfo: "", href: "mailto:info@simpleinsolutions.com",
               },
               {
                 icon: MessageCircle, title: "WhatsApp", info: "Chat with us directly",

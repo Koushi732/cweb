@@ -54,11 +54,11 @@ export default function Footer() {
               style={{ scale }}
               className="text-7xl sm:text-8xl lg:text-[8rem] font-bold leading-none tracking-tighter text-foreground transition-colors uppercase origin-left"
             >
-              SIMPLY.INNOVATIVE
+              GROWTH.
             </motion.h2>
           </Link>
           <p className="text-lg md:text-2xl font-light text-muted-foreground max-w-2xl mt-6 leading-tight">
-            Every Service Made Simple.
+            Technology built for Business growth.
           </p>
         </motion.div>
 
@@ -121,8 +121,8 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3 hover:text-foreground transition-colors">
-                <a href="mailto:info@SimpleInsolutions.com" className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 shrink-0" /> <span>info@SimpleInsolutions.com</span>
+                <a href="mailto:info@simpleinsolutions.com" className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 shrink-0" /> <span>info@simpleinsolutions.com</span>
                 </a>
               </li>
             </ul>

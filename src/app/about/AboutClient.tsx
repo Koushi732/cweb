@@ -57,7 +57,7 @@ export default function AboutClient() {
             <ScrollAnimationWrapper animation="slide-right">
               <div className="space-y-8 text-lg text-muted-foreground font-light leading-[1.6] max-w-prose">
                 <p>
-                  At SimpleIn Solutions, we don’t just write code—we build the entire technological foundation your business runs on. We realized early on that piecing together software from one vendor and hardware from another only leads to friction and costly inefficiencies.
+                  At SIMPLEIN Solutions, we don’t just write code—we build the entire technological foundation your business runs on. We realized early on that piecing together software from one vendor and hardware from another only leads to friction and costly inefficiencies.
                 </p>
                 <p>
                   That’s why we evolved into a unified technology powerhouse. We engineer custom software, design modern applications, and pair them directly with the high-performance hardware systems—from physical servers to advanced networking infrastructure—required to bring them to life.
@@ -155,7 +155,7 @@ export default function AboutClient() {
               Ready to Work Together?
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground font-light mb-10 max-w-2xl mx-auto leading-[1.6]">
-              Let&apos;s discuss how SimpleIn Solutions can help you achieve your technology goals and drive your business forward.
+              Let&apos;s discuss how SIMPLEIN Solutions can help you achieve your technology goals and drive your business forward.
             </p>
             <Link
               href="/contact"

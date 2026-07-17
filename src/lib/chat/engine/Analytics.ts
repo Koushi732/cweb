@@ -6,7 +6,7 @@ interface AnalyticsData {
 }
 
 export class Analytics {
-  private static DATA_KEY = "simplein_chat_analytics";
+  private static DATA_KEY = "SIMPLEIN_chat_analytics";
 
   static get(): AnalyticsData {
     if (typeof window === "undefined") return { totalConversations: 0, totalLeads: 0, topServices: {}, avgConversationLength: 0 };

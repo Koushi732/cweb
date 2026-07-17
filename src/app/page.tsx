@@ -4,30 +4,30 @@ import { generateFAQSchema } from "@/utils/seo";
 import { generalFAQs } from "@/data/faq";
 
 export const metadata: Metadata = {
-  title: "SimpleIn Solutions | Smart IT Solutions for a Digital Future",
-  description: "SimpleIn Solutions is a trusted technology partner providing custom software development, web applications, AI automation, and enterprise IT hardware.",
+  title: "SIMPLEIN Solutions | Smart IT Solutions for a Digital Future",
+  description: "SIMPLEIN Solutions is a trusted technology partner providing custom software development, web applications, AI automation, and enterprise IT hardware.",
   alternates: {
-    canonical: "https://simpleinsolutions.com",
+    canonical: "https://SIMPLEINsolutions.com",
   },
   openGraph: {
-    title: "SimpleIn Solutions | Smart IT Solutions for a Digital Future",
+    title: "SIMPLEIN Solutions | Smart IT Solutions for a Digital Future",
     description: "Premium IT services, custom software development, and enterprise IT hardware.",
-    url: "https://simpleinsolutions.com",
+    url: "https://SIMPLEINsolutions.com",
     type: "website",
     images: [
       {
-        url: "https://simpleinsolutions.com/og-image.jpg",
+        url: "https://SIMPLEINsolutions.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SimpleIn Solutions",
+        alt: "SIMPLEIN Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SimpleIn Solutions | Smart IT Solutions for a Digital Future",
+    title: "SIMPLEIN Solutions | Smart IT Solutions for a Digital Future",
     description: "Premium IT services, custom software development, and enterprise IT hardware.",
-    images: ["https://simpleinsolutions.com/og-image.jpg"],
+    images: ["https://SIMPLEINsolutions.com/og-image.jpg"],
   },
 };
 
@@ -35,11 +35,11 @@ export default function Home() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "SimpleIn Solutions",
-    url: "https://simpleinsolutions.com",
+    name: "SIMPLEIN Solutions",
+    url: "https://SIMPLEINsolutions.com",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://simpleinsolutions.com/services?q={search_term_string}",
+      target: "https://SIMPLEINsolutions.com/services?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };

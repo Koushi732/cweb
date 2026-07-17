@@ -1,15 +1,15 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | SimpleIn Solutions",
-  description: "Terms and Conditions of SimpleIn Solutions.",
+  title: "Terms & Conditions | SIMPLEIN Solutions",
+  description: "Terms and Conditions of SIMPLEIN Solutions.",
   alternates: {
-    canonical: "https://simpleinsolutions.com/terms",
+    canonical: "https://SIMPLEINsolutions.com/terms",
   },
   openGraph: {
-    title: "Terms & Conditions | SimpleIn Solutions",
-    description: "Terms and Conditions of SimpleIn Solutions.",
-    url: "https://simpleinsolutions.com/terms",
+    title: "Terms & Conditions | SIMPLEIN Solutions",
+    description: "Terms and Conditions of SIMPLEIN Solutions.",
+    url: "https://SIMPLEINsolutions.com/terms",
     type: "website",
   },
 };

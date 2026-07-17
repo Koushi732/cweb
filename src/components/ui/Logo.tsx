@@ -15,7 +15,7 @@ export default function Logo({ className = "", priority = false }: LogoProps) {
       */}
       <Image
         src="/light-back-logo.png"
-        alt="SimpleIn Solutions"
+        alt="SIMPLEIN Solutions"
         width={400}
         height={120}
         className="w-full h-auto object-contain dark:hidden"
@@ -28,7 +28,7 @@ export default function Logo({ className = "", priority = false }: LogoProps) {
       */}
       <Image
         src="/dark-back-logo.png"
-        alt="SimpleIn Solutions"
+        alt="SIMPLEIN Solutions"
         width={400}
         height={120}
         className="w-full h-auto object-contain hidden dark:block"

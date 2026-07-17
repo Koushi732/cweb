@@ -5,7 +5,7 @@ export interface FAQItem {
 
 export const generalFAQs: FAQItem[] = [
   {
-    question: "What services does SimpleIn Solutions offer?",
+    question: "What services does SIMPLEIN Solutions offer?",
     answer: "We offer comprehensive IT solutions including Custom Software Development, Web & Mobile App Development, Cloud Infrastructure, DevOps, Cybersecurity, AI Solutions, IT Consulting, and IT Hardware Sales & Procurement.",
   },
   {

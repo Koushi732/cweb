@@ -1,15 +1,15 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | SimpleIn Solutions",
+  title: "Cookie Policy | SIMPLEIN Solutions",
   description: "Cookie Policy explaining how we use cookies and tracking technologies.",
   alternates: {
-    canonical: "https://simpleinsolutions.com/cookie-policy",
+    canonical: "https://SIMPLEINsolutions.com/cookie-policy",
   },
   openGraph: {
-    title: "Cookie Policy | SimpleIn Solutions",
+    title: "Cookie Policy | SIMPLEIN Solutions",
     description: "Cookie Policy explaining how we use cookies and tracking technologies.",
-    url: "https://simpleinsolutions.com/cookie-policy",
+    url: "https://SIMPLEINsolutions.com/cookie-policy",
     type: "website",
   },
 };
@@ -30,7 +30,7 @@ export default function CookiePolicyPage() {
         <div className="space-y-10 text-foreground font-light leading-relaxed">
           <section>
             <p className="mb-4 text-muted-foreground text-[15px]">
-              This Cookie Policy explains how SimpleIn Solutions uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.
+              This Cookie Policy explains how SIMPLEIN Solutions uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.
             </p>
           </section>
 

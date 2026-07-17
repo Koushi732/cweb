@@ -73,7 +73,7 @@ export default function Navbar() {
             <Link 
               href="/" 
               className="flex items-center gap-3 group relative h-10 w-40 md:w-48" 
-              aria-label="SimpleIn Solutions Home"
+              aria-label="SIMPLEIN Solutions Home"
               onClick={handleLogoClick}
             >
               <motion.div

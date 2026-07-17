@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import HardwareClient from "./HardwareClient";
 
 export const metadata: Metadata = {
-  title: "IT Hardware Solutions | SimpleIn Solutions",
+  title: "IT Hardware Solutions | SIMPLEIN Solutions",
   description: "Enterprise-grade IT hardware procurement, installation, and maintenance. We provide servers, networking gear, workstations, and cybersecurity appliances from top brands.",
   alternates: {
-    canonical: "https://simpleinsolutions.com/hardware",
+    canonical: "https://SIMPLEINsolutions.com/hardware",
   },
   openGraph: {
-    title: "IT Hardware Solutions | SimpleIn Solutions",
+    title: "IT Hardware Solutions | SIMPLEIN Solutions",
     description: "Enterprise-grade IT hardware procurement, installation, and maintenance.",
-    url: "https://simpleinsolutions.com/hardware",
+    url: "https://SIMPLEINsolutions.com/hardware",
     type: "website",
   },
 };
@@ -24,13 +24,13 @@ export default function HardwarePage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://simpleinsolutions.com",
+        item: "https://SIMPLEINsolutions.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Hardware Solutions",
-        item: "https://simpleinsolutions.com/hardware",
+        item: "https://SIMPLEINsolutions.com/hardware",
       },
     ],
   };

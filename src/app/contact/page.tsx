@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import ContactClient from "./ContactClient";
 
 export const metadata: Metadata = {
-  title: "Contact Us | SimpleIn Solutions",
-  description: "Get in touch with SimpleIn Solutions for your next software development or IT hardware project. We respond promptly during business hours.",
+  title: "Contact Us | SIMPLEIN Solutions",
+  description: "Get in touch with SIMPLEIN Solutions for your next software development or IT hardware project. We respond promptly during business hours.",
   alternates: {
-    canonical: "https://simpleinsolutions.com/contact",
+    canonical: "https://SIMPLEINsolutions.com/contact",
   },
   openGraph: {
-    title: "Contact Us | SimpleIn Solutions",
-    description: "Get in touch with SimpleIn Solutions for your next project.",
-    url: "https://simpleinsolutions.com/contact",
+    title: "Contact Us | SIMPLEIN Solutions",
+    description: "Get in touch with SIMPLEIN Solutions for your next project.",
+    url: "https://SIMPLEINsolutions.com/contact",
     type: "website",
   },
 };
@@ -24,13 +24,13 @@ export default function ContactPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://simpleinsolutions.com",
+        item: "https://SIMPLEINsolutions.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Contact Us",
-        item: "https://simpleinsolutions.com/contact",
+        item: "https://SIMPLEINsolutions.com/contact",
       },
     ],
   };

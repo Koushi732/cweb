@@ -137,7 +137,7 @@ export default function IndustriesClient() {
               We work across all sectors and customize solutions to your specific needs. Let&apos;s discuss how we can help your business.
             </p>
             <a
-              href="https://wa.me/919848334984?text=Hi%20SimpleIn%20Solutions%2C%20I%20was%20checking%20out%20the%20Industries%20page%20and%20would%20like%20to%20discuss%20our%20needs."
+              href="https://wa.me/919848334984?text=Hi%20SIMPLEIN%20Solutions%2C%20I%20was%20checking%20out%20the%20Industries%20page%20and%20would%20like%20to%20discuss%20our%20needs."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background font-semibold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"

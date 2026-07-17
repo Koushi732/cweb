@@ -65,16 +65,16 @@ export default function HomeClient() {
   return (
     <>
       {/* ==================== SECTION 1: HERO ==================== */}
-      <section 
+      <section
         id="hero"
         className="relative min-h-[100vh] flex flex-col justify-center bg-background border-b border-[var(--border-color)] overflow-hidden pt-24 pb-16"
         onMouseMove={handleMouseMove}
       >
         {/* Animated grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080801a_1px,transparent_1px),linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:64px_64px] animate-[shimmer_60s_linear_infinite] opacity-50" />
-        
+
         {/* Interactive Cursor Glow */}
-        <div 
+        <div
           className="absolute inset-0 pointer-events-none transition-[background] duration-500 ease-out z-0"
           style={{
             background: `radial-gradient(circle at ${mousePos.x} ${mousePos.y}, rgba(128,128,128,0.15) 0%, transparent 40%)`
@@ -164,27 +164,27 @@ export default function HomeClient() {
       </section>
 
       {/* ==================== SECTION 1.5: THE SIMPLEIN ACRONYM (ADVANCED HOVER) ==================== */}
-      <section className="py-20 border-b border-[var(--border-color)] bg-background">
+      <section className="py-12 border-b border-[var(--border-color)] bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <ScrollAnimationWrapper className="mb-12 text-center">
+
+          <ScrollAnimationWrapper className="mb-8 text-center">
             <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-4 font-mono">
               The Philosophy
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold tracking-[-0.04em]">
-              The Core of SimpleIn.
+              The Core of SIMPLEIN.
             </h2>
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper animation="fade-up">
-            <div className="flex flex-col md:flex-row h-auto md:h-[250px] w-full gap-4">
+            <div className="flex flex-col md:flex-row h-auto md:h-[200px] w-full gap-4">
               {[
                 { letter: "S", title: "Simple", desc: "Technology that is easy to use.", bg: "bg-background" },
                 { letter: "IN", title: "Innovative", desc: "Driven by AI, automation, and modern engineering.", bg: "bg-foreground" },
               ].map((item, idx) => {
                 const isHovered = activeAccordion === idx;
                 const isDark = item.bg === "bg-foreground";
-                
+
                 return (
                   <motion.div
                     key={item.letter}
@@ -192,15 +192,15 @@ export default function HomeClient() {
                     onHoverEnd={() => setActiveAccordion(null)}
                     onClick={() => setActiveAccordion(idx)}
                     layout
-                    animate={{ 
-                      flex: isHovered ? 3 : 1 
+                    animate={{
+                      flex: isHovered ? 3 : 1
                     }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className={`relative overflow-hidden cursor-pointer rounded-2xl flex flex-col justify-between p-6 sm:p-8 min-h-[200px] md:min-h-0 ${item.bg} border border-[var(--border-color)]`}
+                    className={`relative overflow-hidden cursor-pointer rounded-2xl flex flex-col justify-between p-6 sm:p-8 min-h-[160px] md:min-h-0 ${item.bg} border border-[var(--border-color)]`}
                   >
                     {/* Background Letter Watermark */}
-                    <motion.div 
-                      className={`absolute -right-8 -bottom-16 text-[15rem] leading-none font-bold select-none ${isDark ? 'text-background/5' : 'text-foreground/5'}`}
+                    <motion.div
+                      className={`absolute -right-8 -bottom-16 text-[12rem] leading-none font-bold select-none ${isDark ? 'text-background/5' : 'text-foreground/5'}`}
                       animate={{ scale: isHovered ? 1.1 : 1, right: isHovered ? '-2rem' : '-3rem' }}
                       transition={{ duration: 0.5, ease: "easeOut" }}
                     >
@@ -211,19 +211,19 @@ export default function HomeClient() {
                     <div className={`text-6xl font-bold tracking-tighter ${isDark ? 'text-background' : 'text-foreground'}`}>
                       {item.letter}
                     </div>
-                    
+
                     {/* Content */}
                     <div className="relative z-10 mt-auto">
-                      <motion.h3 
+                      <motion.h3
                         layout="position"
                         className={`text-2xl sm:text-3xl font-bold uppercase tracking-[0.2em] mb-4 whitespace-nowrap ${isDark ? 'text-background' : 'text-foreground'}`}
                       >
                         {item.title}
                       </motion.h3>
-                      <motion.div 
+                      <motion.div
                         initial={false}
-                        animate={{ 
-                          height: isHovered ? "auto" : 0, 
+                        animate={{
+                          height: isHovered ? "auto" : 0,
                           opacity: isHovered ? 1 : 0,
                           marginTop: isHovered ? "1rem" : "0"
                         }}
@@ -240,11 +240,11 @@ export default function HomeClient() {
               })}
             </div>
           </ScrollAnimationWrapper>
-          
+
           <ScrollAnimationWrapper animation="fade-up" delay={0.2}>
-            <div className="mt-20 text-center border-t border-[var(--border-color)] pt-16">
+            <div className="mt-12 text-center border-t border-[var(--border-color)] pt-12">
               <p className="text-2xl md:text-3xl font-light leading-[1.4] text-foreground tracking-[-0.02em]">
-                <span className="font-bold">Simple</span> solutions with <span className="font-bold">innovative</span> thinking to prepare businesses for what's <span className="font-bold">next</span>.
+                <span className="font-bold">Simple</span> in approach. <span className="font-bold">Innovative</span> in execution.
               </p>
             </div>
           </ScrollAnimationWrapper>
@@ -283,7 +283,7 @@ export default function HomeClient() {
                     Full-stack software engineering, scalable cloud architectures, and intelligent automation designed to power global enterprises.
                   </p>
                 </div>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 mb-12">
                   {[
                     { icon: Code2, name: "Custom Software" },
@@ -301,7 +301,7 @@ export default function HomeClient() {
                     </div>
                   ))}
                 </div>
-                
+
                 <Link
                   href="/services"
                   className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.1em] text-foreground hover:text-muted-foreground transition-colors"
@@ -323,7 +323,7 @@ export default function HomeClient() {
                     Enterprise-grade IT infrastructure procurement, deployment, and management, delivering uncompromised performance and security.
                   </p>
                 </div>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 mb-12">
                   {[
                     { icon: Laptop, name: "Business Laptops" },
@@ -340,7 +340,7 @@ export default function HomeClient() {
                     </div>
                   ))}
                 </div>
-                
+
                 <Link
                   href="/hardware"
                   className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.1em] text-foreground hover:text-muted-foreground transition-colors"
@@ -357,7 +357,7 @@ export default function HomeClient() {
 
 
       {/* ==================== SECTION 6: TECHNOLOGY STACK (REDESIGNED) ==================== */}
-      <section 
+      <section
         className="py-24 border-b border-[var(--border-color)] bg-background relative overflow-hidden"
       >
 
@@ -375,19 +375,19 @@ export default function HomeClient() {
           </ScrollAnimationWrapper>
         </div>
 
-        <div className="relative border-t border-b border-[var(--border-color)] py-8 md:py-14 bg-[var(--surface)] overflow-hidden w-full group/marquee">
+        <div className="relative border-t border-b border-[var(--border-color)] py-4 md:py-8 bg-[var(--surface)] overflow-hidden w-full group/marquee">
           {/* Subtle gradient overlay to fade edges */}
           <div className="absolute inset-y-0 left-0 w-24 md:w-64 bg-gradient-to-r from-[var(--surface)] to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-24 md:w-64 bg-gradient-to-l from-[var(--surface)] to-transparent z-10 pointer-events-none" />
-          
+
           <div className="flex w-full relative">
-            <div className="flex whitespace-nowrap animate-marquee group-hover/marquee:[animation-play-state:paused] transition-all duration-300 [animation-duration:2000s]">
+            <div className="flex whitespace-nowrap animate-marquee group-hover/marquee:[animation-play-state:paused] transition-all duration-300 [animation-duration:500s]">
               {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, i) => (
                 <div key={i} className="flex items-center group/item">
-                  <span className="mx-6 md:mx-12 text-5xl sm:text-7xl lg:text-[6rem] font-bold text-muted-foreground/15 hover:text-foreground transition-colors duration-500 cursor-default select-none tracking-[-0.02em]">
+                  <span className="mx-6 md:mx-12 text-3xl sm:text-5xl lg:text-6xl font-bold text-muted-foreground/15 hover:text-foreground transition-colors duration-500 cursor-default select-none tracking-[-0.02em]">
                     {tech}
                   </span>
-                  <span className="text-foreground/10 text-3xl md:text-5xl mx-2 md:mx-4 group-hover/item:text-foreground group-hover/item:rotate-180 transition-all duration-700">
+                  <span className="text-foreground/10 text-xl md:text-4xl mx-2 md:mx-4 group-hover/item:text-foreground group-hover/item:rotate-180 transition-all duration-700">
                     ✦
                   </span>
                 </div>
@@ -403,21 +403,21 @@ export default function HomeClient() {
 
 
       {/* ==================== SECTION 10: CTA ==================== */}
-      <section className="py-32 bg-foreground text-background text-center px-4 relative overflow-hidden">
+      <section className="py-20 bg-foreground text-background text-center px-4 relative overflow-hidden">
         {/* Subtle background element */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-background/5 rounded-full blur-[100px] pointer-events-none" />
-        
+
         <ScrollAnimationWrapper className="relative z-10">
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-[-0.04em] mb-8 max-w-5xl mx-auto leading-[1]">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6 max-w-5xl mx-auto leading-[1]">
             Ready to Build <br /> Something Great?
           </h2>
-          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 text-muted-foreground">
-            Let&apos;s discuss how SimpleIn Solutions can architect, automate, and scale your technology operations.
+          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-8 text-muted-foreground">
+            Let&apos;s discuss how SIMPLEIN Solutions can architect, automate, and scale your technology operations.
           </p>
           <div className="flex justify-center">
             <Link
               href="/contact#contact-form"
-              className="group flex items-center justify-center gap-4 px-10 py-5 bg-background text-foreground font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
+              className="group flex items-center justify-center gap-4 px-8 py-4 bg-background text-foreground font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
             >
               Start a Conversation <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Link>

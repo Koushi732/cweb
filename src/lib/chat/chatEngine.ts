@@ -255,7 +255,7 @@ function buildCompanyResponse(ref?: string): ChatResponse {
   if (ref === "why") {
     return {
       text: "Here's what our clients typically appreciate about working with us:\n\n" +
-        companyKnowledge.whySimplein.map((w) => `✓ ${w}`).join("\n") +
+        companyKnowledge.whySIMPLEIN.map((w) => `✓ ${w}`).join("\n") +
         "\n\nWe think of ourselves as a long-term technology partner, not just a vendor. The relationship doesn't end at delivery.",
       suggestions: ["Our Process", "Services", "Get a Quote"],
     };
