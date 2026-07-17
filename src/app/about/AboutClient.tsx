@@ -148,23 +148,25 @@ export default function AboutClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-[var(--surface)] border-b border-[var(--border-color)] text-foreground">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <ScrollAnimationWrapper>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6 leading-none">
-              Ready to Work Together?
-            </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground font-light mb-10 max-w-2xl mx-auto leading-[1.6]">
-              Let&apos;s discuss how SIMPLEIN Solutions can help you achieve your technology goals and drive your business forward.
-            </p>
+      <section className="py-20 bg-[var(--surface)] text-foreground text-center px-4 relative overflow-hidden border-b border-[var(--border-color)]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-foreground/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <ScrollAnimationWrapper className="relative z-10 max-w-5xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6 leading-[1]">
+            Ready to Work Together?
+          </h2>
+          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-8 text-muted-foreground">
+            Let&apos;s discuss how SIMPLEIN Solutions can help you achieve your technology goals and drive your business forward.
+          </p>
+          <div className="flex justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background font-semibold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
+              className="group flex items-center justify-center gap-4 px-8 py-4 bg-foreground text-background font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
             >
-              Get in Touch <ArrowRight className="w-5 h-5" />
+              Get in Touch <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Link>
-          </ScrollAnimationWrapper>
-        </div>
+          </div>
+        </ScrollAnimationWrapper>
       </section>
     </>
   );

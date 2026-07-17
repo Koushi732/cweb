@@ -69,7 +69,7 @@ export default function ServicesClient() {
       </section>
 
       {/* Services Master-Detail View */}
-      <section className="py-24 bg-background" id="services-list">
+      <section className="py-24 bg-[var(--surface)] border-b border-[var(--border-color)]" id="services-list">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimationWrapper className="mb-16">
             <span className="inline-block text-xs font-bold text-foreground uppercase tracking-[0.2em] mb-4 font-mono">
@@ -96,7 +96,7 @@ export default function ServicesClient() {
                     className={`w-full text-left h-full border p-5 transition-all duration-300 group scroll-mt-32 ${
                       isActive 
                         ? 'border-foreground bg-foreground text-background shadow-lg scale-[1.02]' 
-                        : 'border-[var(--border-color)] hover:border-foreground/50 bg-background hover:bg-[var(--surface)] text-foreground'
+                        : 'border-[var(--border-color)] hover:border-foreground bg-background text-foreground hover:shadow-sm'
                     }`}
                   >
                     <div className="mb-5">
@@ -126,7 +126,7 @@ export default function ServicesClient() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="bg-[var(--surface)] border border-[var(--border-color)] p-6 lg:p-8 relative overflow-hidden"
+                    className="bg-background border border-[var(--border-color)] p-6 lg:p-8 relative overflow-hidden shadow-sm"
                   >
                     <Icon className="absolute -right-8 -top-8 w-64 h-64 text-foreground/[0.03] pointer-events-none" />
                     
@@ -208,23 +208,25 @@ export default function ServicesClient() {
       {/* Process Section */}
       <ProcessSection />
       {/* CTA */}
-      <section className="py-24 bg-[var(--surface)] border-b border-[var(--border-color)] text-foreground">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <ScrollAnimationWrapper>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6 leading-none">
-              Ready to Start?
-            </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground font-light mb-10 max-w-2xl mx-auto leading-[1.6]">
-              Let&apos;s discuss how we can help you achieve your technology goals.
-            </p>
+      <section className="py-20 bg-[var(--surface)] text-foreground text-center px-4 relative overflow-hidden border-b border-[var(--border-color)]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-foreground/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <ScrollAnimationWrapper className="relative z-10 max-w-5xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6 leading-[1]">
+            Ready to Start?
+          </h2>
+          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-8 text-muted-foreground">
+            Let&apos;s discuss how we can help you achieve your technology goals.
+          </p>
+          <div className="flex justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 border border-foreground bg-foreground text-background font-semibold text-sm uppercase tracking-[0.1em] hover:bg-background hover:text-foreground transition-colors rounded-none"
+              className="group flex items-center justify-center gap-4 px-8 py-4 bg-foreground text-background font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
             >
-              Get a Consultation <ArrowRight className="w-5 h-5" />
+              Get a Consultation <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Link>
-          </ScrollAnimationWrapper>
-        </div>
+          </div>
+        </ScrollAnimationWrapper>
       </section>
     </>
   );

@@ -356,6 +356,9 @@ export default function HomeClient() {
 
 
 
+      {/* ==================== SECTION 8: WHY CHOOSE US ==================== */}
+      <WhyChooseUsSection />
+
       {/* ==================== SECTION 6: TECHNOLOGY STACK (REDESIGNED) ==================== */}
       <section
         className="py-24 border-b border-[var(--border-color)] bg-background relative overflow-hidden"
@@ -384,10 +387,10 @@ export default function HomeClient() {
             <div className="flex whitespace-nowrap animate-marquee group-hover/marquee:[animation-play-state:paused] transition-all duration-300 [animation-duration:500s]">
               {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, i) => (
                 <div key={i} className="flex items-center group/item">
-                  <span className="mx-6 md:mx-12 text-3xl sm:text-5xl lg:text-6xl font-bold text-muted-foreground/15 hover:text-foreground transition-colors duration-500 cursor-default select-none tracking-[-0.02em]">
+                  <span className="mx-6 md:mx-12 text-3xl sm:text-5xl lg:text-6xl font-bold text-muted-foreground/40 hover:text-foreground transition-colors duration-500 cursor-default select-none tracking-[-0.02em]">
                     {tech}
                   </span>
-                  <span className="text-foreground/10 text-xl md:text-4xl mx-2 md:mx-4 group-hover/item:text-foreground group-hover/item:rotate-180 transition-all duration-700">
+                  <span className="text-foreground/30 text-xl md:text-4xl mx-2 md:mx-4 group-hover/item:text-foreground group-hover/item:rotate-180 transition-all duration-700">
                     ✦
                   </span>
                 </div>
@@ -397,15 +400,12 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* ==================== SECTION 8: WHY CHOOSE US ==================== */}
-      <WhyChooseUsSection />
-
 
 
       {/* ==================== SECTION 10: CTA ==================== */}
-      <section className="py-20 bg-foreground text-background text-center px-4 relative overflow-hidden">
+      <section className="py-20 bg-[var(--surface)] text-foreground text-center px-4 relative overflow-hidden">
         {/* Subtle background element */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-background/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-foreground/5 rounded-full blur-[100px] pointer-events-none" />
 
         <ScrollAnimationWrapper className="relative z-10">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6 max-w-5xl mx-auto leading-[1]">
@@ -417,7 +417,7 @@ export default function HomeClient() {
           <div className="flex justify-center">
             <Link
               href="/contact#contact-form"
-              className="group flex items-center justify-center gap-4 px-8 py-4 bg-background text-foreground font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
+              className="group flex items-center justify-center gap-4 px-8 py-4 bg-foreground text-background font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
             >
               Start a Conversation <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Link>

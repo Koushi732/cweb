@@ -12,7 +12,7 @@ export default function ProcessSection() {
   const [activeStep, setActiveStep] = useState(1);
 
   return (
-    <section className="py-24 bg-[var(--surface)] border-y border-[var(--border-color)] overflow-hidden">
+    <section className="py-24 bg-background border-y border-[var(--border-color)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollAnimationWrapper className="mb-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
@@ -100,7 +100,7 @@ export default function ProcessSection() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="bg-background border border-[var(--border-color)] p-6 lg:p-12 relative overflow-hidden"
+                    className="bg-[var(--surface)] border border-[var(--border-color)] p-6 lg:p-12 relative overflow-hidden"
                   >
                     <Icon className="absolute -right-8 -bottom-8 w-64 h-64 text-foreground/[0.03] pointer-events-none" />
                     
@@ -126,7 +126,7 @@ export default function ProcessSection() {
                         ))}
                       </ul>
 
-                      <div className="bg-[var(--surface)] p-6 border border-[var(--border-color)]">
+                      <div className="bg-background p-6 border border-[var(--border-color)]">
                         <span className="block text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2 font-mono">
                           {step.step === 7 ? "Goal" : "Deliverable"}
                         </span>

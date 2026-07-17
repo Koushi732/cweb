@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import HeroLogoProvider from "@/components/ui/HeroLogoProvider";
 import { generateBusinessSchema } from "@/utils/seo";
 import ChatWidget from "@/components/chat/ChatWidget";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -114,6 +115,7 @@ export default function RootLayout({
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />
             <ChatWidget />
+            <Analytics />
           </HeroLogoProvider>
         </ThemeProvider>
       </body>

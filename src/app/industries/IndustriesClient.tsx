@@ -127,25 +127,27 @@ export default function IndustriesClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-background border-b border-[var(--border-color)] text-foreground">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <ScrollAnimationWrapper>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6 leading-none">
-              Don&apos;t See Your Industry?
-            </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground font-light mb-10 max-w-2xl mx-auto leading-[1.6]">
-              We work across all sectors and customize solutions to your specific needs. Let&apos;s discuss how we can help your business.
-            </p>
+      <section className="py-20 bg-[var(--surface)] text-foreground text-center px-4 relative overflow-hidden border-b border-[var(--border-color)]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-foreground/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <ScrollAnimationWrapper className="relative z-10 max-w-5xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] mb-6 leading-[1]">
+            Don&apos;t See Your Industry?
+          </h2>
+          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-8 text-muted-foreground">
+            We work across all sectors and customize solutions to your specific needs. Let&apos;s discuss how we can help your business.
+          </p>
+          <div className="flex justify-center">
             <a
               href="https://wa.me/919848334984?text=Hi%20SIMPLEIN%20Solutions%2C%20I%20was%20checking%20out%20the%20Industries%20page%20and%20would%20like%20to%20discuss%20our%20needs."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background font-semibold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
+              className="group flex items-center justify-center gap-4 px-8 py-4 bg-foreground text-background font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity rounded-none"
             >
-              Discuss Your Needs <ArrowRight className="w-5 h-5" />
+              Discuss Your Needs <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
             </a>
-          </ScrollAnimationWrapper>
-        </div>
+          </div>
+        </ScrollAnimationWrapper>
       </section>
     </>
   );

@@ -174,7 +174,7 @@ export default function Navbar() {
 
             {/* Right Actions */}
             <div className="flex items-center gap-2">
-              {/* Theme Toggle */}
+              {/* Theme Toggle 
               <button
                 onClick={toggleTheme}
                 className="relative p-2.5 text-muted-foreground hover:text-foreground transition-colors"
@@ -193,6 +193,7 @@ export default function Navbar() {
                   )}
                 </motion.div>
               </button>
+              */}
 
               {/* CTA Button */}
               <Link 
