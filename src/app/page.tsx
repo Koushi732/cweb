@@ -7,16 +7,16 @@ export const metadata: Metadata = {
   title: "SIMPLEIN Solutions | Smart IT Solutions for a Digital Future",
   description: "SIMPLEIN Solutions is a trusted technology partner providing custom software development, web applications, AI automation, and enterprise IT hardware.",
   alternates: {
-    canonical: "https://SIMPLEINsolutions.com",
+    canonical: "https://simpleinsolutions.com",
   },
   openGraph: {
     title: "SIMPLEIN Solutions | Smart IT Solutions for a Digital Future",
     description: "Premium IT services, custom software development, and enterprise IT hardware.",
-    url: "https://SIMPLEINsolutions.com",
+    url: "https://simpleinsolutions.com",
     type: "website",
     images: [
       {
-        url: "https://SIMPLEINsolutions.com/og-image.jpg",
+        url: "https://simpleinsolutions.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "SIMPLEIN Solutions",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SIMPLEIN Solutions | Smart IT Solutions for a Digital Future",
     description: "Premium IT services, custom software development, and enterprise IT hardware.",
-    images: ["https://SIMPLEINsolutions.com/og-image.jpg"],
+    images: ["https://simpleinsolutions.com/og-image.jpg"],
   },
 };
 
@@ -36,10 +36,10 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "SIMPLEIN Solutions",
-    url: "https://SIMPLEINsolutions.com",
+    url: "https://simpleinsolutions.com",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://SIMPLEINsolutions.com/services?q={search_term_string}",
+      target: "https://simpleinsolutions.com/services?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };

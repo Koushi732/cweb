@@ -108,9 +108,9 @@ export default function HomeClient() {
             </ScrollAnimationWrapper>
 
             <ScrollAnimationWrapper animation="fade-up" delay={0.25}>
-              <h3 className="text-3xl sm:text-4xl text-foreground font-bold tracking-[-0.02em] mb-4">
+              <h1 className="text-3xl sm:text-4xl text-foreground font-bold tracking-[-0.02em] mb-4">
                 Every Service Made Simple.
-              </h3>
+              </h1>
               <p className="text-lg sm:text-xl text-muted-foreground font-light leading-[1.6] mb-12 max-w-2xl">
                 Transforming complex challenges into elegant, future-proof technological solutions.
               </p>

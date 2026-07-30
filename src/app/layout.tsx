@@ -24,7 +24,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://SIMPLEINsolutions.com"),
+  metadataBase: new URL("https://simpleinsolutions.com"),
   title: {
     default: "SIMPLEIN Solutions — Every Service Made Simple",
     template: "%s | SIMPLEIN Solutions",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
       "We build scalable digital solutions using modern technologies. Custom software, web & mobile apps, AI automation, and enterprise IT services.",
     images: [
       {
-        url: "https://SIMPLEINsolutions.com/og-image.jpg",
+        url: "https://simpleinsolutions.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "SIMPLEIN Solutions",
@@ -66,10 +66,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@simplein30",
+    creator: "@simplein30",
     title: "SIMPLEIN Solutions — Every Service Made Simple",
     description:
       "We build scalable digital solutions using modern technologies. Custom software, web & mobile apps, AI automation, and enterprise IT services.",
-    images: ["https://SIMPLEINsolutions.com/og-image.jpg"],
+    images: ["https://simpleinsolutions.com/og-image.jpg"],
   },
   robots: {
     index: true,

@@ -35,39 +35,88 @@ export function generateFAQSchema(faqs: FAQItem[]) {
 }
 
 /**
- * Generates a ProfessionalService / LocalBusiness JSON-LD schema
+ * Generates an Organization and ProfessionalService JSON-LD schema linked via @id
  */
 export function generateBusinessSchema() {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://simpleinsolutions.com/#organization",
+      name: "SIMPLEIN Solutions",
+      url: "https://simpleinsolutions.com",
+      logo: "https://simpleinsolutions.com/light-back-logo.png",
+      image: "https://simpleinsolutions.com/og-image.jpg",
+      sameAs: [
+        "https://x.com/simplein30"
+      ],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+91-9848334984",
+          contactType: "customer support",
+          email: "info@simpleinsolutions.com",
+          availableLanguage: "English"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://simpleinsolutions.com/#service",
+      parentOrganization: {
+        "@id": "https://simpleinsolutions.com/#organization"
+      },
+      name: "SIMPLEIN Solutions IT Services",
+      description: "Premium IT services, custom software development, and enterprise IT hardware.",
+      telephone: "+91-9848334984",
+      email: "info@simpleinsolutions.com",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "Worldwide",
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+          ],
+          opens: "00:00",
+          closes: "23:59",
+        },
+      ],
+    }
+  ];
+}
+
+/**
+ * Generates a ContactPage JSON-LD schema
+ */
+export function generateContactPageSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "SIMPLEIN Solutions",
-    description: "Premium IT services, custom software development, and enterprise IT hardware.",
-    url: "https://SIMPLEINsolutions.com",
-    logo: "https://SIMPLEINsolutions.com/logo.png",
-    image: "https://SIMPLEINsolutions.com/og-image.jpg",
-    telephone: "+91-9848334984",
-    email: "info@simpleinsolutions.com",
-    address: {
-      "@type": "PostalAddress",
-      addressRegion: "Worldwide",
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ],
-        opens: "00:00",
-        closes: "23:59",
-      },
-    ],
-    sameAs: [],
+    "@type": "ContactPage",
+    name: "Contact SIMPLEIN Solutions",
+    description: "Get in touch with SIMPLEIN Solutions for your next software development or IT hardware project.",
+    url: "https://simpleinsolutions.com/contact",
+  };
+}
+
+/**
+ * Generates a WebPage JSON-LD schema for legal/informational pages
+ */
+export function generateWebPageSchema(title: string, description: string, url: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description: description,
+    url: url,
   };
 }

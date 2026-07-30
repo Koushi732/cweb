@@ -1,45 +1,34 @@
 import type { Metadata } from "next";
 import ContactClient from "./ContactClient";
+import { generateContactPageSchema } from "@/utils/seo";
 
 export const metadata: Metadata = {
   title: "Contact Us | SIMPLEIN Solutions",
   description: "Get in touch with SIMPLEIN Solutions for your next software development or IT hardware project. We respond promptly during business hours.",
   alternates: {
-    canonical: "https://SIMPLEINsolutions.com/contact",
+    canonical: "https://simpleinsolutions.com/contact",
   },
   openGraph: {
     title: "Contact Us | SIMPLEIN Solutions",
     description: "Get in touch with SIMPLEIN Solutions for your next project.",
-    url: "https://SIMPLEINsolutions.com/contact",
+    url: "https://simpleinsolutions.com/contact",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us | SIMPLEIN Solutions",
+    description: "Get in touch with SIMPLEIN Solutions for your next project.",
   },
 };
 
 export default function ContactPage() {
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://SIMPLEINsolutions.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Contact Us",
-        item: "https://SIMPLEINsolutions.com/contact",
-      },
-    ],
-  };
+  const contactSchema = generateContactPageSchema();
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
       <ContactClient />
     </>

@@ -1,22 +1,42 @@
 import { Metadata } from "next";
+import { generateBreadcrumbSchema, generateWebPageSchema } from "@/utils/seo";
 
 export const metadata: Metadata = {
   title: "Disclaimer | SIMPLEIN Solutions",
   description: "General disclaimer for SIMPLEIN Solutions website and services.",
   alternates: {
-    canonical: "https://SIMPLEINsolutions.com/disclaimer",
+    canonical: "https://simpleinsolutions.com/disclaimer",
   },
   openGraph: {
     title: "Disclaimer | SIMPLEIN Solutions",
     description: "General disclaimer for SIMPLEIN Solutions website and services.",
-    url: "https://SIMPLEINsolutions.com/disclaimer",
+    url: "https://simpleinsolutions.com/disclaimer",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Disclaimer | SIMPLEIN Solutions",
+    description: "General disclaimer for SIMPLEIN Solutions website and services.",
   },
 };
 
 export default function DisclaimerPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://simpleinsolutions.com" },
+    { name: "Disclaimer", url: "https://simpleinsolutions.com/disclaimer" }
+  ]);
+  const webPageSchema = generateWebPageSchema(
+    "Disclaimer",
+    "General disclaimer for SIMPLEIN Solutions website and services.",
+    "https://simpleinsolutions.com/disclaimer"
+  );
+
   return (
     <div className="bg-background min-h-screen pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, webPageSchema]) }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-4">

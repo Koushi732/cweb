@@ -1,22 +1,42 @@
 import { Metadata } from "next";
+import { generateBreadcrumbSchema, generateWebPageSchema } from "@/utils/seo";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | SIMPLEIN Solutions",
   description: "Privacy Policy of SIMPLEIN Solutions outlining how we collect, use, and protect your information.",
   alternates: {
-    canonical: "https://SIMPLEINsolutions.com/privacy",
+    canonical: "https://simpleinsolutions.com/privacy",
   },
   openGraph: {
     title: "Privacy Policy | SIMPLEIN Solutions",
     description: "Privacy Policy of SIMPLEIN Solutions outlining how we collect, use, and protect your information.",
-    url: "https://SIMPLEINsolutions.com/privacy",
+    url: "https://simpleinsolutions.com/privacy",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | SIMPLEIN Solutions",
+    description: "Privacy Policy of SIMPLEIN Solutions outlining how we collect, use, and protect your information.",
   },
 };
 
 export default function PrivacyPolicyPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://simpleinsolutions.com" },
+    { name: "Privacy Policy", url: "https://simpleinsolutions.com/privacy" }
+  ]);
+  const webPageSchema = generateWebPageSchema(
+    "Privacy Policy",
+    "Privacy Policy of SIMPLEIN Solutions outlining how we collect, use, and protect your information.",
+    "https://simpleinsolutions.com/privacy"
+  );
+
   return (
     <div className="bg-background min-h-screen pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, webPageSchema]) }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-4">

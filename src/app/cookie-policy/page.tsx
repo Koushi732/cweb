@@ -1,22 +1,42 @@
 import { Metadata } from "next";
+import { generateBreadcrumbSchema, generateWebPageSchema } from "@/utils/seo";
 
 export const metadata: Metadata = {
   title: "Cookie Policy | SIMPLEIN Solutions",
   description: "Cookie Policy explaining how we use cookies and tracking technologies.",
   alternates: {
-    canonical: "https://SIMPLEINsolutions.com/cookie-policy",
+    canonical: "https://simpleinsolutions.com/cookie-policy",
   },
   openGraph: {
     title: "Cookie Policy | SIMPLEIN Solutions",
     description: "Cookie Policy explaining how we use cookies and tracking technologies.",
-    url: "https://SIMPLEINsolutions.com/cookie-policy",
+    url: "https://simpleinsolutions.com/cookie-policy",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cookie Policy | SIMPLEIN Solutions",
+    description: "Cookie Policy explaining how we use cookies and tracking technologies.",
   },
 };
 
 export default function CookiePolicyPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://simpleinsolutions.com" },
+    { name: "Cookie Policy", url: "https://simpleinsolutions.com/cookie-policy" }
+  ]);
+  const webPageSchema = generateWebPageSchema(
+    "Cookie Policy",
+    "Cookie Policy explaining how we use cookies and tracking technologies.",
+    "https://simpleinsolutions.com/cookie-policy"
+  );
+
   return (
     <div className="bg-background min-h-screen pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, webPageSchema]) }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-4">
