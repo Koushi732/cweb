@@ -1,20 +1,13 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight, Lightbulb, Target, Eye, Users, Shield, Zap, Award, Heart, HeartHandshake } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
-import dynamic from "next/dynamic";
 import { coreValues } from "@/data/team";
-
-
-
 const iconMap: Record<string, React.ElementType> = {
   Lightbulb, Award, Shield, Users, Zap, Target, Heart, HeartHandshake, Eye
 };
 
-export default function AboutClient() {
+export default function AboutContent() {
   return (
     <>
       {/* Hero */}
@@ -22,22 +15,16 @@ export default function AboutClient() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080801a_1px,transparent_1px),linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:64px_64px] animate-[shimmer_60s_linear_infinite] opacity-50" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[{ label: "About Us" }]} />
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-none tracking-[-0.04em] mt-8 mb-8"
-          >
-            About Us.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-lg sm:text-2xl font-light text-muted-foreground max-w-2xl leading-[1.6]"
-          >
-            We&apos;re a passionate team of technology experts committed to empowering businesses with innovative IT solutions.
-          </motion.p>
+          <ScrollAnimationWrapper animation="fade-up" duration={0.8}>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-none tracking-[-0.04em] mt-8 mb-8">
+              About Us.
+            </h1>
+          </ScrollAnimationWrapper>
+          <ScrollAnimationWrapper animation="fade-up" duration={0.8} delay={0.1}>
+            <p className="text-lg sm:text-2xl font-light text-muted-foreground max-w-2xl leading-[1.6]">
+              We&apos;re a passionate team of technology experts committed to empowering businesses with innovative IT solutions.
+            </p>
+          </ScrollAnimationWrapper>
         </div>
       </section>
 

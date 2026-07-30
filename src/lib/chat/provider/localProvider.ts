@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { KnowledgeProvider, BaseService, BaseHardwareCategory, BaseIndustry, BaseCompanyInfo } from "./index";
 
 // Import directly from the website's data sources

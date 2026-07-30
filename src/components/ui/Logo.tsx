@@ -20,6 +20,7 @@ export default function Logo({ className = "", priority = false }: LogoProps) {
         height={120}
         className="w-full h-auto object-contain dark:hidden"
         priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
       />
 
       {/* 
@@ -33,6 +34,7 @@ export default function Logo({ className = "", priority = false }: LogoProps) {
         height={120}
         className="w-full h-auto object-contain hidden dark:block"
         priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
       />
     </div>
   );

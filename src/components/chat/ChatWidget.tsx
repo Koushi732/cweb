@@ -13,6 +13,7 @@ export default function ChatWidget() {
 
   useEffect(() => {
     const stored = localStorage.getItem("SIMPLEIN_chat_open");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (stored === "true") setIsOpen(true);
     setHasHydrated(true);
   }, []);

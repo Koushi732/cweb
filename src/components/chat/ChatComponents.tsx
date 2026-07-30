@@ -55,7 +55,7 @@ export function RenderComponent({ comp, onAction }: { comp: ChatComponent, onAct
     case "LeadForm":
       return (
         <div className="mt-3 p-4 rounded-xl bg-[var(--surface)] border border-[var(--border-color)] flex flex-col gap-3">
-          <p className="text-xs font-medium text-foreground mb-1">Let's get in touch.</p>
+          <p className="text-xs font-medium text-foreground mb-1">Let&apos;s get in touch.</p>
           <input type="text" placeholder="Your Name" className="w-full bg-background border border-[var(--border-color)] rounded-md px-3 py-2 text-xs text-foreground focus:outline-none focus:border-emerald-500 transition-colors" />
           <input type="email" placeholder="Your Email" className="w-full bg-background border border-[var(--border-color)] rounded-md px-3 py-2 text-xs text-foreground focus:outline-none focus:border-emerald-500 transition-colors" />
           <input type="text" placeholder="Company Name" className="w-full bg-background border border-[var(--border-color)] rounded-md px-3 py-2 text-xs text-foreground focus:outline-none focus:border-emerald-500 transition-colors" />

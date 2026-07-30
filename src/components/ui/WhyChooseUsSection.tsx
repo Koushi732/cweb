@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import ScrollAnimationWrapper, { StaggerChildren, StaggerItem } from "@/components/ui/ScrollAnimationWrapper";
+import ScrollAnimationWrapper from "@/components/ui/ScrollAnimationWrapper";
 import { differentiators } from "@/data/differentiators";
 import { CheckCircle2, Repeat, Layers, Code2, Shield, Settings, BarChart, ChevronLeft, ChevronRight } from "lucide-react";
 

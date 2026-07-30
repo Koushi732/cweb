@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AboutClient from "./AboutClient";
+import AboutContent from "./AboutContent";
 
 export const metadata: Metadata = {
   title: "About Us | SIMPLEIN Solutions",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <AboutClient />
+      <AboutContent />
     </>
   );
 }

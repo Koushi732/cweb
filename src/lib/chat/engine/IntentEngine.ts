@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SearchIndex } from "./SearchIndex";
 import { ConversationContext } from "./Storage";
 

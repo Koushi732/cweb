@@ -23,11 +23,10 @@ export default function HeroLogoProvider({ children }: { children: ReactNode }) 
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const heroLogoThreshold = 300;
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(isHomePage ? 0 : 1);
 
   useEffect(() => {
     if (!isHomePage) {
-      setScrollProgress(1);
       return;
     }
 

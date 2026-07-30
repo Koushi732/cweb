@@ -18,9 +18,9 @@ export default function FAQPageClient() {
   ) => {
     return (
       <div className="mb-20">
-        <h3 className="text-2xl font-bold tracking-tight mb-8 border-b border-[var(--border-color)] pb-4">
+        <h2 className="text-2xl font-bold tracking-tight mb-8 border-b border-[var(--border-color)] pb-4">
           {title}
-        </h3>
+        </h2>
         <StaggerChildren className="space-y-4">
           {faqs.map((faq, idx) => (
             <StaggerItem key={idx}>

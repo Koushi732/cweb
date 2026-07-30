@@ -6,8 +6,9 @@ import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import HeroLogoProvider from "@/components/ui/HeroLogoProvider";
+import ChatWidgetWrapper from "@/components/chat/ChatWidgetWrapper";
+
 import { generateBusinessSchema } from "@/utils/seo";
-import ChatWidget from "@/components/chat/ChatWidget";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -102,12 +103,12 @@ export default function RootLayout({
     >
       <head>
         <Script
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://www.googletagmanager.com/gtag/js?id=G-632H1T4MHL"
         />
         <Script
           id="google-analytics"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -134,7 +135,7 @@ export default function RootLayout({
             <Navbar />
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />
-            <ChatWidget />
+            <ChatWidgetWrapper />
             <Analytics />
             <SpeedInsights />
           </HeroLogoProvider>

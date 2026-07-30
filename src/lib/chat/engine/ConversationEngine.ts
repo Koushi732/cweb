@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ConversationContext, ChatComponent } from "./Storage";
 import { IntentEngine } from "./IntentEngine";
 import { LeadEngine } from "./LeadEngine";
@@ -21,7 +22,7 @@ export class ConversationEngine {
   ): Promise<{ response: ChatResponse, newContext: ConversationContext }> {
     // 1. Update Lead State
     const updatedLead = LeadEngine.extractSignals(message, context.lead);
-    let newContext = { ...context, lead: updatedLead, turnCount: context.turnCount + 1 };
+    const newContext = { ...context, lead: updatedLead, turnCount: context.turnCount + 1 };
     
     // 2. Stage 3 Lead Capture Check (Waiting for details)
     if (newContext.leadCaptureStage === 3) {

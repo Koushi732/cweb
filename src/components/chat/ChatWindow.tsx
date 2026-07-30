@@ -54,9 +54,9 @@ export default function ChatWindow({
   onClose: () => void;
   onMinimize: () => void;
 }) {
-  const stored = useRef(loadState());
-  const [messages, setMessages] = useState<Message[]>(
-    stored.current?.messages ?? [
+  const [messages, setMessages] = useState<Message[]>(() => {
+    const stored = loadState();
+    return stored?.messages ?? [
       {
         id: "welcome",
         role: "assistant",
@@ -64,9 +64,12 @@ export default function ChatWindow({
         suggestions: welcomeMessage.suggestions,
         timestamp: new Date(),
       },
-    ]
-  );
-  const [context, setContext] = useState<ConversationContext>(stored.current?.context ?? createFreshContext());
+    ];
+  });
+  const [context, setContext] = useState<ConversationContext>(() => {
+    const stored = loadState();
+    return stored?.context ?? createFreshContext();
+  });
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [showScrollDown, setShowScrollDown] = useState(false);
@@ -128,7 +131,7 @@ export default function ChatWindow({
     if (!trimmed || isTyping) return;
 
     const userMsg: Message = {
-      id: `u_${Date.now()}`,
+      id: crypto.randomUUID(),
       role: "user",
       text: trimmed,
       timestamp: new Date(),
@@ -152,7 +155,7 @@ export default function ChatWindow({
     const { response, newContext } = await ConversationEngine.processMessage(trimmed, context);
 
     const assistantMsg: Message = {
-      id: `a_${Date.now()}`,
+      id: crypto.randomUUID(),
       role: "assistant",
       text: response.text,
       components: response.components,
@@ -300,9 +303,11 @@ export default function ChatWindow({
         <div className="flex items-center gap-3">
           <div className="relative shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-foreground border border-[var(--border-color)] shadow-sm px-1.5 overflow-hidden">
             {/* Light Mode Logo */}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/dark-back-logo.png" alt="Logo" className="w-full h-auto object-contain dark:hidden" />
             
             {/* Dark Mode Logo */}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/light-back-logo.png" alt="Logo" className="w-full h-auto object-contain hidden dark:block" />
             
             <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-[var(--surface)] rounded-full">

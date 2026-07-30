@@ -48,6 +48,9 @@ export function generateBusinessSchema() {
       logo: "https://simpleinsolutions.com/light-back-logo.png",
       image: "https://simpleinsolutions.com/og-image.jpg",
       sameAs: [
+        "https://instagram.com/simpleinsolutions",
+        "https://facebook.com/simpleinsolutions",
+        "https://linkedin.com/company/simpleinsolutions",
         "https://x.com/simplein30"
       ],
       contactPoint: [

@@ -91,21 +91,21 @@ export default function HomeClient() {
               </div>
             </ScrollAnimationWrapper>
 
-            <ScrollAnimationWrapper animation="fade-up" delay={0.2}>
+            <div className="mb-10">
               <motion.div
                 style={{ scale: logoScale, y: logoY, x: logoX, opacity: logoOpacity }}
-                className="flex justify-start mb-10 min-h-[90px] sm:min-h-[120px] md:min-h-[150px] relative w-full max-w-[70vw] sm:max-w-lg origin-left"
+                className="flex justify-start min-h-[90px] sm:min-h-[120px] md:min-h-[150px] relative w-full max-w-[70vw] sm:max-w-lg origin-left"
               >
                 <motion.div
-                  initial={{ opacity: 0, y: 15, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ y: 15, scale: 0.98 }}
+                  animate={{ y: 0, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="w-full h-full origin-left"
                 >
                   <Logo priority />
                 </motion.div>
               </motion.div>
-            </ScrollAnimationWrapper>
+            </div>
 
             <ScrollAnimationWrapper animation="fade-up" delay={0.25}>
               <h1 className="text-3xl sm:text-4xl text-foreground font-bold tracking-[-0.02em] mb-4">

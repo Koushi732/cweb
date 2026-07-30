@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { fuzzyMatch, tokenize } from "./Utils";
 import { localProvider } from "../provider/localProvider";
 import { serviceMetadata } from "../knowledge/services";
